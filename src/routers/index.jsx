@@ -2,17 +2,29 @@ import React, { lazy } from "react";
 import { useRoutes } from "react-router-dom";
 
 import LayoutPage from "@/layout";
+import EmptyLayout from "@/layout/emptyLayout";
 
+const Login = lazy(() => import("@/views/login"));
 const Home = lazy(() => import("@/views/home"));
 const Form = lazy(() => import("@/views/form"));
 
 const routeList = [
   {
     path: "/",
-    element: <LayoutPage />,
+    element: <EmptyLayout />,
     children: [
       {
         index: true,
+        element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "/page",
+    element: <LayoutPage />,
+    children: [
+      {
+        path: "home",
         element: <Home />,
       },
       {
