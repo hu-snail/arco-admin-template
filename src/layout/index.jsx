@@ -1,19 +1,25 @@
 // layout/index.jsx
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
+import "./style.less";
 import {
   Layout,
   Menu,
   Breadcrumb,
   Button,
   Message,
+  Avatar,
+  Dropdown,
 } from "@arco-design/web-react";
 import {
   IconHome,
   IconCalendar,
   IconCaretRight,
   IconCaretLeft,
+  IconUser,
+  IconExport,
 } from "@arco-design/web-react/icon";
 
 const MenuItem = Menu.Item;
@@ -26,45 +32,60 @@ const Content = Layout.Content;
 
 function PublicLayout() {
   const [collapsed, setCollapsed] = useState(false);
-
+  const iconStyle = {
+    marginRight: 8,
+    fontSize: 16,
+    transform: "translateY(1px)",
+  };
   const handleCollapsed = () => {
     setCollapsed(!collapsed);
   };
+  let navigate = useNavigate();
+  const handleClickMenuItem = (key, keyPath) => {
+    console.log(key, keyPath);
+    if (key === "logout") navigate("/");
+  };
   return (
-    <Layout className="layout-collapse-demo" style={{ height: "100vh" }}>
-      <Sider collapsed={collapsed} collapsible trigger={null} breakpoint="xl">
-        <div className="logo" />
+    <Layout className="layout-container">
+      <Sider
+        width="240"
+        collapsed={collapsed}
+        collapsible
+        trigger={null}
+        breakpoint="xl"
+      >
+        <div className="logo"></div>
         <Menu
           defaultOpenKeys={["1"]}
-          defaultSelectedKeys={["0_3"]}
+          defaultSelectedKeys={["0_1"]}
           onClickMenuItem={(key) =>
             Message.info({ content: `You select ${key}`, showIcon: true })
           }
           style={{ width: "100%" }}
         >
-          <MenuItem key="0_1" disabled>
+          <MenuItem key="0_1">
             <IconHome />
-            Menu 1
+            首页
           </MenuItem>
           <MenuItem key="0_2">
             <IconCalendar />
-            Menu 2
+            表单
           </MenuItem>
           <MenuItem key="0_3">
             <IconCalendar />
-            Menu 3
+            组件
           </MenuItem>
           <SubMenu
             key="1"
             title={
               <span>
                 <IconCalendar />
-                Navigation 1
+                多级菜单
               </span>
             }
           >
-            <MenuItem key="1_1">Menu 1</MenuItem>
-            <MenuItem key="1_2">Menu 2</MenuItem>
+            <MenuItem key="1_1">菜单 1</MenuItem>
+            <MenuItem key="1_2">菜单 2</MenuItem>
             <SubMenu key="2" title="Navigation 2">
               <MenuItem key="2_1">Menu 1</MenuItem>
               <MenuItem key="2_2">Menu 2</MenuItem>
@@ -80,7 +101,7 @@ function PublicLayout() {
             title={
               <span>
                 <IconCalendar />
-                Navigation 4
+                多级菜单 2
               </span>
             }
           >
@@ -91,21 +112,42 @@ function PublicLayout() {
         </Menu>
       </Sider>
       <Layout>
-        <Header>
+        <Header className="layout-header">
           <Button shape="round" className="trigger" onClick={handleCollapsed}>
             {collapsed ? <IconCaretRight /> : <IconCaretLeft />}
           </Button>
+          <div className="layout-header-right">
+            <Dropdown
+              position="br"
+              droplist={
+                <Menu onClickMenuItem={handleClickMenuItem}>
+                  <Menu.Item key="admin">
+                    <IconUser style={iconStyle} />
+                    个人信息
+                  </Menu.Item>
+                  <Menu.Item key="logout">
+                    <IconExport style={iconStyle} />
+                    退出登录
+                  </Menu.Item>
+                </Menu>
+              }
+            >
+              <Avatar style={{ backgroundColor: "#165DFF" }}>Hu</Avatar>
+            </Dropdown>
+          </div>
         </Header>
-        <Layout style={{ padding: "0 24px" }}>
+        <Layout className="layout-main">
           <Breadcrumb style={{ margin: "16px 0" }}>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
             <Breadcrumb.Item>List</Breadcrumb.Item>
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
-          <Content>
+          <Content className="layout-content">
             <Outlet />
           </Content>
-          <Footer>Footer</Footer>
+          <Footer className="layout-footer">
+            © hu-snail-2022 arco-admin-template
+          </Footer>
         </Layout>
       </Layout>
     </Layout>

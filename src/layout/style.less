@@ -1,0 +1,30 @@
+.layout-container{
+    height: 100vh;
+    overflow-x: hidden;
+    .logo{
+        height: 32px;
+        margin: 12px 8px;
+        background-color: @base-content-bg-color;
+        text-align: center;
+        border-radius: 6px;
+    }
+    .layout-header{
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &-right{
+            text-align: right;
+        }
+    }
+    .layout-main{
+        background-color: @base-content-bg-color;
+        padding: @layout-main-padding;
+    }
+    .layout-footer{
+        min-height: 55px;
+        line-height: 55px;
+        text-align: center;
+        color: var(--color-text-2);
+    }
+}
