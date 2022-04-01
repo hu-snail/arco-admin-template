@@ -7,7 +7,7 @@ import {
   Message,
   Modal,
 } from "@arco-design/web-react";
-import { getRouters } from "@/api/routers";
+import { getResouceList } from "@/api/index";
 
 const { Meta } = Card;
 
@@ -21,13 +21,14 @@ export default function Home() {
   }, []);
 
   const onGetRouters = (flag) => {
-    getRouters().then((res) => {
-      if (flag) {
-        Modal.success({
-          title: `请求数据成功，共记${res.data.length}条数据，打开控制台查看`,
-        });
-      }
-      setList(res.data);
+    getResouceList().then((res) => {
+      console.log(res);
+      //   if (flag) {
+      //     Modal.success({
+      //       title: `请求数据成功，共记${res.data.length}条数据，打开控制台查看`,
+      //     });
+      //   }
+      //   setList(res.data);
     });
   };
 

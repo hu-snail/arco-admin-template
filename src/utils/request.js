@@ -2,21 +2,19 @@ import axios from "axios";
 import { Message, Modal } from "@arco-design/web-react";
 import config from "@/config/net.config";
 
-const SUCCESS_CODE = 200;
 let tokenLose = true;
 
-const MODE = import.meta.env.MODE; // 环境变量
-let baseURL = config[MODE].apiBaseUrl;
+const { baseURL, successCode, invalidCode, requestTimeout, contentType } =
+  config;
 
 const instance = axios.create({
   baseURL,
-  timeout: 10 * 1000, // 超时时间
+  timeout: requestTimeout,
   headers: {
-    "Content-Type": "application/json;charset=UTF-8",
+    "Content-Type": contentType,
   },
 });
 
-let apiUrl = "";
 // request interceptor
 instance.interceptors.request.use(
   (config) => {
@@ -44,7 +42,7 @@ instance.interceptors.response.use(
     const res = response.data;
     // 请求出错处理
     // -1 超时、token过期或者没有获得授权
-    if (res.resultCode === -1 && tokenLose) {
+    if (res.code === invalidCode && tokenLose) {
       tokenLose = false;
       Modal.confirm({
         title: "重新登录",
@@ -61,7 +59,8 @@ instance.interceptors.response.use(
         },
       });
     }
-    if (res.resultCode !== SUCCESS_CODE) {
+
+    if (successCode.indexOf(res.code) === -1) {
       Message.error(res.msg);
       return Promise.reject(res);
     }

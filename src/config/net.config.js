@@ -1,11 +1,15 @@
 export default {
-  development: {
-    apiBaseUrl: "/api", // 开发环境接口请求，后用于 proxy 代理配置
-  },
-  beta: {
-    apiBaseUrl: "//www.beta.xxx.com/v1", // 测试环境接口地址
-  },
-  release: {
-    apiBaseUrl: "//www.xxx.com/v1", // 正式环境接口地址
-  },
+  //  axios 基础url地址
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3001/api"
+      : "/api",
+  // 操作正常返回的code,根据后端第一
+  successCode: [200, 0],
+  // 超时时间
+  requestTimeout: 10 * 1000,
+  // 请求content_type类型,根据后端配置定义
+  contentType: "application/json;charset=UTF-8",
+  // 登录失效code
+  invalidCode: -1,
 };
