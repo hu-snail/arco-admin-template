@@ -132,7 +132,7 @@ function PublicLayout() {
                 </Menu>
               }
             >
-              <Avatar style={{ backgroundColor: "#165DFF" }}>Hu</Avatar>
+              <Avatar style={{ backgroundColor: "#165DFF" }}>H</Avatar>
             </Dropdown>
           </div>
         </Header>

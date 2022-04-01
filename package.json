@@ -3,16 +3,22 @@
   "private": false,
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "dev": "vite --mode development",
+    "build": "vite build --mode porduct",
     "preview": "vite preview"
   },
   "dependencies": {
     "@arco-design/web-react": "^2.31.1",
+    "axios": "^0.26.1",
     "nprogress": "^0.2.0",
+    "qs": "^6.10.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-router-dom": "^6.2.2"
+    "react-redux": "^7.2.7",
+    "react-router-dom": "^6.2.2",
+    "redux": "^4.1.2",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.1"
   },
   "devDependencies": {
     "@arco-plugins/vite-react": "^1.0.6",

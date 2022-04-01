@@ -12,6 +12,16 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"), // src 路径
     },
   },
+  server: {
+    port: 3001,
+    proxy: {
+      "/api": {
+        target: "https://624659e7e3450d61b0fd6ba2.mockapi.io/api/v1",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
+  },
   css: {
     preprocessorOptions: {
       less: {
