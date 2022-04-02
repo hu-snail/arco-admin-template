@@ -1,26 +1,27 @@
-import {
-  Form,
-  Input,
-  Button,
-  Message,
-  Space,
-  Checkbox,
-} from "@arco-design/web-react";
-
-import { useNavigate } from "react-router-dom";
-
+import { Form, Input, Button, Space, Checkbox } from "@arco-design/web-react";
 import { IconUser, IconSafe } from "@arco-design/web-react/icon";
 
+// 路由
+import { useNavigate } from "react-router-dom";
+// redux
+import { useDispatch } from "react-redux";
+// store
+import { loginHandler } from "@/store/actions/user";
+
 const FormItem = Form.Item;
-import "./index.less";
+import "./login.less";
+import store from "@/store";
 
 export default function Login() {
+  const dispatch = useDispatch();
+
   const [form] = Form.useForm();
-  let navigate = useNavigate();
-  const handleSubmit = (v) => {
-    console.log(v);
-    Message.success("登录成功，跳转直首页");
-    navigate(`/page/home?username=${v.name}`);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (form) => {
+    await dispatch(loginHandler(form));
+    const { accessToken } = store.getState().userReducer;
+    if (accessToken) navigate("/page/home");
   };
   return (
     <div className="login-wrap">
@@ -35,20 +36,17 @@ export default function Login() {
             wrapperCol={{
               span: 24,
             }}
-            onValuesChange={(v, vs) => {
-              console.log(v, vs);
-            }}
-            onSubmit={(v) => handleSubmit(v)}
+            onSubmit={handleSubmit}
           >
             <Space direction="vertical" size={10}>
               <FormItem
-                field="name"
+                field="username"
                 rules={[{ required: true, message: "用户名不能为空" }]}
               >
                 <Input prefix={<IconUser />} placeholder="请输入用户名" />
               </FormItem>
               <FormItem
-                field="pwd"
+                field="password"
                 rules={[{ required: true, message: "密码不能为空" }]}
               >
                 <Input.Password

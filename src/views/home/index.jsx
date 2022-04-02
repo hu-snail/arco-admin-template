@@ -1,15 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
-import {
-  Button,
-  Space,
-  Card,
-  Grid,
-  Message,
-  Modal,
-} from "@arco-design/web-react";
+import { Button, Space, Grid } from "@arco-design/web-react";
 import { getResouceList } from "@/api/index";
-
-const { Meta } = Card;
 
 const Row = Grid.Row;
 const Col = Grid.Col;
@@ -17,18 +8,13 @@ const Col = Grid.Col;
 export default function Home() {
   const [list, setList] = useState([]);
   useEffect(() => {
-    onGetRouters();
+    onGetResouceList();
   }, []);
 
-  const onGetRouters = (flag) => {
+  const onGetResouceList = (flag) => {
     getResouceList().then((res) => {
-      console.log(res);
-      //   if (flag) {
-      //     Modal.success({
-      //       title: `请求数据成功，共记${res.data.length}条数据，打开控制台查看`,
-      //     });
-      //   }
-      //   setList(res.data);
+      const { list } = res.data;
+      setList(list);
     });
   };
 
@@ -57,18 +43,10 @@ export default function Home() {
 
         <div style={{ marginTop: "20px" }}>
           <Row>
-            {list.map((option) => {
+            {list.map((option, index) => {
               return (
-                <Col
-                  key={option.id}
-                  xs={12}
-                  sm={12}
-                  md={6}
-                  lg={6}
-                  xl={6}
-                  xxl={6}
-                >
-                  <div>{option.path}</div>
+                <Col key={index} xs={12} sm={12} md={6} lg={6} xl={6} xxl={6}>
+                  <div>{option.title}</div>
                 </Col>
               );
             })}

@@ -4,7 +4,7 @@ import { Form, Input, Button, Checkbox } from "@arco-design/web-react";
 
 const FormItem = Form.Item;
 
-export default function Home() {
+export default function Docs() {
   return (
     <Fragment>
       <Form style={{ width: 600 }}>
@@ -25,7 +25,6 @@ export default function Home() {
           <Button type="primary">Submit</Button>
         </FormItem>
       </Form>
-      ,
     </Fragment>
   );
 }

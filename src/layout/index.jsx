@@ -1,8 +1,7 @@
 // layout/index.jsx
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
 import "./style.less";
 import {
   Layout,
@@ -21,6 +20,7 @@ import {
   IconUser,
   IconExport,
 } from "@arco-design/web-react/icon";
+import { logout } from "@/store/actions/user";
 
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
@@ -32,6 +32,7 @@ const Content = Layout.Content;
 
 function PublicLayout() {
   const [collapsed, setCollapsed] = useState(false);
+  const dispatch = useDispatch();
   const iconStyle = {
     marginRight: 8,
     fontSize: 16,
@@ -40,10 +41,8 @@ function PublicLayout() {
   const handleCollapsed = () => {
     setCollapsed(!collapsed);
   };
-  let navigate = useNavigate();
   const handleClickMenuItem = (key, keyPath) => {
-    console.log(key, keyPath);
-    if (key === "logout") navigate("/");
+    if (key === "logout") dispatch(logout());
   };
   return (
     <Layout className="layout-container">

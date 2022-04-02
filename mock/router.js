@@ -1,61 +1,47 @@
 const data = [
   {
-    path: "/",
-    component: "Layout",
-    redirect: "index",
+    path: "/page",
+    title: "",
     children: [
       {
-        path: "/index",
-        name: "Index",
-        component: "",
-        meta: {
-          title: "首页",
-          icon: "home",
-          affix: true,
-          noKeepAlive: true,
-        },
+        path: "home",
+        title: "首页",
       },
-    ],
-  },
-  {
-    path: "/comp",
-    component: "Layout",
-    name: "Comp",
-    meta: { title: "组件", icon: "" },
-    children: [
       {
-        path: "/iconPark",
-        name: "IconPark",
-        component: "",
-        meta: {
-          title: "图标",
-        },
+        path: "comp",
+        title: "组件",
         children: [
           {
-            path: "/iconPark2",
-            name: "IconPark2",
-            component: "",
-            meta: {
-              title: "图标2211",
-            },
+            path: "btn",
+            title: "按钮",
+          },
+          {
+            path: "form",
+            title: "表单",
+          },
+          {
+            path: "echarts",
+            title: "图表",
           },
         ],
       },
       {
-        path: "/iconPark233",
-        name: "IconPark3",
-        component: () => "",
-        meta: {
-          title: "图标2233",
-        },
+        path: "docs",
+        title: "文档",
       },
       {
-        path: "/iconPark234",
-        name: "IconPark3",
-        component: () => "",
-        meta: {
-          title: "测试",
-        },
+        path: "error",
+        title: "错误页面",
+        children: [
+          {
+            path: "404",
+            title: "404",
+          },
+          {
+            path: "500",
+            title: "500",
+          },
+        ],
       },
     ],
   },

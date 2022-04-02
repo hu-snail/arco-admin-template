@@ -40,6 +40,15 @@ export default defineConfig({
     //   },
     // },
   },
+  build: {
+    terserOptions: {
+      compress: {
+        keep_infinity: true,
+        drop_console: true,
+      },
+    },
+    outDir: "dist",
+  },
   css: {
     preprocessorOptions: {
       less: {
