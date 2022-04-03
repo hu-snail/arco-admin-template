@@ -53,91 +53,94 @@ function PublicLayout() {
   };
   return (
     <Layout className="layout-container">
-      <Sider
-        width="240"
-        collapsed={collapsed}
-        collapsible
-        trigger={null}
-        breakpoint="xl"
-      >
-        <div className="logo"></div>
-        <Menu
-          defaultOpenKeys={["comp"]}
-          defaultSelectedKeys={["home"]}
-          levelIndent={30}
-          onClickMenuItem={(key) => navigate(key)}
-          style={{ width: "100%" }}
-        >
-          {routerList.map((item) => {
-            if (item.children) {
-              return (
-                <SubMenu
-                  key={item.path}
-                  title={
-                    <span>
-                      {item.meta.icon}
-                      {item.meta.title}
-                    </span>
-                  }
-                >
-                  {item.children.map((option) => {
-                    return (
-                      <MenuItem key={`${item.path}/${option.path}`}>
-                        {option.meta.title}
-                      </MenuItem>
-                    );
-                  })}
-                </SubMenu>
-              );
-            } else {
-              return (
-                <MenuItem key={item.path}>
-                  {item.meta.icon}
-                  {item.meta.title}
-                </MenuItem>
-              );
+      <Header className="layout-header">
+        <Button shape="round" className="trigger" onClick={handleCollapsed}>
+          {collapsed ? <IconCaretRight /> : <IconCaretLeft />}
+        </Button>
+        <div className="layout-header-right">
+          <Dropdown
+            position="br"
+            droplist={
+              <Menu onClickMenuItem={handleClickMenuItem}>
+                <Menu.Item key="admin">
+                  <IconUser style={iconStyle} />
+                  个人信息
+                </Menu.Item>
+                <Menu.Item key="logout">
+                  <IconExport style={iconStyle} />
+                  退出登录
+                </Menu.Item>
+              </Menu>
             }
-          })}
-        </Menu>
-      </Sider>
-      <Layout>
-        <Header className="layout-header">
-          <Button shape="round" className="trigger" onClick={handleCollapsed}>
-            {collapsed ? <IconCaretRight /> : <IconCaretLeft />}
-          </Button>
-          <div className="layout-header-right">
-            <Dropdown
-              position="br"
-              droplist={
-                <Menu onClickMenuItem={handleClickMenuItem}>
-                  <Menu.Item key="admin">
-                    <IconUser style={iconStyle} />
-                    个人信息
-                  </Menu.Item>
-                  <Menu.Item key="logout">
-                    <IconExport style={iconStyle} />
-                    退出登录
-                  </Menu.Item>
-                </Menu>
+          >
+            <Avatar style={{ backgroundColor: "#165DFF" }}>H</Avatar>
+          </Dropdown>
+        </div>
+      </Header>
+
+      <Layout className="layout-main-wrap">
+        <Sider
+          width="240"
+          collapsed={collapsed}
+          collapsible
+          trigger={null}
+          breakpoint="xl"
+        >
+          <Menu
+            defaultOpenKeys={["comp"]}
+            defaultSelectedKeys={["home"]}
+            levelIndent={30}
+            onClickMenuItem={(key) => navigate(key)}
+            style={{ width: "100%" }}
+          >
+            {routerList.map((item) => {
+              if (item.children) {
+                return (
+                  <SubMenu
+                    key={item.path}
+                    title={
+                      <span>
+                        {item.meta.icon}
+                        {item.meta.title}
+                      </span>
+                    }
+                  >
+                    {item.children.map((option) => {
+                      return (
+                        <MenuItem key={`${item.path}/${option.path}`}>
+                          {option.meta.title}
+                        </MenuItem>
+                      );
+                    })}
+                  </SubMenu>
+                );
+              } else {
+                return (
+                  <MenuItem key={item.path}>
+                    {item.meta.icon}
+                    {item.meta.title}
+                  </MenuItem>
+                );
               }
-            >
-              <Avatar style={{ backgroundColor: "#165DFF" }}>H</Avatar>
-            </Dropdown>
+            })}
+          </Menu>
+        </Sider>
+
+        <Content className="layout-content">
+          <div className="layout-content-breadcrumb">
+            <Breadcrumb style={{ margin: "16px 0" }}>
+              <Breadcrumb.Item>Home</Breadcrumb.Item>
+              <Breadcrumb.Item>List</Breadcrumb.Item>
+              <Breadcrumb.Item>App</Breadcrumb.Item>
+            </Breadcrumb>
+            <div className="layout-main-content">
+              <Outlet />
+            </div>
           </div>
-        </Header>
-        <Layout className="layout-main">
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>Home</Breadcrumb.Item>
-            <Breadcrumb.Item>List</Breadcrumb.Item>
-            <Breadcrumb.Item>App</Breadcrumb.Item>
-          </Breadcrumb>
-          <Content className="layout-content">
-            <Outlet />
-          </Content>
           <Footer className="layout-footer">
             © hu-snail-2022 arco-admin-template
           </Footer>
-        </Layout>
+        </Content>
       </Layout>
     </Layout>
   );

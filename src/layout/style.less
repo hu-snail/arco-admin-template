@@ -1,40 +1,43 @@
 .layout-container{
-    height: 100vh;
-    overflow: hidden;
     .arco-layout{
         background-color: @base-content-bg-color;
     }
-    
-    .logo{
-        height: 32px;
-        margin: 12px 8px;
-        background-color: @base-content-bg-color;
-        text-align: center;
-        border-radius: 6px;
-    }
     .layout-header{
         position: fixed;
-        width: calc(100vw - 240px);
+        width: 100%;
         padding: 15px 20px;
         background-color: var(--color-white);
         display: flex;
         align-items: center;
         justify-content: space-between;
         z-index: 999;
+        border-bottom: 1px solid var(--color-border);
         &-right{
             text-align: right;
         }
     }
-    .layout-main{
+    .layout-main-wrap{
         background-color: @base-content-bg-color;
-        padding: @layout-main-padding;
         position: relative;
-        top: 80px;
+        top: 70px;
+        overflow-y: auto;
+        .layout-content{
+            height: calc(100vh - 70px);
+        }
+        .layout-content-breadcrumb{
+            padding: @layout-main-padding;
+        }
+        .layout-main-content{
+           min-height: calc(100vh - 70px - 56px - 56px);
+        }
     }
     .layout-footer{
         min-height: 55px;
         line-height: 55px;
         text-align: center;
         color: var(--color-text-2);
+        // border-top: 1px dashed var(--color-border);
+        // margin-top: 20px;
+        // background: var(--color-white)
     }
 }

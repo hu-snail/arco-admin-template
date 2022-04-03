@@ -16,6 +16,7 @@ export default function Login() {
   const dispatch = useDispatch();
 
   const [form] = Form.useForm();
+  form.setFieldsValue({ username: "admin", password: 123456 });
   const navigate = useNavigate();
 
   const handleSubmit = async (form) => {
