@@ -1,47 +1,41 @@
 const data = [
   {
-    path: "/page",
-    title: "",
+    path: "home",
+    title: "首页",
+  },
+  {
+    path: "comp",
+    title: "组件库",
     children: [
       {
-        path: "home",
-        title: "首页",
+        path: "btn",
+        title: "按钮组件",
       },
       {
-        path: "comp",
-        title: "组件",
-        children: [
-          {
-            path: "btn",
-            title: "按钮",
-          },
-          {
-            path: "form",
-            title: "表单",
-          },
-          {
-            path: "echarts",
-            title: "图表",
-          },
-        ],
+        path: "form",
+        title: "表单组件",
       },
       {
-        path: "docs",
-        title: "文档",
+        path: "echarts",
+        title: "图表组件",
+      },
+    ],
+  },
+  {
+    path: "docs",
+    title: "文档",
+  },
+  {
+    path: "error",
+    title: "错误页面",
+    children: [
+      {
+        path: "404",
+        title: "404页面",
       },
       {
-        path: "error",
-        title: "错误页面",
-        children: [
-          {
-            path: "404",
-            title: "404",
-          },
-          {
-            path: "500",
-            title: "500",
-          },
-        ],
+        path: "500",
+        title: "500页面",
       },
     ],
   },

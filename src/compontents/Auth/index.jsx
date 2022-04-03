@@ -8,6 +8,7 @@ import { setPermission, getUserInfoHandler } from "@/store/actions/user";
 import { useDispatch } from "react-redux";
 
 export default function RequireAuth({ children }) {
+  if (!store.getState().userReducer) return children;
   const { accessToken, permissions } = store.getState().userReducer;
   const { pathname } = useLocation();
   const dispatch = useDispatch();

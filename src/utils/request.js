@@ -1,7 +1,9 @@
 import axios from "axios";
 import { Message, Modal } from "@arco-design/web-react";
 import config from "@/config/net.config";
-
+import store from "@/store";
+import { setting } from "@/config/setting";
+const { tokenName } = setting;
 let tokenLose = true;
 
 const { baseURL, successCode, invalidCode, requestTimeout, contentType } =
@@ -19,11 +21,15 @@ const instance = axios.create({
 instance.interceptors.request.use(
   (config) => {
     // do something before request is sent
-    // 设置token
-    //   if (store.getters.token) {
-    //     // let each request carry token
-    //     // config.headers['Authorization'] = getToken()
+    // if (store.getState().userReducer) {
+    //   const { accessToken } = store.getState().userReducer;
+    //   // 设置token
+    //   if (accessToken) {
+    //     // let each request carry token]
+    //     config.headers[tokenName] = accessToken;
     //   }
+    // }
+
     return config;
   },
   (error) => {

@@ -1,6 +1,10 @@
 .layout-container{
     height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
+    .arco-layout{
+        background-color: @base-content-bg-color;
+    }
+    
     .logo{
         height: 32px;
         margin: 12px 8px;
@@ -9,10 +13,14 @@
         border-radius: 6px;
     }
     .layout-header{
+        position: fixed;
+        width: calc(100vw - 240px);
         padding: 15px 20px;
+        background-color: var(--color-white);
         display: flex;
         align-items: center;
         justify-content: space-between;
+        z-index: 999;
         &-right{
             text-align: right;
         }
@@ -20,6 +28,8 @@
     .layout-main{
         background-color: @base-content-bg-color;
         padding: @layout-main-padding;
+        position: relative;
+        top: 80px;
     }
     .layout-footer{
         min-height: 55px;

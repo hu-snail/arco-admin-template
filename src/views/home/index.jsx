@@ -19,7 +19,7 @@ export default function Home() {
   };
 
   const handleGetData = () => {
-    onGetRouters(true);
+    onGetResouceList(true);
   };
   return (
     <Fragment>

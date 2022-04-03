@@ -6,7 +6,11 @@ import {
   SET_PERMISSIONS,
   SET_ACCESS_TOKEN,
 } from "@/store/action_types";
-import { getAccessToken, setAccessToken } from "@/utils/accessToken";
+import {
+  getAccessToken,
+  setAccessToken,
+  removeAccessToken,
+} from "@/utils/accessToken";
 
 // 初始化
 const initValue = {
@@ -25,12 +29,13 @@ export default function user(state = initValue, action) {
       Object.assign(state, { ...payload });
       return call && call(payload.permissions);
     case SET_PERMISSIONS:
+      if (!payload.length) removeAccessToken();
       Object.assign(state, { permissions: payload });
       return call && call(payload);
     case LOGOUT:
       return location.reload();
     case SET_ACCESS_TOKEN:
-      return setAccessToken(payload.accessToken);
+      return setAccessToken(payload.accessToken ? payload.accessToken : "");
     default:
       return state;
   }

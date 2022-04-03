@@ -15,7 +15,7 @@ import {
 
 import { login, getUserInfo } from "@/api/user";
 import { Notification, Message } from "@arco-design/web-react";
-import { setAccessToken, removeAccessToken } from "@/utils/accessToken";
+import { setRoutersHandler } from "./router";
 
 import { setting } from "@/config/setting";
 const { title, tokenName } = setting;
@@ -32,7 +32,8 @@ export const loginHandler = (payload) => {
     const { data } = await login(payload);
     const accessToken = data[tokenName];
     if (accessToken) {
-      dispatch(setAccessTokenHandler(accessToken));
+      await dispatch(setAccessTokenHandler({ accessToken }));
+      await dispatch(setRoutersHandler());
       const hour = new Date().getHours();
       const thisTime =
         hour < 8
@@ -93,7 +94,6 @@ export const setAccessTokenHandler = (payload) => {
  */
 export const setPermission = (payload, call) => {
   return async (dispatch) => {
-    console.log("---", payload);
     dispatch({
       type: SET_PERMISSIONS,
       payload,

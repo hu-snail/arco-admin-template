@@ -1,5 +1,5 @@
 // layout/index.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./style.less";
@@ -20,8 +20,9 @@ import {
   IconUser,
   IconExport,
 } from "@arco-design/web-react/icon";
+import { useNavigate } from "react-router-dom";
 import { logout } from "@/store/actions/user";
-
+import store from "@/store";
 const MenuItem = Menu.Item;
 const SubMenu = Menu.SubMenu;
 
@@ -32,7 +33,13 @@ const Content = Layout.Content;
 
 function PublicLayout() {
   const [collapsed, setCollapsed] = useState(false);
+  const [routerList, setRouterList] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    const { routers } = store.getState().routerReducer;
+    setRouterList(routers);
+  }, []);
   const iconStyle = {
     marginRight: 8,
     fontSize: 16,
@@ -55,59 +62,42 @@ function PublicLayout() {
       >
         <div className="logo"></div>
         <Menu
-          defaultOpenKeys={["1"]}
-          defaultSelectedKeys={["0_1"]}
-          onClickMenuItem={(key) =>
-            Message.info({ content: `You select ${key}`, showIcon: true })
-          }
+          defaultOpenKeys={["comp"]}
+          defaultSelectedKeys={["home"]}
+          levelIndent={30}
+          onClickMenuItem={(key) => navigate(key)}
           style={{ width: "100%" }}
         >
-          <MenuItem key="0_1">
-            <IconHome />
-            首页
-          </MenuItem>
-          <MenuItem key="0_2">
-            <IconCalendar />
-            表单
-          </MenuItem>
-          <MenuItem key="0_3">
-            <IconCalendar />
-            组件
-          </MenuItem>
-          <SubMenu
-            key="1"
-            title={
-              <span>
-                <IconCalendar />
-                多级菜单
-              </span>
+          {routerList.map((item) => {
+            if (item.children) {
+              return (
+                <SubMenu
+                  key={item.path}
+                  title={
+                    <span>
+                      {item.meta.icon}
+                      {item.meta.title}
+                    </span>
+                  }
+                >
+                  {item.children.map((option) => {
+                    return (
+                      <MenuItem key={`${item.path}/${option.path}`}>
+                        {option.meta.title}
+                      </MenuItem>
+                    );
+                  })}
+                </SubMenu>
+              );
+            } else {
+              return (
+                <MenuItem key={item.path}>
+                  {item.meta.icon}
+                  {item.meta.title}
+                </MenuItem>
+              );
             }
-          >
-            <MenuItem key="1_1">菜单 1</MenuItem>
-            <MenuItem key="1_2">菜单 2</MenuItem>
-            <SubMenu key="2" title="Navigation 2">
-              <MenuItem key="2_1">Menu 1</MenuItem>
-              <MenuItem key="2_2">Menu 2</MenuItem>
-            </SubMenu>
-            <SubMenu key="3" title="Navigation 3">
-              <MenuItem key="3_1">Menu 1</MenuItem>
-              <MenuItem key="3_2">Menu 2</MenuItem>
-              <MenuItem key="3_3">Menu 3</MenuItem>
-            </SubMenu>
-          </SubMenu>
-          <SubMenu
-            key="4"
-            title={
-              <span>
-                <IconCalendar />
-                多级菜单 2
-              </span>
-            }
-          >
-            <MenuItem key="4_1">Menu 1</MenuItem>
-            <MenuItem key="4_2">Menu 2</MenuItem>
-            <MenuItem key="4_3">Menu 3</MenuItem>
-          </SubMenu>
+          })}
         </Menu>
       </Sider>
       <Layout>
