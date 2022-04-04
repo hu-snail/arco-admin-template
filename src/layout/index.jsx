@@ -8,24 +8,20 @@ import {
   Menu,
   Breadcrumb,
   Button,
-  Message,
   Avatar,
   Dropdown,
 } from "@arco-design/web-react";
 import {
-  IconHome,
-  IconCalendar,
   IconCaretRight,
   IconCaretLeft,
   IconUser,
   IconExport,
 } from "@arco-design/web-react/icon";
+import { SubMenuCompontent } from "./compontents/SubMenu";
 import { useNavigate } from "react-router-dom";
 import { logout } from "@/store/actions/user";
 import store from "@/store";
 const MenuItem = Menu.Item;
-const SubMenu = Menu.SubMenu;
-
 const Sider = Layout.Sider;
 const Header = Layout.Header;
 const Footer = Layout.Footer;
@@ -95,29 +91,11 @@ function PublicLayout() {
           >
             {routerList.map((item) => {
               if (item.children) {
-                return (
-                  <SubMenu
-                    key={item.path}
-                    title={
-                      <span>
-                        {item.meta.icon}
-                        {item.meta.title}
-                      </span>
-                    }
-                  >
-                    {item.children.map((option) => {
-                      return (
-                        <MenuItem key={`${item.path}/${option.path}`}>
-                          {option.meta.title}
-                        </MenuItem>
-                      );
-                    })}
-                  </SubMenu>
-                );
+                return SubMenuCompontent(item);
               } else {
                 return (
-                  <MenuItem key={item.path}>
-                    {item.meta.icon}
+                  <MenuItem key={item.key}>
+                    {item.meta.icon ? item.meta.icon : ""}
                     {item.meta.title}
                   </MenuItem>
                 );
