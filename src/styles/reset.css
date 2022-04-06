@@ -23,6 +23,8 @@
   body {
     margin: 0;
     overflow: hidden;
+    color: var(--color-text-2);
+
   }
   
   /**
