@@ -49,6 +49,8 @@ function PublicLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const [routerList, setRouterList] = useState([]);
   const [isScreenfull, setScreenfull] = useState(false);
+  const [isRefresh, setRefresh] = useState(true);
+  const [mode, setMode] = useState("light");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -79,6 +81,21 @@ function PublicLayout() {
     }
     setScreenfull(!isScreenfull);
     screenfull.toggle();
+  };
+
+  useEffect(() => {
+    setRefresh(true);
+  }, [isRefresh]);
+
+  const handlerChangeRefresh = () => {
+    setRefresh(false);
+  };
+
+  const handleChangeMode = () => {
+    const modeType = mode === "light" ? "dark" : "light";
+    setMode(modeType);
+    if (modeType === "dark") document.body.setAttribute("arco-theme", "dark");
+    else document.body.removeAttribute("arco-theme");
   };
 
   return (
@@ -124,12 +141,20 @@ function PublicLayout() {
               <Tooltip
                 position="bottom"
                 trigger="hover"
-                content="点击切换为暗黑模式"
+                content={`点击切换为${mode === "light" ? "暗黑" : "亮色"}模式`}
               >
-                <Button shape="circle" icon={<IconMoonFill />} />
+                <Button
+                  shape="circle"
+                  icon={mode === "light" ? <IconMoonFill /> : <IconSun />}
+                  onClick={handleChangeMode}
+                />
               </Tooltip>
               <Tooltip position="bottom" trigger="hover" content="刷新">
-                <Button shape="circle" icon={<IconRefresh />} />
+                <Button
+                  shape="circle"
+                  icon={<IconRefresh />}
+                  onClick={handlerChangeRefresh}
+                />
               </Tooltip>
             </Space>
           </div>
@@ -192,7 +217,7 @@ function PublicLayout() {
               <Breadcrumb.Item>App</Breadcrumb.Item>
             </Breadcrumb>
             <div className="layout-main-content">
-              <Outlet />
+              {isRefresh ? <Outlet /> : ""}
             </div>
           </div>
           <Footer className="layout-footer">

@@ -7,7 +7,7 @@
         position: fixed;
         width: 100%;
         padding: 15px 20px;
-        background-color: var(--color-white);
+        background-color: var(--color-bg-2);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -27,15 +27,17 @@
         }
     }
     .layout-main-wrap{
-        background-color: @base-content-bg-color;
+       
         position: relative;
         top: 70px;
         overflow-y: auto;
         .layout-content{
             height: calc(100vh - 70px);
+            background-color: var(--color-bg-2);
         }
         .layout-content-breadcrumb{
             padding: @layout-main-padding;
+            background-color: var(--color-fill-2);
         }
         .layout-main-content{
            min-height: calc(100vh - 70px - 56px - 56px);
@@ -55,6 +57,7 @@
         line-height: 55px;
         text-align: center;
         color: var(--color-text-2);
+        background-color: var(--color-fill-2);
         // border-top: 1px dashed var(--color-border);
         // margin-top: 20px;
         // background: var(--color-white)
