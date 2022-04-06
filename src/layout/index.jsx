@@ -208,7 +208,6 @@ function PublicLayout() {
             })}
           </Menu>
         </Sider>
-
         <Content className="layout-content">
           <div className="layout-content-breadcrumb">
             <Breadcrumb style={{ margin: "16px 0" }}>

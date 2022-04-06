@@ -20,6 +20,23 @@
    * Remove the margin in all browsers.
    */
   
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: transparent;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: transparent;
+}
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  background-clip: padding-box;
+  background-color: var(--color-text-4);
+  border-radius: 7px;
+}
   body {
     margin: 0;
     overflow: hidden;
