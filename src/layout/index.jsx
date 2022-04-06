@@ -4,23 +4,41 @@ import { Outlet } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./style.less";
 import {
+  Space,
   Layout,
   Menu,
+  Input,
   Breadcrumb,
   Button,
+  Message,
   Avatar,
   Dropdown,
+  Tooltip,
 } from "@arco-design/web-react";
 import {
-  IconCaretRight,
-  IconCaretLeft,
+  IconFullscreen,
+  IconFullscreenExit,
+  IconLanguage,
+  IconMoonFill,
+  IconDragDot,
+  IconSun,
+  IconNotification,
+  IconRefresh,
+  IconMenuFold,
+  IconMenuUnfold,
   IconUser,
   IconExport,
+  IconSkin,
+  IconSearch,
 } from "@arco-design/web-react/icon";
 import { SubMenuCompontent } from "./compontents/SubMenu";
+import LogoCompontent from "./compontents/Logo";
 import { useNavigate } from "react-router-dom";
 import { logout } from "@/store/actions/user";
 import store from "@/store";
+
+import screenfull from "screenfull";
+
 const MenuItem = Menu.Item;
 const Sider = Layout.Sider;
 const Header = Layout.Header;
@@ -30,30 +48,91 @@ const Content = Layout.Content;
 function PublicLayout() {
   const [collapsed, setCollapsed] = useState(false);
   const [routerList, setRouterList] = useState([]);
+  const [isScreenfull, setScreenfull] = useState(false);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   useEffect(() => {
     const { routers } = store.getState().routerReducer;
     setRouterList(routers);
   }, []);
+
   const iconStyle = {
     marginRight: 8,
     fontSize: 16,
     transform: "translateY(1px)",
   };
+
   const handleCollapsed = () => {
     setCollapsed(!collapsed);
   };
+
   const handleClickMenuItem = (key, keyPath) => {
     if (key === "logout") dispatch(logout());
   };
+
+  const handleChangeScreen = () => {
+    if (!screenfull.isEnabled) {
+      Message.warning("进入全屏失败");
+      return false;
+    }
+    setScreenfull(!isScreenfull);
+    screenfull.toggle();
+  };
+
   return (
     <Layout className="layout-container">
       <Header className="layout-header">
-        <Button shape="round" className="trigger" onClick={handleCollapsed}>
-          {collapsed ? <IconCaretRight /> : <IconCaretLeft />}
-        </Button>
+        <LogoCompontent />
         <div className="layout-header-right">
+          <div className="layout-header-edit">
+            <Space size="medium">
+              <Input
+                style={{ width: 200 }}
+                prefix={<IconSearch />}
+                placeholder="请输入内容查询"
+              />
+              <Tooltip
+                position="bottom"
+                trigger="hover"
+                content={`点击${isScreenfull ? "退出" : "切换"}全屏模式`}
+              >
+                <Button
+                  shape="circle"
+                  icon={
+                    isScreenfull ? <IconFullscreenExit /> : <IconFullscreen />
+                  }
+                  onClick={handleChangeScreen}
+                />
+              </Tooltip>
+              <Dropdown
+                position="br"
+                droplist={
+                  <Menu onClickMenuItem={handleClickMenuItem}>
+                    <Menu.Item key="admin">简体中文</Menu.Item>
+                    <Menu.Item key="logout">English</Menu.Item>
+                  </Menu>
+                }
+              >
+                <Button shape="circle" icon={<IconLanguage />} />
+              </Dropdown>
+              <Tooltip position="bottom" trigger="hover" content="点击切换皮肤">
+                <Button shape="circle" icon={<IconSkin />} />
+              </Tooltip>
+              <Button shape="circle" icon={<IconNotification />} />
+              <Tooltip
+                position="bottom"
+                trigger="hover"
+                content="点击切换为暗黑模式"
+              >
+                <Button shape="circle" icon={<IconMoonFill />} />
+              </Tooltip>
+              <Tooltip position="bottom" trigger="hover" content="刷新">
+                <Button shape="circle" icon={<IconRefresh />} />
+              </Tooltip>
+            </Space>
+          </div>
           <Dropdown
             position="br"
             droplist={
@@ -79,7 +158,8 @@ function PublicLayout() {
           width="240"
           collapsed={collapsed}
           collapsible
-          trigger={null}
+          onCollapse={handleCollapsed}
+          trigger={collapsed ? <IconMenuUnfold /> : <IconMenuFold />}
           breakpoint="xl"
         >
           <Menu
