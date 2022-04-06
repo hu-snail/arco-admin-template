@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import { useRoutes } from "react-router-dom";
 
 import LayoutPage from "@/layout";
@@ -6,6 +6,11 @@ import EmptyLayout from "@/layout/emptyLayout";
 import CompLayout from "@/views/comp/layout";
 import MultiLayout from "@/views/multi/layout";
 import MultiTwoLayout from "@/views/multi/two/layout";
+import LoadingComponent from "@/compontents/Loading";
+
+const load = (children) => {
+  return <Suspense fallback={<LoadingComponent />}>{children}</Suspense>;
+};
 
 import {
   IconHome,
@@ -35,7 +40,7 @@ const routeList = [
       {
         index: true,
         key: "login",
-        element: <Login />,
+        element: load(<Login />),
       },
     ],
   },
@@ -50,7 +55,7 @@ const routeList = [
       {
         path: "home",
         key: "home",
-        element: <Home />,
+        element: load(<Home />),
         meta: {
           icon: <IconHome />,
           title: "首页",
@@ -59,7 +64,7 @@ const routeList = [
       {
         path: "comp",
         key: "comp",
-        element: <CompLayout />,
+        element: load(<CompLayout />),
         meta: {
           icon: <IconCode />,
           title: "组件",
@@ -68,7 +73,7 @@ const routeList = [
           {
             path: "btn",
             key: "comp/btn",
-            element: <Btn />,
+            element: load(<Btn />),
             meta: {
               title: "按钮",
             },
@@ -76,7 +81,7 @@ const routeList = [
           {
             path: "form",
             key: "comp/form",
-            element: <Form />,
+            element: load(<Form />),
             meta: {
               title: "表单",
             },
@@ -86,7 +91,7 @@ const routeList = [
       {
         path: "docs",
         key: "docs",
-        element: <Docs />,
+        element: load(<Docs />),
         meta: {
           title: "文档",
           icon: <IconFile />,
@@ -95,7 +100,7 @@ const routeList = [
       {
         path: "multi",
         key: "multi",
-        element: <MultiLayout />,
+        element: load(<MultiLayout />),
         meta: {
           title: "多级菜单",
           icon: <IconMenu />,
@@ -104,7 +109,7 @@ const routeList = [
           {
             path: "one",
             key: "multi/one",
-            element: <One />,
+            element: load(<One />),
             meta: {
               title: "一级菜单",
             },
@@ -112,7 +117,7 @@ const routeList = [
           {
             path: "two",
             key: "multi/two",
-            element: <MultiTwoLayout />,
+            element: load(<MultiTwoLayout />),
             meta: {
               title: "二级菜单",
             },
@@ -120,7 +125,7 @@ const routeList = [
               {
                 path: "page-one",
                 key: "multi/two/page-one",
-                element: <PageOne />,
+                element: load(<PageOne />),
                 meta: {
                   title: "2-1菜单",
                 },
@@ -128,7 +133,7 @@ const routeList = [
               {
                 path: "page-two",
                 key: "multi/two/page-two",
-                element: <PageTwo />,
+                element: load(<PageTwo />),
                 meta: {
                   title: "2-2菜单",
                 },
@@ -138,6 +143,10 @@ const routeList = [
         ],
       },
     ],
+  },
+  {
+    path: "*",
+    element: <PageTwo />,
   },
 ];
 

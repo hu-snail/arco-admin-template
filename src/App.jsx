@@ -1,13 +1,12 @@
-import { Suspense } from "react";
-import LoadingComponent from "./compontents/Loading";
 import RenderRouter from "./routers";
+import { BrowserRouter } from "react-router-dom";
 
 export default function App() {
   return (
     <div className="app-container">
-      <Suspense fallback={<LoadingComponent />}>
+      <BrowserRouter>
         <RenderRouter />
-      </Suspense>
+      </BrowserRouter>
     </div>
   );
 }
