@@ -1,4 +1,4 @@
-<div align="center"><img src="https://github.com/hu-snail/arco-admin-template/blob/master/src/assets/logo.svg"/></div>
+<div align="center"><img height="120px" src="https://github.com/hu-snail/arco-admin-template/blob/master/src/assets/logo.svg"/></div>
 
 <h1 align="center">Arco admin template</h1>
 
