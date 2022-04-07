@@ -3,13 +3,13 @@ import { Menu } from "@arco-design/web-react";
 import { SubMenuCompontent } from "../SubMenu";
 import { useNavigate, useLocation } from "react-router-dom";
 import store from "@/store";
-
+import qs from "query-string";
 const MenuItem = Menu.Item;
 
 export default function MenuCompontent() {
   const [routerList, setRouterList] = useState([]);
   const [selectRouter, setSelectRouter] = useState("home");
-
+  const [opneKeys, setOpenKeys] = useState(["comp", "multi"]);
   const navigate = useNavigate();
 
   const { pathname } = useLocation();
@@ -27,9 +27,12 @@ export default function MenuCompontent() {
   return (
     <Menu
       selectedKeys={[selectRouter]}
-      defaultOpenKeys={["multi", "comp"]}
+      openKeys={opneKeys}
       levelIndent={30}
       onClickMenuItem={(key) => navigate(key)}
+      onClickSubMenu={(_, openKeys) => {
+        setOpenKeys(openKeys);
+      }}
       style={{ width: "100%" }}
     >
       {routerList.map((item) => {
