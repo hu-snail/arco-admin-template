@@ -31,7 +31,6 @@
 - `Node`: 版本建议 >= 12.0.0 [下载链接](https://nodejs.org/zh-cn/download/)
 - `Git`: [版本管理工具](https://www.git-scm.com/download)
 - `Visual Studio Code`: [最新版本](https://code.visualstudio.com/Download/)
-  - [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) - vue 开发必备
   - [Eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)- 脚本代码检查
   - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - 代码格式化
   - [Stylelin](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) - css 格式化

@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { Menu } from "@arco-design/web-react";
 import { SubMenuCompontent } from "../SubMenu";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import store from "@/store";
 
 const MenuItem = Menu.Item;
 
 export default function MenuCompontent() {
   const [routerList, setRouterList] = useState([]);
+  const [selectRouter, setSelectRouter] = useState("home");
+
   const navigate = useNavigate();
+
+  const { pathname } = useLocation();
 
   useEffect(() => {
     const { routers } = store.getState().routerReducer;
     setRouterList(routers);
   }, []);
 
+  useEffect(() => {
+    const currentPath = pathname.replace(/\/page\//g, "");
+    setSelectRouter(currentPath);
+  }, [pathname]);
+
   return (
     <Menu
-      defaultOpenKeys={["comp"]}
-      defaultSelectedKeys={["home"]}
+      selectedKeys={[selectRouter]}
+      defaultOpenKeys={["multi", "comp"]}
       levelIndent={30}
       onClickMenuItem={(key) => navigate(key)}
       style={{ width: "100%" }}

@@ -25,7 +25,7 @@ import screenfull from "screenfull";
 export default function NavBarItemCompontent() {
   const [isScreenfull, setScreenfull] = useState(false);
   const [isRefresh, setRefresh] = useState(true);
-  const [mode, setMode] = useState("light");
+  const [theme, setTheme] = useState("light");
 
   const handleChangeScreen = () => {
     if (!screenfull.isEnabled) {
@@ -44,10 +44,10 @@ export default function NavBarItemCompontent() {
     setRefresh(false);
   };
 
-  const handleChangeMode = () => {
-    const modeType = mode === "light" ? "dark" : "light";
-    setMode(modeType);
-    if (modeType === "dark") document.body.setAttribute("arco-theme", "dark");
+  const handleChangetheme = () => {
+    const themeType = theme === "light" ? "dark" : "light";
+    setTheme(themeType);
+    if (themeType === "dark") document.body.setAttribute("arco-theme", "dark");
     else document.body.removeAttribute("arco-theme");
   };
 
@@ -88,12 +88,12 @@ export default function NavBarItemCompontent() {
         <Tooltip
           position="bottom"
           trigger="hover"
-          content={`点击切换为${mode === "light" ? "暗黑" : "亮色"}模式`}
+          content={`点击切换为${theme === "light" ? "暗黑" : "亮色"}模式`}
         >
           <Button
             shape="circle"
-            icon={mode === "light" ? <IconMoonFill /> : <IconSun />}
-            onClick={handleChangeMode}
+            icon={theme === "light" ? <IconMoonFill /> : <IconSun />}
+            onClick={handleChangetheme}
           />
         </Tooltip>
         <Tooltip position="bottom" trigger="hover" content="刷新">
