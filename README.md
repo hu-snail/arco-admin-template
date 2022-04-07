@@ -1,4 +1,4 @@
-<div align="center"><img src="https://gitee.com/hu-snail/arco-admin-template/raw/master/src/assets/logo.svg"/></div>
+<div align="center"><img src="https://github.com/hu-snail/arco-admin-template/blob/master/src/assets/logo.svg"/></div>
 
 <h1 align="center">Arco admin template</h1>
 
@@ -11,10 +11,6 @@
 - 学习`React Hook`相关 Api
 - 掌握`Vite2`插件机制、构建配置
 - 学习 `Ract-router-dom v6`新特性
-
-提示：项目使用<script setup> 新语法编写，会有黄色警告信息，不用理会！！！
-
-在线预览地址：https://hu-snail.gitee.io/vue3-admin-element-template
 
 ## 特性
 
@@ -86,7 +82,7 @@ yarn preview
 
 如果你觉得这个项目对你有帮助，你可以帮作者买一杯咖啡表示支持!
 
-<div style="display: flex; justify-content: space-between;"><img width="48%" src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/wx.jpeg"/><img  width="48%" src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/zfb.jpeg"/></div>
+<div style="display: flex; justify-content: space-between;"><img  width="48%" src="https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/zfb.jpeg"/></div>
 
 ## License
 
