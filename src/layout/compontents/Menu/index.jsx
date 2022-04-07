@@ -3,7 +3,6 @@ import { Menu } from "@arco-design/web-react";
 import { SubMenuCompontent } from "../SubMenu";
 import { useNavigate, useLocation } from "react-router-dom";
 import store from "@/store";
-import qs from "query-string";
 const MenuItem = Menu.Item;
 
 export default function MenuCompontent() {

@@ -2,7 +2,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import store from "@/store";
 
 import { setting } from "@/config/setting";
-const { loginInterception, routesWhiteList } = setting;
+const { loginInterception } = setting;
 
 import { setPermission, getUserInfoHandler } from "@/store/actions/user";
 import { useDispatch } from "react-redux";
@@ -35,9 +35,6 @@ export default function RequireAuth({ children }) {
                 permissions = data;
               })
             );
-            // permissions = await store.dispatch("user/getUserInfo");
-            // permissions = getPermission();
-            // console.log(permissions);
           }
         } catch {}
       }

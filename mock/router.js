@@ -26,6 +26,30 @@ const data = [
     title: "文档",
   },
   {
+    path: "multi",
+    title: "多级菜单",
+    children: [
+      {
+        path: "one",
+        title: "一级菜单",
+      },
+      {
+        path: "two",
+        title: "二级菜单",
+        children: [
+          {
+            path: "page-one",
+            title: "2-1菜单",
+          },
+          {
+            path: "page-two",
+            title: "2-2菜单",
+          },
+        ],
+      },
+    ],
+  },
+  {
     path: "error",
     title: "错误页面",
     children: [
