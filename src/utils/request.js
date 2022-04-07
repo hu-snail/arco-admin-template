@@ -1,3 +1,8 @@
+/**
+ * @description axios请求封装
+ * @author hu-snail 1217437592@qq.com
+ */
+
 import axios from "axios";
 import { Message, Modal } from "@arco-design/web-react";
 import config from "@/config/net.config";

@@ -1,5 +1,10 @@
-import { routers } from "@/routers";
+/**
+ * @description 路由处理
+ * @author hu-snail 1217437592@qq.com
+ */
 
+import { routers } from "@/routers";
+const routeMap = new Map();
 export function getRoutersStore() {
   const localRouterList = JSON.parse(localStorage.getItem("routerList"));
   if (!localRouterList) return [];
@@ -33,6 +38,7 @@ export function filterRouters(localList, reqList) {
       if (localRouterIndex !== -1) {
         const localItem = localList[localRouterIndex];
         const { key, element, meta, path } = localItem;
+        routeMap.set(`${key}`, meta);
         list[index] = { path, key, element, meta };
         // 适配多级菜单 filterRouters
         list[index].children = filterRouters(localItem.children, item.children);
@@ -45,6 +51,7 @@ export function filterRouters(localList, reqList) {
       if (localRouterIndex !== -1) {
         // 获取本地的参数属性存入路由中
         const { key, element, meta, path } = localList[localRouterIndex];
+        routeMap.set(`${key}`, meta);
         return list.push({
           key,
           element,
@@ -63,6 +70,6 @@ export function localList() {
   return routers[pageRouterIndex].children;
 }
 
-export function getCurrentRouter() {
-  const list = localList();
+export function getCurrentRouter(path) {
+  return routeMap.get(path);
 }
