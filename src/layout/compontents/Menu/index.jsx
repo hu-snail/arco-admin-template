@@ -12,15 +12,17 @@ export default function MenuCompontent() {
   const navigate = useNavigate();
 
   const { pathname } = useLocation();
-
+  const local = useLocation();
   useEffect(() => {
     const { routers } = store.getState().routerReducer;
     setRouterList(routers);
   }, []);
 
   useEffect(() => {
-    const currentPath = pathname;
-    setSelectRouter(currentPath);
+    const keys = "/" + pathname.split("/")[1].toString();
+    console.log(keys);
+    // setOpenKeys([...opneKeys, keys]);
+    setSelectRouter(pathname);
   }, [pathname]);
 
   const handlerToRouter = (key) => {
@@ -31,7 +33,7 @@ export default function MenuCompontent() {
     <Menu
       selectedKeys={[selectRouter]}
       openKeys={opneKeys}
-      levelIndent={34}
+      levelIndent={32}
       onClickMenuItem={handlerToRouter}
       onClickSubMenu={(_, openKeys) => {
         setOpenKeys(openKeys);

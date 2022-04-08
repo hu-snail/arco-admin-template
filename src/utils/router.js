@@ -3,12 +3,12 @@
  * @author hu-snail 1217437592@qq.com
  */
 
-import { routers } from "@/routers";
+import { localRouters } from "@/routers";
 const routeMap = new Map();
 export function getRoutersStore() {
   const localRouterList = JSON.parse(localStorage.getItem("routerList"));
   if (!localRouterList) return [];
-  return filterRouters(localList(), localRouterList);
+  return filterRouters(localRouters, localRouterList);
 }
 export function setRoutersStore(routerList) {
   return localStorage.setItem("routerList", JSON.stringify(routerList));
@@ -65,14 +65,6 @@ export function filterRouters(localList, reqList) {
 }
 
 /**
- * @description 获取本地路由
- * @returns routerList
- */
-export function localList() {
-  return routers;
-}
-
-/**
  * @description 获取当前路由
  * @param {*} currentPaths 当前路由层级
  * @returns list
@@ -84,4 +76,13 @@ export function getCurrentRouter(currentPaths) {
     if (routeMap.get(currentKey)) list.push(routeMap.get(currentKey));
   }
   return list;
+}
+
+/**
+ * @description 获取某条本地路由信息
+ * @param {String} key
+ * @returns
+ */
+export function getCurrentLocaRouter(key) {
+  return routeMap.get(key);
 }

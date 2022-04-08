@@ -167,5 +167,5 @@ const RenderRouter = () => {
   return element;
 };
 
-export const routers = routeList;
+export const localRouters = routeList;
 export default RenderRouter;
