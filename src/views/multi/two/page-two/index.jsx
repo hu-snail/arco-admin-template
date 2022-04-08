@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function PageTwo() {
-  return <div>page two</div>;
+  return <div className="app-main-container">page two</div>;
 }

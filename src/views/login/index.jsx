@@ -22,7 +22,7 @@ export default function Login() {
   const handleSubmit = async (form) => {
     await dispatch(loginHandler(form));
     const { accessToken } = store.getState().userReducer;
-    if (accessToken) navigate("/page/home");
+    if (accessToken) navigate("/dashboard/workplace");
   };
   return (
     <div className="login-wrap">

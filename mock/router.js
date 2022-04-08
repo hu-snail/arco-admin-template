@@ -1,10 +1,20 @@
 const data = [
   {
-    path: "home",
-    title: "首页",
+    path: "/dashboard",
+    key: "dashboard",
+    children: [
+      {
+        path: "workplace",
+        key: "workplace",
+      },
+      {
+        path: "resource",
+        key: "resource",
+      },
+    ],
   },
   {
-    path: "comp",
+    path: "/comp",
     title: "组件库",
     children: [
       {
@@ -22,11 +32,7 @@ const data = [
     ],
   },
   {
-    path: "docs",
-    title: "文档",
-  },
-  {
-    path: "multi",
+    path: "/multi",
     title: "多级菜单",
     children: [
       {
@@ -49,20 +55,31 @@ const data = [
       },
     ],
   },
-  {
-    path: "error",
-    title: "错误页面",
-    children: [
-      {
-        path: "404",
-        title: "404页面",
-      },
-      {
-        path: "500",
-        title: "500页面",
-      },
-    ],
-  },
+
+  // {
+  //   path: "home",
+  //   title: "首页",
+  // },
+
+  // {
+  //   path: "docs",
+  //   title: "文档",
+  // },
+
+  // {
+  //   path: "error",
+  //   title: "错误页面",
+  //   children: [
+  //     {
+  //       path: "404",
+  //       title: "404页面",
+  //     },
+  //     {
+  //       path: "500",
+  //       title: "500页面",
+  //     },
+  //   ],
+  // },
 ];
 export default [
   {

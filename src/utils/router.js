@@ -69,9 +69,7 @@ export function filterRouters(localList, reqList) {
  * @returns routerList
  */
 export function localList() {
-  // 读取page部分路由， ！！！根据自己的路由进行修改， 不然会导致不显示
-  const pageRouterIndex = routers.findIndex((item) => item.path === "/page");
-  return routers[pageRouterIndex].children;
+  return routers;
 }
 
 /**
@@ -83,7 +81,7 @@ export function getCurrentRouter(currentPaths) {
   let list = [];
   for (let i = 0; i < currentPaths.length; i++) {
     const currentKey = currentPaths.slice(0, i * 1 + 1).join("/");
-    list.push(routeMap.get(currentKey));
+    if (routeMap.get(currentKey)) list.push(routeMap.get(currentKey));
   }
   return list;
 }

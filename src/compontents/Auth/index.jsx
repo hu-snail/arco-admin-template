@@ -15,7 +15,7 @@ export default function RequireAuth({ children }) {
   // 登录状态
   if (accessToken) {
     // 登录状态到登录页自动呢跳转到首页
-    if (pathname === "/") return <Navigate to="/page/home" replace />;
+    if (pathname === "/") return <Navigate to="/dashboard/workplace" replace />;
     else {
       // 获取权限
       const hasPermissions = permissions && permissions.length;

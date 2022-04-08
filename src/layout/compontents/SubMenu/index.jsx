@@ -8,7 +8,7 @@ export const SubMenuCompontent = (item) => {
     <SubMenu
       key={item.key}
       title={
-        <span>
+        <span className="sub-menu-icon">
           {item.meta.icon ? item.meta.icon : ""}
           {item.meta.title}
         </span>

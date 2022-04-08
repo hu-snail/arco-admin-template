@@ -1,6 +1,7 @@
 <div align="center"><img height="120px" src="https://github.com/hu-snail/arco-admin-template/blob/master/src/assets/logo.svg"/></div>
 
 <h1 align="center">Arco admin template</h1>
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/hu-snail/arco-admin-template/blob/master/LICENSE)
 
 ## 简介
 

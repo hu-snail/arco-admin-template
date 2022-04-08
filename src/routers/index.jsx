@@ -3,8 +3,6 @@ import { useRoutes } from "react-router-dom";
 
 import LayoutPage from "@/layout";
 import EmptyLayout from "@/layout/emptyLayout";
-import CompLayout from "@/views/comp/layout";
-import MultiLayout from "@/views/multi/layout";
 import MultiTwoLayout from "@/views/multi/two/layout";
 import LoadingComponent from "@/compontents/Loading";
 
@@ -13,8 +11,8 @@ const load = (children) => {
 };
 
 import {
-  IconHome,
-  IconCode,
+  IconDashboard,
+  IconCodeSquare,
   IconFile,
   IconMenu,
 } from "@arco-design/web-react/icon";
@@ -28,14 +26,29 @@ const Docs = lazy(() => import("@/views/docs"));
 const One = lazy(() => import("@/views/multi/one"));
 const PageOne = lazy(() => import("@/views/multi/two/page-one"));
 const PageTwo = lazy(() => import("@/views/multi/two/page-two"));
+const Workplace = lazy(() => import("@/views/dashboard/workplace"));
+const Resource = lazy(() => import("@/views/dashboard/resource"));
+
+const requirePublicLayout = () => {
+  return (
+    <RequireAuth>
+      <LayoutPage />
+    </RequireAuth>
+  );
+};
+
+const requireEmptyLayout = () => {
+  return (
+    <RequireAuth>
+      <EmptyLayout />
+    </RequireAuth>
+  );
+};
+
 const routeList = [
   {
     path: "/",
-    element: (
-      <RequireAuth>
-        <EmptyLayout />
-      </RequireAuth>
-    ),
+    element: requireEmptyLayout(),
     children: [
       {
         index: true,
@@ -45,100 +58,99 @@ const routeList = [
     ],
   },
   {
-    path: "/page",
-    element: (
-      <RequireAuth>
-        <LayoutPage />
-      </RequireAuth>
-    ),
+    path: "/dashboard",
+    key: "/dashboard",
+    element: requirePublicLayout(),
+    meta: {
+      title: "仪表盘",
+      icon: <IconDashboard />,
+    },
     children: [
       {
-        path: "home",
-        key: "home",
-        element: load(<Home />),
+        path: "workplace",
+        key: "/dashboard/workplace",
+        element: load(<Workplace />),
         meta: {
-          icon: <IconHome />,
-          title: "首页",
+          title: "工作台",
         },
       },
       {
-        path: "comp",
-        key: "comp",
-        element: load(<CompLayout />),
+        path: "resource",
+        key: "/dashboard/resource",
+        element: load(<Resource />),
         meta: {
-          icon: <IconCode />,
-          title: "组件",
+          title: "资源中心",
+        },
+      },
+    ],
+  },
+  {
+    path: "/comp",
+    key: "/comp",
+    element: requirePublicLayout(),
+    meta: {
+      title: "组件库",
+      icon: <IconCodeSquare />,
+    },
+    children: [
+      {
+        path: "btn",
+        key: "/comp/btn",
+        element: load(<Btn />),
+        meta: {
+          title: "按钮",
+        },
+      },
+      {
+        path: "form",
+        key: "/comp/form",
+        element: load(<Form />),
+        meta: {
+          title: "表单",
+        },
+      },
+    ],
+  },
+  {
+    path: "/multi",
+    key: "/multi",
+    element: requirePublicLayout(),
+    meta: {
+      title: "多级菜单",
+      icon: <IconMenu />,
+    },
+    children: [
+      {
+        path: "one",
+        key: "/multi/one",
+        element: load(<One />),
+        meta: {
+          title: "一级菜单",
+        },
+      },
+      {
+        path: "two",
+        key: "/multi/two",
+        element: load(<MultiTwoLayout />),
+        meta: {
+          title: "二级菜单",
         },
         children: [
           {
-            path: "btn",
-            key: "comp/btn",
-            element: load(<Btn />),
+            path: "page-one",
+            key: "/multi/two/page-one",
+            element: load(<PageOne />),
             meta: {
-              title: "按钮",
+              title: "2-1菜单",
             },
           },
           {
-            path: "form",
-            key: "comp/form",
-            element: load(<Form />),
+            path: "page-two",
+            key: "/multi/two/page-two",
+            element: load(<PageTwo />),
             meta: {
-              title: "表单",
+              title: "2-2菜单",
             },
-          },
-        ],
-      },
-      {
-        path: "docs",
-        key: "docs",
-        element: load(<Docs />),
-        meta: {
-          title: "文档",
-          icon: <IconFile />,
-        },
-      },
-      {
-        path: "multi",
-        key: "multi",
-        element: load(<MultiLayout />),
-        meta: {
-          title: "多级菜单",
-          icon: <IconMenu />,
-        },
-        children: [
-          {
-            path: "one",
-            key: "multi/one",
-            element: load(<One />),
-            meta: {
-              title: "一级菜单",
-            },
-          },
-          {
-            path: "two",
-            key: "multi/two",
-            element: load(<MultiTwoLayout />),
-            meta: {
-              title: "二级菜单",
-            },
-            children: [
-              {
-                path: "page-one",
-                key: "multi/two/page-one",
-                element: load(<PageOne />),
-                meta: {
-                  title: "2-1菜单",
-                },
-              },
-              {
-                path: "page-two",
-                key: "multi/two/page-two",
-                element: load(<PageTwo />),
-                meta: {
-                  title: "2-2菜单",
-                },
-              },
-            ],
           },
         ],
       },

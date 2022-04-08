@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function index() {
-  return <div>one </div>;
+  return <div className="app-main-container">one </div>;
 }

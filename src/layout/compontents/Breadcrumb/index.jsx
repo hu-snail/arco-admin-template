@@ -8,7 +8,7 @@ export default function BreadcrumbCompontent() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const currentPaths = pathname.replace(/\/page\//g, "").split("/");
+    const currentPaths = pathname.split("/");
     const list = getCurrentRouter(currentPaths);
     setBreadCrumbs(list);
   }, [pathname]);

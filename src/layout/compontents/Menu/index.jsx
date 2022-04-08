@@ -8,7 +8,7 @@ const MenuItem = Menu.Item;
 export default function MenuCompontent() {
   const [routerList, setRouterList] = useState([]);
   const [selectRouter, setSelectRouter] = useState("home");
-  const [opneKeys, setOpenKeys] = useState(["comp", "multi"]);
+  const [opneKeys, setOpenKeys] = useState(["/dashboard", "/multi"]);
   const navigate = useNavigate();
 
   const { pathname } = useLocation();
@@ -19,16 +19,20 @@ export default function MenuCompontent() {
   }, []);
 
   useEffect(() => {
-    const currentPath = pathname.replace(/\/page\//g, "");
+    const currentPath = pathname;
     setSelectRouter(currentPath);
   }, [pathname]);
+
+  const handlerToRouter = (key) => {
+    navigate("../" + key);
+  };
 
   return (
     <Menu
       selectedKeys={[selectRouter]}
       openKeys={opneKeys}
-      levelIndent={30}
-      onClickMenuItem={(key) => navigate(key)}
+      levelIndent={34}
+      onClickMenuItem={handlerToRouter}
       onClickSubMenu={(_, openKeys) => {
         setOpenKeys(openKeys);
       }}
