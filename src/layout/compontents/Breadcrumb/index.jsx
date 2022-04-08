@@ -9,11 +9,7 @@ export default function BreadcrumbCompontent() {
 
   useEffect(() => {
     const currentPaths = pathname.replace(/\/page\//g, "").split("/");
-    let list = [];
-    for (let i = 0; i < currentPaths.length; i++) {
-      const currentKey = currentPaths.slice(0, i * 1 + 1).join("/");
-      list.push(getCurrentRouter(currentKey));
-    }
+    const list = getCurrentRouter(currentPaths);
     setBreadCrumbs(list);
   }, [pathname]);
   return (
@@ -21,7 +17,16 @@ export default function BreadcrumbCompontent() {
       {breadcrumbs.map((item, index) => {
         return (
           <Breadcrumb.Item key={index}>
-            {!index ? item.icon : ""}
+            {!index ? (
+              <div className="breadcrumb-icon">
+                {item.icon}{" "}
+                <span className="arco-breadcrumb-item-separator icon-separator">
+                  /
+                </span>{" "}
+              </div>
+            ) : (
+              ""
+            )}
             {item.title}
           </Breadcrumb.Item>
         );
