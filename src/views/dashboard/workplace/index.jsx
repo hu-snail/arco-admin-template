@@ -10,6 +10,8 @@ import {
   Link,
   Button,
   Timeline,
+  Comment,
+  List,
 } from "@arco-design/web-react";
 import style from "./style/index.module.less";
 import {
@@ -21,6 +23,11 @@ import {
   IconArrowRise,
   IconArrowFall,
   IconExclamationCircleFill,
+  IconHeart,
+  IconMessage,
+  IconHeartFill,
+  IconStarFill,
+  IconStar,
 } from "@arco-design/web-react/icon";
 
 // 数据源
@@ -151,6 +158,41 @@ const { Row, Col } = Grid;
 const TimelineItem = Timeline.Item;
 
 export default function WorkplaceCompontent() {
+  const [likes, setLikes] = React.useState([]);
+  const [stars, setStars] = React.useState([]);
+  const data2 = [
+    {
+      id: 1,
+      author: "张 三",
+      like: 13,
+      star: 3,
+      avatar:
+        "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/e278888093bef8910e829486fb45dd69.png~tplv-uwbnlip3yd-webp.webp",
+      content: "感谢作者开源！非常的好用，值得推荐！！！",
+      datetime: "1 小时前",
+    },
+    {
+      id: 2,
+      author: "李 四",
+      like: 12,
+      star: 1,
+      avatar:
+        "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/9eeb1800d9b78349b24682c3518ac4a3.png~tplv-uwbnlip3yd-webp.webp",
+      content: "值得推荐！！！赶快去试试",
+      datetime: "2 hour",
+    },
+    {
+      id: 3,
+      author: "Hu-snail",
+      like: 12,
+      star: 1,
+      avatar:
+        "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/8361eeb82904210b4f55fab888fe8416.png~tplv-uwbnlip3yd-webp.webp",
+      content: "UI很好看，很用心的开源👍",
+      datetime: "2 hour",
+    },
+  ];
+
   return (
     <Fragment>
       <Row gutter={16}>
@@ -183,44 +225,86 @@ export default function WorkplaceCompontent() {
           <Row gutter={16} style={{ marginTop: "16px" }}>
             <Col span={12}>
               <Card bordered={false}>
+                <Typography.Title heading={6}>更新日志</Typography.Title>
+
                 <Timeline>
-                  <TimelineItem label="2017-03-10" dotColor="#00B42A">
-                    The first milestone
+                  <TimelineItem label="2022-03-27" dotColor="#00B42A">
+                    Arco Admin Template 框架搭建完善
                   </TimelineItem>
-                  <TimelineItem label="2018-05-22">
-                    The second milestone
+                  <TimelineItem label="2022-03-28">
+                    左侧菜单优化数据结构
                   </TimelineItem>
-                  <TimelineItem label="2020-06-22" dotColor="#F53F3F">
-                    The third milestone
-                    <IconExclamationCircleFill
-                      style={{ color: "F53F3F", fontSize: 12, marginLeft: 4 }}
-                    />
+                  <TimelineItem label="2022-03-29" dotColor="#F53F3F">
+                    主题内容布局调整
                   </TimelineItem>
-                  <TimelineItem label="2020-09-30" dotColor="#C9CDD4">
-                    The fourth milestone
+                  <TimelineItem label="2022-04-1" dotColor="#C9CDD4">
+                    Mock数据更新
                   </TimelineItem>
                 </Timeline>
               </Card>
             </Col>
             <Col span={12}>
               <Card bordered={false}>
-                <Timeline>
-                  <TimelineItem label="2017-03-10" dotColor="#00B42A">
-                    The first milestone
-                  </TimelineItem>
-                  <TimelineItem label="2018-05-22">
-                    The second milestone
-                  </TimelineItem>
-                  <TimelineItem label="2020-06-22" dotColor="#F53F3F">
-                    The third milestone
-                    <IconExclamationCircleFill
-                      style={{ color: "F53F3F", fontSize: 12, marginLeft: 4 }}
-                    />
-                  </TimelineItem>
-                  <TimelineItem label="2020-09-30" dotColor="#C9CDD4">
-                    The fourth milestone
-                  </TimelineItem>
-                </Timeline>
+                <Typography.Title heading={6}>评论列表</Typography.Title>
+
+                <List bordered={false}>
+                  {data2.map((item, index) => {
+                    const like = likes.indexOf(item.id) > -1;
+                    const star = stars.indexOf(item.id) > -1;
+
+                    return (
+                      <List.Item key={item.id}>
+                        <Comment
+                          author={item.author}
+                          avatar={item.avatar}
+                          content={item.content}
+                          datetime={item.datetime}
+                          actions={[
+                            <span
+                              className="custom-comment-action"
+                              key="heart"
+                              onClick={() =>
+                                setLikes(
+                                  like
+                                    ? likes.filter((x) => x !== item.id)
+                                    : [...likes, item.id]
+                                )
+                              }
+                            >
+                              {like ? (
+                                <IconHeartFill style={{ color: "#f53f3f" }} />
+                              ) : (
+                                <IconHeart />
+                              )}{" "}
+                              {item.like + (like ? 1 : 0)}
+                            </span>,
+                            <span
+                              className="custom-comment-action"
+                              key="star"
+                              onClick={() =>
+                                setStars(
+                                  star
+                                    ? stars.filter((x) => x !== item.id)
+                                    : [...stars, item.id]
+                                )
+                              }
+                            >
+                              {star ? (
+                                <IconStarFill style={{ color: "#ffb400" }} />
+                              ) : (
+                                <IconStar />
+                              )}{" "}
+                              {item.star + (star ? 1 : 0)}
+                            </span>,
+                            <span className="custom-comment-action" key="reply">
+                              <IconMessage /> Reply
+                            </span>,
+                          ]}
+                        />
+                      </List.Item>
+                    );
+                  })}
+                </List>
               </Card>
             </Col>
           </Row>
