@@ -198,12 +198,9 @@ export default function WorkplaceCompontent() {
       <Row gutter={16}>
         <Col xs={24} sm={24} md={18}>
           <Card bordered={false}>
-            <Typography.Title heading={5}>欢迎回来，Hu-snail</Typography.Title>
-
-            <Divider />
-
             <div className={style.ctw}>
               <Typography.Paragraph
+                heading={6}
                 className={style["chart-title"]}
                 style={{ marginBottom: 0 }}
               >
