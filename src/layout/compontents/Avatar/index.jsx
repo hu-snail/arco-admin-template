@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Menu, Avatar, Dropdown } from "@arco-design/web-react";
-import { IconUser, IconExport } from "@arco-design/web-react/icon";
+import { IconUser, IconPoweroff } from "@arco-design/web-react/icon";
 import { logout } from "@/store/actions/user";
 
 export default function AvatarCompontent() {
@@ -26,7 +26,7 @@ export default function AvatarCompontent() {
             个人信息
           </Menu.Item>
           <Menu.Item key="logout">
-            <IconExport style={iconStyle} />
+            <IconPoweroff style={iconStyle} />
             退出登录
           </Menu.Item>
         </Menu>

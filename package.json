@@ -15,6 +15,7 @@
   "dependencies": {
     "@arco-design/web-react": "^2.31.2",
     "axios": "^0.26.1",
+    "bizcharts": "^4.1.15",
     "js-cookie": "^3.0.1",
     "mockjs": "^1.1.0",
     "nprogress": "^0.2.0",
