@@ -8,7 +8,6 @@ import { useDispatch } from "react-redux";
 // store
 import { loginHandler } from "@/store/actions/user";
 
-const FormItem = Form.Item;
 import "./login.less";
 import store from "@/store";
 
@@ -40,13 +39,13 @@ export default function Login() {
             onSubmit={handleSubmit}
           >
             <Space direction="vertical" size={10}>
-              <FormItem
+              <Form.Item
                 field="username"
                 rules={[{ required: true, message: "用户名不能为空" }]}
               >
                 <Input prefix={<IconUser />} placeholder="请输入用户名" />
-              </FormItem>
-              <FormItem
+              </Form.Item>
+              <Form.Item
                 field="password"
                 rules={[{ required: true, message: "密码不能为空" }]}
               >
@@ -54,16 +53,16 @@ export default function Login() {
                   prefix={<IconSafe />}
                   placeholder="请输入密码"
                 />
-              </FormItem>
-              <FormItem className="forget-pwd">
+              </Form.Item>
+              <Form.Item className="forget-pwd">
                 <Checkbox>记住密码</Checkbox>
                 <Button type="text">忘记密码</Button>
-              </FormItem>
-              <FormItem>
+              </Form.Item>
+              <Form.Item>
                 <Button type="primary" htmlType="submit" long>
                   登 录
                 </Button>
-              </FormItem>
+              </Form.Item>
             </Space>
           </Form>
         </div>

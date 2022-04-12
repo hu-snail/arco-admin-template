@@ -32,6 +32,8 @@ export default defineConfig({
   },
   server: {
     port: 3001,
+    host: "0.0.0.0",
+    open: true,
     // proxy: {
     //   "/api": {
     //     target: "https://624659e7e3450d61b0fd6ba2.mockapi.io/api/v1",

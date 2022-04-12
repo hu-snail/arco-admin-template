@@ -12,6 +12,7 @@ import {
   Timeline,
   Comment,
   List,
+  Carousel,
 } from "@arco-design/web-react";
 import style from "./style/index.module.less";
 import {
@@ -29,6 +30,13 @@ import {
   IconStarFill,
   IconStar,
 } from "@arco-design/web-react/icon";
+
+const imageSrc = [
+  "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/cd7a1aaea8e1c5e3d26fe2591e561798.png~tplv-uwbnlip3yd-webp.webp",
+  "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6480dbc69be1b5de95010289787d64f1.png~tplv-uwbnlip3yd-webp.webp",
+  "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/0265a04fddbd77a19602a15d9d55d797.png~tplv-uwbnlip3yd-webp.webp",
+  "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/24e0dd27418d2291b65db1b21aa62254.png~tplv-uwbnlip3yd-webp.webp",
+];
 
 // 数据源
 const data = [
@@ -241,7 +249,7 @@ export default function WorkplaceCompontent() {
               </Card>
             </Col>
             <Col span={12}>
-              <Card bordered={false}>
+              <Card bordered={false} style={{ height: "384px" }}>
                 <Typography.Title heading={6}>评论列表</Typography.Title>
 
                 <List bordered={false}>
@@ -352,6 +360,26 @@ export default function WorkplaceCompontent() {
                 </div>
               </div>
             </Card>
+            <Carousel
+              indicatorType="line"
+              style={{
+                width: "100%",
+                height: 145,
+              }}
+            >
+              {imageSrc.map((src, index) => (
+                <div key={index}>
+                  <img
+                    src={src}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </div>
+              ))}
+            </Carousel>
+
             <Card bordered={false}>
               <Typography.Title heading={6}>用户数据</Typography.Title>
               <Divider />
