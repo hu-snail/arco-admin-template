@@ -1,62 +1,59 @@
-
 .login-wrap{
-    display: flex;
-    width: 100%;
     height: 100vh;
+    width: 100%;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    background-image: url('@/assets/login-bg.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: bottom;
     background-color: @dark-bg-color;
-    .logo-bg-img{
-        width: 50%;
-        height: 400px;
-        background-image: url('@/assets/login.png');
-        background-repeat: no-repeat;
-        background-position: 100%;
-        background-size: auto 100%;
+    .login-text{
+        color: #fff;
     }
-   
-    .login-bg{
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 50vw;
-        height: 100vh;
-        align-items: center;
-        justify-content: center;
-        background-image: url('@/assets/login-bg-dark.svg');
-        background-repeat: no-repeat;
-        background-position: 100%;
-        background-size: auto 100%;
+}
+.login-left{
+    margin-top: 12vh;
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .btn{
+        margin-top: 16px;
     }
-    @media (max-width: 1024px) {
-        .login-bg{
-            display: none;
+}
+.login-form{
+    margin-top: 12vh;
+    width: 50vw;
+    height: 100vh;
+    .form-warp {
+        width: 320px;
+        padding: 2rem 3rem;
+        margin: auto;
+        color: #fff;
+        background-color: #fff;
+        border-radius: 8px;
+        .arco-form{
+            margin-top: 40px;
         }
     }
+    .forget-pwd .arco-form-item-control-children{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 600px) {
     .login-form{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 50vw;
-        height: 100vh;
-        .form-warp {
-          width: 400px;
-          padding: 1rem 3rem 3rem 3rem;
-          margin: auto;
-          background-color: #fff;
-          border-radius: 8px;
-        }
-        .forget-pwd .arco-form-item-control-children{
-            display: flex;
-            justify-content: space-between;
+        width: 100%;
+        margin: 10vh 15px;
+
+        .form-warp{
+            width: auto;
         }
     }
-    @media (max-width: 600px) {
-        .login-form{
-            width: 100%;
-            margin: 0 15px;
-            .form-warp{
-                width: 100%;
-            }
-        }
+    .login-left{
+        display: none;
     }
 }

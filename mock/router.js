@@ -55,31 +55,20 @@ const data = [
       },
     ],
   },
-
-  // {
-  //   path: "home",
-  //   title: "首页",
-  // },
-
-  // {
-  //   path: "docs",
-  //   title: "文档",
-  // },
-
-  // {
-  //   path: "error",
-  //   title: "错误页面",
-  //   children: [
-  //     {
-  //       path: "404",
-  //       title: "404页面",
-  //     },
-  //     {
-  //       path: "500",
-  //       title: "500页面",
-  //     },
-  //   ],
-  // },
+  {
+    path: "/error",
+    title: "错误页面",
+    children: [
+      {
+        path: "404",
+        title: "404页面",
+      },
+      {
+        path: "500",
+        title: "500页面",
+      },
+    ],
+  },
 ];
 export default [
   {

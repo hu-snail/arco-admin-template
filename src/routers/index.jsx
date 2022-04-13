@@ -13,7 +13,7 @@ const load = (children) => {
 import {
   IconDashboard,
   IconCodeSquare,
-  IconFile,
+  IconBug,
   IconMenu,
 } from "@arco-design/web-react/icon";
 import RequireAuth from "@/compontents/Auth";
@@ -28,7 +28,8 @@ const PageOne = lazy(() => import("@/views/multi/two/page-one"));
 const PageTwo = lazy(() => import("@/views/multi/two/page-two"));
 const Workplace = lazy(() => import("@/views/dashboard/workplace"));
 const Resource = lazy(() => import("@/views/dashboard/resource"));
-
+const Error404 = lazy(() => import("@/views/error/404"));
+const Error500 = lazy(() => import("@/views/error/500"));
 const requirePublicLayout = () => {
   return (
     <RequireAuth>
@@ -153,6 +154,33 @@ const routeList = [
             },
           },
         ],
+      },
+    ],
+  },
+  {
+    path: "/error",
+    key: "/error",
+    element: requirePublicLayout(),
+    meta: {
+      title: "错误页面",
+      icon: <IconBug />,
+    },
+    children: [
+      {
+        path: "404",
+        key: "/error/404",
+        element: load(<Error404 />),
+        meta: {
+          title: "404页面",
+        },
+      },
+      {
+        path: "500",
+        key: "/error/500",
+        element: load(<Error500 />),
+        meta: {
+          title: "500页面",
+        },
       },
     ],
   },

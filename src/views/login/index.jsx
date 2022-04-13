@@ -1,5 +1,19 @@
-import { Form, Input, Button, Space, Checkbox } from "@arco-design/web-react";
-import { IconUser, IconSafe } from "@arco-design/web-react/icon";
+import {
+  Form,
+  Grid,
+  Input,
+  Button,
+  Space,
+  Checkbox,
+  Typography,
+} from "@arco-design/web-react";
+import {
+  IconUser,
+  IconSafe,
+  IconGithub,
+  IconWechat,
+  IconFile,
+} from "@arco-design/web-react/icon";
 
 // 路由
 import { useNavigate } from "react-router-dom";
@@ -10,6 +24,9 @@ import { loginHandler } from "@/store/actions/user";
 
 import "./login.less";
 import store from "@/store";
+
+const Row = Grid.Row;
+const Col = Grid.Col;
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -25,12 +42,36 @@ export default function Login() {
   };
   return (
     <div className="login-wrap">
-      <div className="login-bg">
-        <div className="logo-bg-img"></div>
+      <div className="login-left">
+        <div className="login-left-content">
+          <Typography.Title className="login-text">
+            ARCO ADMIN TEMPLATE
+          </Typography.Title>
+          <Typography.Title className="login-text" heading={5}>
+            开箱即用中后台管理系统
+          </Typography.Title>
+          <Typography.Text className="login-text">
+            点击右侧登录即可体验
+          </Typography.Text>
+          <div className="btn">
+            <Space size={16}>
+              <Button shape="round" type="primary" icon={<IconGithub />}>
+                Github
+              </Button>
+              <Button shape="round" type="primary" icon={<IconFile />}>
+                文档
+              </Button>
+              <Button shape="round" type="primary" icon={<IconWechat />}>
+                微信交流群
+              </Button>
+            </Space>
+          </div>
+        </div>
       </div>
       <div className="login-form">
         <div className="form-warp">
-          <h2 className="form-title">登 录</h2>
+          <Typography.Title>您好！</Typography.Title>
+          <Typography.Title heading={5}>欢迎登录Arco Admin</Typography.Title>
           <Form
             form={form}
             wrapperCol={{
@@ -59,7 +100,7 @@ export default function Login() {
                 <Button type="text">忘记密码</Button>
               </Form.Item>
               <Form.Item>
-                <Button type="primary" htmlType="submit" long>
+                <Button type="primary" shape="round" htmlType="submit" long>
                   登 录
                 </Button>
               </Form.Item>
@@ -67,6 +108,10 @@ export default function Login() {
           </Form>
         </div>
       </div>
+      {/* <div className="login-bg">
+        <div className="logo-bg-img"></div>
+      </div>
+      */}
     </div>
   );
 }
