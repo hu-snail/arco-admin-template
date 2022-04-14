@@ -84,7 +84,7 @@ const list = [
     title: "React Router V6",
     desc: "React 的声明式路由",
     url: "https://github.com/remix-run/react-router",
-    logo: "router-logo.svg",
+    logo: "router-logo.png",
   },
 ];
 
