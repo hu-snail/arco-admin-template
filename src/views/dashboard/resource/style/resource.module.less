@@ -11,7 +11,12 @@
     background-color: var(--color-fill-2);
     border-radius: 4px;
     width: 180px;
-    // box-shadow: 0 0 12px 0 hsl(0deg 0% 87% / 50%);
+    cursor: pointer;
+    transition: box-shadow 1s;
+    &:hover{
+        background-color: var(--primary--1);
+        box-shadow: 0 0 12px 0 hsl(0deg 0% 87% / 50%);
+    }
     &-head {
         display: flex;
         align-items: center;

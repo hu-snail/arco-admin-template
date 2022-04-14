@@ -15,12 +15,14 @@ import styles from "./style/resource.module.less";
 
 export default function ResourceCompontent() {
   const [selectedList, setSelectedList] = useState([]);
+  const [imgPrefix, setImgPrefix] = useState(null);
   useEffect(() => {
     onGetResouceList();
   }, []);
 
   const onGetResouceList = () => {
     getResouceList().then((res) => {
+      setImgPrefix(res.data.prefix);
       setSelectedList(res.data.list);
     });
   };
@@ -49,7 +51,11 @@ export default function ResourceCompontent() {
                     <div key={index} className={styles["card-item"]}>
                       <div className={styles["card-item-head"]}>
                         <div className={styles["card-item-head-logo"]}>
-                          <img src={item.logo} width="100%" alt="" />
+                          <img
+                            src={imgPrefix + item.logo}
+                            width="100%"
+                            alt=""
+                          />
                         </div>
                         <div className={styles["card-item-head-title"]}>
                           {item.title}

@@ -1,5 +1,5 @@
 const prefix =
-  "https://gitee.com/hu-snail/vue3-admin-element-template/raw/master/src/assets/";
+  "https://raw.githubusercontent.com/hu-snail/arco-admin-template/master/src/assets/logo/";
 
 const list = [
   {
@@ -67,6 +67,24 @@ const list = [
     desc: "A Predictable State Container for JS Apps",
     url: "https://vueuse.org/",
     logo: "redux-logo.svg",
+  },
+  {
+    title: "Mobx",
+    desc: "简单、可扩展的状态管理",
+    url: "https://github.com/mobxjs/mobx",
+    logo: "mobx-logo.png",
+  },
+  {
+    title: "React Query",
+    desc: "在您的 React 和 React Native 应用程序中获取、缓存和更新数据，而无需触及任何“全局状态”",
+    url: "https://github.com/pmndrs/zustand",
+    logo: "react-query-logo.svg",
+  },
+  {
+    title: "React Router V6",
+    desc: "React 的声明式路由",
+    url: "https://github.com/remix-run/react-router",
+    logo: "router-logo.svg",
   },
 ];
 
