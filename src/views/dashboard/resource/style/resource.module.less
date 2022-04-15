@@ -1,5 +1,5 @@
 .page-header {
-   background-color: var(--color-bg-2)
+   background-color: var(--color-bg-2);
 }
 
 .card-box {
@@ -10,12 +10,12 @@
     padding: 10px;
     background-color: var(--color-fill-2);
     border-radius: 4px;
-    width: 180px;
+    width: 150px;
     cursor: pointer;
-    transition: box-shadow 1s;
+    transition:  background-color 1s;
     &:hover{
         background-color: var(--primary--1);
-        box-shadow: 0 0 12px 0 hsl(0deg 0% 87% / 50%);
+        // box-shadow: 0 0 12px 0 hsl(0deg 0% 87% / 50%);
     }
     &-head {
         display: flex;
@@ -39,4 +39,70 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
+}
+
+.community-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--color-fill-2);
+    border-radius: 4px;
+    cursor: pointer;
+    transition:  background-color 1s;
+    &:hover{
+        background-color: var(--primary--1);
+        // box-shadow: 0 0 12px 0 hsl(0deg 0% 87% / 50%);
+    }
+    &-logo {
+        width: 20px;
+        height: 20px;
+    }
+    &-title {
+        padding-left: 10px;
+        flex: 1;
+    }
+}
+
+.team-card-item {
+    padding: 10px;
+    background-color: var(--color-fill-2);
+    border-radius: 4px;
+    width: 135px;
+    cursor: pointer;
+    transition:  background-color .5s;
+    &:hover{
+        background-color: var(--primary--1);
+        // box-shadow: 0 0 12px 0 hsl(0deg 0% 87% / 50%);
+    }
+    &-head {
+        display: flex;
+        align-items: center;
+        &-logo {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid  var(--color-bg-2);
+           img{
+               height: 100%;
+           }
+        }
+        &-title{
+            padding-left: 5px;
+            font-size: 14px;
+            font-weight: 450;
+            color: var(--color-text-2);
+        }
+    }
+    &-desc {
+        margin-top: 5px;
+        font-size: 12px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+.space-width {
+    width: 100%;
 }

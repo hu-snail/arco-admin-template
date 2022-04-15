@@ -27,7 +27,7 @@ const list = [
     logo: "semi-logo.png",
   },
   {
-    title: "Element React",
+    title: "Element UI",
     desc: "饿了么出品的 React 组件库",
     url: "https://elemefe.github.io/element-react/#/zh-CN/quick-start",
     logo: "element-logo.svg",
@@ -39,7 +39,7 @@ const list = [
     logo: "vite-logo.svg",
   },
   {
-    title: "Create React App",
+    title: "Create App",
     desc: "让你仅通过一行命令，即可构建现代化的 Web 应用",
     url: "https://create-react-app.bootcss.com/",
     logo: "create-app-logo.svg",
@@ -81,10 +81,127 @@ const list = [
     logo: "react-query-logo.svg",
   },
   {
-    title: "React Router V6",
+    title: "React Router",
     desc: "React 的声明式路由",
     url: "https://github.com/remix-run/react-router",
     logo: "router-logo.png",
+  },
+];
+
+const communityList = [
+  {
+    title: "掘金",
+    desc: "一个帮助开发者成长的社区",
+    url: "https://juejin.cn/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/juejin.png",
+  },
+  {
+    title: "SF思否",
+    desc: "思否是中国领先的开发者技术社区",
+    url: "https://segmentfault.com/",
+    logo: "http://coderutil.oss-cn-beijing.aliyuncs.com/bbs-image/file_87feae864e274579824d7398a588e042.png",
+  },
+  {
+    title: "CSDN",
+    desc: "中文最大的技术社区",
+    url: "https://www.csdn.net/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/csdn.png",
+  },
+  {
+    title: "开源中国",
+    desc: "目前国内最大的开源技术社区",
+    url: "https://www.oschina.net/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/oschina.ico",
+  },
+  {
+    title: "StackOverflow",
+    desc: "全球最大的技术问答社区",
+    url: "https://stackoverflow.com/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/stackoverflow.svg",
+  },
+  {
+    title: "菜鸟教程",
+    desc: "学的不仅是技术，更是梦想",
+    url: "https://www.runoob.com/",
+    logo: "https://static.runoob.com/images/favicon.ico",
+  },
+];
+
+const teamList = [
+  {
+    title: "阿里技术团队",
+    desc: "来源：CSDN",
+    url: "https://blog.csdn.net/Taobaojishu",
+    logo: "http://coderutil.oss-cn-beijing.aliyuncs.com/bbs-image/file_b2f6357dbd094a31a9f48531d0dbfdcc.png",
+  },
+  {
+    title: "字节跳动团队",
+    desc: "来源：CSDN",
+    url: "https://blog.csdn.net/ByteDanceTech",
+    logo: "http://coderutil.oss-cn-beijing.aliyuncs.com/bbs-image/file_45125bd292ef430fbb9e4cdafd76b1f3.png",
+  },
+  {
+    title: "腾讯技术工程",
+    desc: "来源：CSDN",
+    url: "https://blog.csdn.net/Tencent_TEG",
+    logo: "http://coderutil.oss-cn-beijing.aliyuncs.com/bbs-image/file_5fb68f6c152f4559885015420a822a51.png",
+  },
+  {
+    title: "美团技术团队",
+    desc: "来源：meituan",
+    url: "https://tech.meituan.com/",
+    logo: "http://coderutil.oss-cn-beijing.aliyuncs.com/bbs-image/file_63395250de7a43c8a42223e723b45c25.png",
+  },
+  {
+    title: "饿了么前端",
+    desc: "来源：知乎",
+    url: "https://zhuanlan.zhihu.com/ElemeFE",
+    logo: "http://coderutil.oss-cn-beijing.aliyuncs.com/bbs-image/file_d2c05dac268c46e989de3d62399886b7.png",
+  },
+  {
+    title: "Facebook",
+    desc: "来源：Facebook",
+    url: "https://engineering.fb.com/",
+    logo: "http://coderutil.oss-cn-beijing.aliyuncs.com/bbs-image/file_a5f72c028f114584b302954b036c40d9.png",
+  },
+];
+
+const studyList = [
+  {
+    title: "GitHub",
+    desc: "世界最大的开源代码共享社区",
+    url: "https://github.com/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/github.svg",
+  },
+  {
+    title: "Gitchat",
+    desc: "IT知识分享平台",
+    url: "https://gitbook.cn/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/gitchat.png",
+  },
+  {
+    title: "Gitee",
+    desc: "中国最大的开源代码共享社区",
+    url: "https://gitee.com/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/gitee.png",
+  },
+  {
+    title: "慕课网",
+    desc: "程序员的梦工厂",
+    url: "https://www.imooc.com/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/imooc.png",
+  },
+  {
+    title: "掘金",
+    desc: "一个帮助开发者成长的社区",
+    url: "https://juejin.cn/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/juejin.png",
+  },
+  {
+    title: "CSDN",
+    desc: "中文最大的技术社区",
+    url: "https://www.csdn.net/",
+    logo: "https://qiqihao.oss-cn-beijing.aliyuncs.com/static/coderutil/icon/csdn.png",
   },
 ];
 
@@ -96,7 +213,7 @@ export default [
       return {
         code: 200,
         msg: "success",
-        data: { list, prefix },
+        data: { list, prefix, communityList, teamList, studyList },
       };
     },
   },
