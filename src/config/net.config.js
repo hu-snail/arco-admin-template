@@ -2,7 +2,7 @@ export default {
   //  axios 基础url地址
   baseURL:
     process.env.NODE_ENV === "development"
-      ? "http://192.168.2.6:3001/api"
+      ? "http://localhost:3001/api"
       : "/api",
   // 操作正常返回的code,根据后端第一
   successCode: [200, 0],

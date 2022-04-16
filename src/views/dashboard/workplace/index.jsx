@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Chart, LineAdvance } from "bizcharts";
 import {
   Space,
@@ -22,8 +22,6 @@ import {
   IconGithub,
   IconFile,
   IconArrowRise,
-  IconArrowFall,
-  IconExclamationCircleFill,
   IconHeart,
   IconMessage,
   IconHeartFill,
@@ -31,175 +29,30 @@ import {
   IconStar,
 } from "@arco-design/web-react/icon";
 
-const imageSrc = [
-  "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/cd7a1aaea8e1c5e3d26fe2591e561798.png~tplv-uwbnlip3yd-webp.webp",
-  "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6480dbc69be1b5de95010289787d64f1.png~tplv-uwbnlip3yd-webp.webp",
-  "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/0265a04fddbd77a19602a15d9d55d797.png~tplv-uwbnlip3yd-webp.webp",
-  "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/24e0dd27418d2291b65db1b21aa62254.png~tplv-uwbnlip3yd-webp.webp",
-];
-
-// 数据源
-const data = [
-  {
-    month: "Jan",
-    city: "Tokyo",
-    temperature: 7,
-  },
-  {
-    month: "Jan",
-    city: "London",
-    temperature: 3.9,
-  },
-  {
-    month: "Feb",
-    city: "Tokyo",
-    temperature: 13,
-  },
-  {
-    month: "Feb",
-    city: "London",
-    temperature: 4.2,
-  },
-  {
-    month: "Mar",
-    city: "Tokyo",
-    temperature: 16.5,
-  },
-  {
-    month: "Mar",
-    city: "London",
-    temperature: 5.7,
-  },
-  {
-    month: "Apr",
-    city: "Tokyo",
-    temperature: 14.5,
-  },
-  {
-    month: "Apr",
-    city: "London",
-    temperature: 8.5,
-  },
-  {
-    month: "May",
-    city: "Tokyo",
-    temperature: 10,
-  },
-  {
-    month: "May",
-    city: "London",
-    temperature: 11.9,
-  },
-  {
-    month: "Jun",
-    city: "Tokyo",
-    temperature: 7.5,
-  },
-  {
-    month: "Jun",
-    city: "London",
-    temperature: 15.2,
-  },
-  {
-    month: "Jul",
-    city: "Tokyo",
-    temperature: 9.2,
-  },
-  {
-    month: "Jul",
-    city: "London",
-    temperature: 17,
-  },
-  {
-    month: "Aug",
-    city: "Tokyo",
-    temperature: 14.5,
-  },
-  {
-    month: "Aug",
-    city: "London",
-    temperature: 16.6,
-  },
-  {
-    month: "Sep",
-    city: "Tokyo",
-    temperature: 9.3,
-  },
-  {
-    month: "Sep",
-    city: "London",
-    temperature: 14.2,
-  },
-  {
-    month: "Oct",
-    city: "Tokyo",
-    temperature: 8.3,
-  },
-  {
-    month: "Oct",
-    city: "London",
-    temperature: 10.3,
-  },
-  {
-    month: "Nov",
-    city: "Tokyo",
-    temperature: 8.9,
-  },
-  {
-    month: "Nov",
-    city: "London",
-    temperature: 5.6,
-  },
-  {
-    month: "Dec",
-    city: "Tokyo",
-    temperature: 5.6,
-  },
-  {
-    month: "Dec",
-    city: "London",
-    temperature: 9.8,
-  },
-];
+import { getWorkplace } from "@/api/workplace";
 
 const { Row, Col } = Grid;
 const TimelineItem = Timeline.Item;
 
 export default function WorkplaceCompontent() {
-  const [likes, setLikes] = React.useState([]);
-  const [stars, setStars] = React.useState([]);
-  const data2 = [
-    {
-      id: 1,
-      author: "张 三",
-      like: 13,
-      star: 3,
-      avatar:
-        "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/e278888093bef8910e829486fb45dd69.png~tplv-uwbnlip3yd-webp.webp",
-      content: "感谢作者开源！非常的好用，值得推荐！！！",
-      datetime: "1 小时前",
-    },
-    {
-      id: 2,
-      author: "李 四",
-      like: 12,
-      star: 1,
-      avatar:
-        "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/9eeb1800d9b78349b24682c3518ac4a3.png~tplv-uwbnlip3yd-webp.webp",
-      content: "值得推荐！！！赶快去试试",
-      datetime: "2 hour",
-    },
-    {
-      id: 3,
-      author: "Hu-snail",
-      like: 12,
-      star: 1,
-      avatar:
-        "//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/8361eeb82904210b4f55fab888fe8416.png~tplv-uwbnlip3yd-webp.webp",
-      content: "UI很好看，很用心的开源👍",
-      datetime: "2 hour",
-    },
-  ];
+  const [likes, setLikes] = useState([]);
+  const [stars, setStars] = useState([]);
+  const [commentData, setCommentData] = useState([]);
+  const [staticData, setStaticData] = useState([]);
+  const [imgList, setImgList] = useState([]);
+
+  useEffect(() => {
+    onGetWorkplace();
+  }, []);
+
+  const onGetWorkplace = () => {
+    getWorkplace().then((res) => {
+      const { imageList, staticList, commentList } = res.data;
+      setCommentData(commentList);
+      setStaticData(staticList);
+      setImgList(imageList);
+    });
+  };
 
   return (
     <Fragment>
@@ -217,7 +70,12 @@ export default function WorkplaceCompontent() {
               </Typography.Paragraph>
               <Link>更多数据</Link>
             </div>
-            <Chart padding={[10, 20, 70, 40]} autoFit height={300} data={data}>
+            <Chart
+              padding={[10, 20, 70, 40]}
+              autoFit
+              height={300}
+              data={staticData}
+            >
               <LineAdvance
                 shape="smooth"
                 point
@@ -253,7 +111,7 @@ export default function WorkplaceCompontent() {
                 <Typography.Title heading={6}>评论列表</Typography.Title>
 
                 <List bordered={false}>
-                  {data2.map((item, index) => {
+                  {commentData.map((item, index) => {
                     const like = likes.indexOf(item.id) > -1;
                     const star = stars.indexOf(item.id) > -1;
 
@@ -367,7 +225,7 @@ export default function WorkplaceCompontent() {
                 height: 145,
               }}
             >
-              {imageSrc.map((src, index) => (
+              {imgList.map((src, index) => (
                 <div key={index}>
                   <img
                     src={src}

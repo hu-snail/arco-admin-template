@@ -166,38 +166,32 @@ export default function ResourceCompontent() {
               })}
             </Space>
           </PageHeader>
-          <PageHeader
+          <Space
             style={{ marginTop: "16px" }}
-            className={styles["page-header"]}
-            title="排行榜"
-            subTitle="精选排行"
+            size={16}
+            direction="vertical"
+            className={styles["space-width"]}
           >
-            <Space
-              size={16}
-              direction="vertical"
-              className={styles["space-width"]}
+            <Carousel
+              indicatorType="line"
+              style={{
+                width: "100%",
+                height: 150,
+              }}
             >
-              <Carousel
-                indicatorType="line"
-                style={{
-                  width: "100%",
-                  height: 150,
-                }}
-              >
-                {imageSrc.map((src, index) => (
-                  <div key={index}>
-                    <img
-                      src={src}
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                      }}
-                    />
-                  </div>
-                ))}
-              </Carousel>
-            </Space>
-          </PageHeader>
+              {imageSrc.map((src, index) => (
+                <div key={index}>
+                  <img
+                    src={src}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                    }}
+                  />
+                </div>
+              ))}
+            </Carousel>
+          </Space>
         </Col>
       </Row>
     </Fragment>
