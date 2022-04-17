@@ -1,8 +1,8 @@
 // 引入action_type
-import { SET_ROUTERS } from "@/store/action_types";
-import { getRoutersStore, setRoutersStore } from "@/utils/router";
-import { filterRouters } from "@/utils/router";
-import { localRouters } from "@/routers";
+import { SET_ROUTERS } from '@/store/action_types';
+import { getRoutersStore, setRoutersStore } from '@/utils/router';
+import { filterRouters } from '@/utils/router';
+import { localRouters } from '@/routers';
 
 // 初始化
 const initState = { routers: getRoutersStore() || [], currentRouter: {} };

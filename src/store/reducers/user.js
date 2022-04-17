@@ -1,22 +1,12 @@
 // 引入action_type
-import {
-  GET_USERINFO,
-  LOGOUT,
-  LOGIN,
-  SET_PERMISSIONS,
-  SET_ACCESS_TOKEN,
-} from "@/store/action_types";
-import {
-  getAccessToken,
-  setAccessToken,
-  removeAccessToken,
-} from "@/utils/accessToken";
+import { GET_USERINFO, LOGOUT, LOGIN, SET_PERMISSIONS, SET_ACCESS_TOKEN } from '@/store/action_types';
+import { getAccessToken, setAccessToken, removeAccessToken } from '@/utils/accessToken';
 
 // 初始化
 const initValue = {
   accessToken: getAccessToken(),
-  username: "",
-  avatar: "",
+  username: '',
+  avatar: '',
   permissions: [],
 };
 
@@ -35,7 +25,8 @@ export default function user(state = initValue, action) {
     case LOGOUT:
       return location.reload();
     case SET_ACCESS_TOKEN:
-      return setAccessToken(payload.accessToken ? payload.accessToken : "");
+      console.log(payload.accessToken, '--==');
+      return setAccessToken(payload.accessToken ? payload.accessToken : '');
     default:
       return state;
   }

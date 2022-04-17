@@ -1,81 +1,81 @@
-.layout-container{
-    .arco-layout{
-        overflow: hidden;
-        background-color: @base-content-bg-color;
-    }
-    .layout-header{
-        position: fixed;
-        width: 100%;
-        padding: 15px 20px;
-        background-color: var(--color-bg-2);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        z-index: 999;
-        border-bottom: 1px solid var(--color-border);
-        &-right{
-            flex: 1;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            .layout-header-edit{
-                margin-right: 20px;
-                .arco-input-inner-wrapper{
-                    border-radius: 30px;
-                }
-            }
+.layout-container {
+  .arco-layout {
+    overflow: hidden;
+    background-color: @base-content-bg-color;
+  }
+  .layout-header {
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: var(--color-bg-2);
+    border-bottom: 1px solid var(--color-border);
+    &-right {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: flex-end;
+      .layout-header-edit {
+        margin-right: 20px;
+        .arco-input-inner-wrapper {
+          border-radius: 30px;
         }
+      }
     }
-    .sub-menu-icon .arco-icon{
-        font-size: 18px;
-        vertical-align: text-bottom;
-    }
+  }
+  .sub-menu-icon .arco-icon {
+    font-size: 18px;
+    vertical-align: text-bottom;
+  }
 
-    .layout-main-wrap{
-        position: relative;
-        top: 70px;
-        overflow-y: auto;
-        .layout-content{
-            height: calc(100vh - 70px);
-            background-color: var(--color-bg-1);
-        }
-        .layout-content-breadcrumb{
-            padding: @layout-main-padding;
-            background-color: var(--color-fill-2);
-        }
-        .arco-layout-sider{
-            height: calc(100vh - 70px);
-        }
-        .layout-main-content{
-           min-height: calc(100vh - 70px - 56px - 56px);
-        }
-        .arco-layout-sider-trigger{
-            width: 30px!important;
-            line-height: 30px;
-            height: 30px;
-            float: right;
-            margin: 0 10px;
-            color: var(--color-text-3);
-            background: var(--color-neutral-1);
-        }
-        .breadcrumb-icon{
-            display: flex;
-            align-items: center;
-            color: var(--color-text-3);
-            font-size: 18px;
-            vertical-align: text-bottom;
-            .icon-separator{
-                width: 1rem;
-                margin-left: 10px;
-                color: var(--color-text-4);
-            }
-        }
+  .layout-main-wrap {
+    position: relative;
+    top: 70px;
+    overflow-y: auto;
+    .layout-content {
+      height: calc(100vh - 70px);
+      background-color: var(--color-bg-1);
     }
-    .layout-footer{
-        min-height: 55px;
-        line-height: 55px;
-        text-align: center;
-        color: var(--color-text-2);
-        background-color: var(--color-fill-2);
+    .layout-content-breadcrumb {
+      padding: @layout-main-padding;
+      background-color: var(--color-fill-2);
     }
+    .arco-layout-sider {
+      height: calc(100vh - 70px);
+    }
+    .layout-main-content {
+      min-height: calc(100vh - 70px - 56px - 56px);
+    }
+    .arco-layout-sider-trigger {
+      float: right;
+      width: 30px !important;
+      height: 30px;
+      margin: 0 10px;
+      line-height: 30px;
+      color: var(--color-text-3);
+      background: var(--color-neutral-1);
+    }
+    .breadcrumb-icon {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      color: var(--color-text-3);
+      vertical-align: text-bottom;
+      .icon-separator {
+        width: 1rem;
+        margin-left: 10px;
+        color: var(--color-text-4);
+      }
+    }
+  }
+  .layout-footer {
+    min-height: 55px;
+    line-height: 55px;
+    color: var(--color-text-2);
+    text-align: center;
+    background-color: var(--color-fill-2);
+  }
 }

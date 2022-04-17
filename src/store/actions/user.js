@@ -4,23 +4,16 @@
  */
 
 // 引入action_type变量
-import {
-  GET_USERINFO,
-  SET_USERINFO,
-  LOGIN,
-  SET_PERMISSIONS,
-  LOGOUT,
-  SET_ACCESS_TOKEN,
-} from "@/store/action_types";
+import { GET_USERINFO, SET_USERINFO, LOGIN, SET_PERMISSIONS, LOGOUT, SET_ACCESS_TOKEN } from '@/store/action_types';
 
-import { login, getUserInfo } from "@/api/user";
-import { Notification, Message } from "@arco-design/web-react";
-import { setRoutersHandler } from "./router";
+import { login, getUserInfo } from '@/api/user';
+import { Notification, Message } from '@arco-design/web-react';
+import { setRoutersHandler } from './router';
 
-import { setting } from "@/config/setting";
+import { setting } from '@/config/setting';
 const { title, tokenName } = setting;
 
-import store from "../index";
+import store from '../index';
 
 /**
  * @description 登录
@@ -35,16 +28,7 @@ export const loginHandler = (payload) => {
       await dispatch(setAccessTokenHandler({ accessToken }));
       await dispatch(setRoutersHandler());
       const hour = new Date().getHours();
-      const thisTime =
-        hour < 8
-          ? "早晨好"
-          : hour <= 11
-          ? "早上好"
-          : hour <= 13
-          ? "中午好"
-          : hour < 18
-          ? "下午好"
-          : "晚上好";
+      const thisTime = hour < 8 ? '早晨好' : hour <= 11 ? '早上好' : hour <= 13 ? '中午好' : hour < 18 ? '下午好' : '晚上好';
       Notification.success({
         title: `${thisTime}！`,
         content: `👏欢迎登录${title}!`,
@@ -64,10 +48,10 @@ export const loginHandler = (payload) => {
 export const logout = () => {
   return async (dispatch) => {
     dispatch(setPermission([]));
-    dispatch(setAccessTokenHandler({ accessToken: "" }));
+    dispatch(setAccessTokenHandler({ accessToken: '' }));
     dispatch({
       type: LOGOUT,
-      payload: "",
+      payload: '',
     });
   };
 };
@@ -112,7 +96,7 @@ export const getUserInfoHandler = (call) => {
     const { accessToken } = store.getState().userReducer;
     const { data } = await getUserInfo(accessToken);
     if (!data) {
-      return Message.error("验证失败，请重新登录...");
+      return Message.error('验证失败，请重新登录...');
     }
     const { permissions, username } = data;
     if (permissions && username && Array.isArray(permissions)) {
@@ -122,7 +106,7 @@ export const getUserInfoHandler = (call) => {
         call,
       });
     } else {
-      return Message.error("用户信息接口异常");
+      return Message.error('用户信息接口异常');
     }
   };
 };

@@ -1,5 +1,5 @@
 // ◆封装本地存储的操作
-const TOKEN_KEY = "ARCO_ADMIN_TEMPLATE";
+const TOKEN_KEY = 'ARCO_ADMIN_TEMPLATE';
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY);

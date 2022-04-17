@@ -3,19 +3,19 @@
  * @author hu-snail 1217437592@qq.com
  */
 
-import { localRouters } from "@/routers";
+import { localRouters } from '@/routers';
 const routeMap = new Map();
 export function getRoutersStore() {
-  const localRouterList = JSON.parse(localStorage.getItem("routerList"));
+  const localRouterList = JSON.parse(localStorage.getItem('routerList'));
   if (!localRouterList) return [];
   return filterRouters(localRouters, localRouterList);
 }
 export function setRoutersStore(routerList) {
-  return localStorage.setItem("routerList", JSON.stringify(routerList));
+  return localStorage.setItem('routerList', JSON.stringify(routerList));
 }
 
 export function removeRoutersStore() {
-  return localStorage.removeItem("routerList");
+  return localStorage.removeItem('routerList');
 }
 
 /**
@@ -31,9 +31,7 @@ export function filterRouters(localList, reqList) {
     // 多层结构处理
     if (item.children) {
       // 获取本地路由配置的下标
-      const localRouterIndex = localList.findIndex(
-        (option) => item.path === option.path
-      );
+      const localRouterIndex = localList.findIndex((option) => item.path === option.path);
       // 如果存在就添加到路由中
       if (localRouterIndex !== -1) {
         const localItem = localList[localRouterIndex];
@@ -45,9 +43,7 @@ export function filterRouters(localList, reqList) {
       }
     } else {
       // 单层接口处理
-      const localRouterIndex = localList.findIndex(
-        (option) => item.path === option.path
-      );
+      const localRouterIndex = localList.findIndex((option) => item.path === option.path);
       if (localRouterIndex !== -1) {
         // 获取本地的参数属性存入路由中
         const { key, element, meta, path } = localList[localRouterIndex];
@@ -72,7 +68,7 @@ export function filterRouters(localList, reqList) {
 export function getCurrentRouter(currentPaths) {
   let list = [];
   for (let i = 0; i < currentPaths.length; i++) {
-    const currentKey = currentPaths.slice(0, i * 1 + 1).join("/");
+    const currentKey = currentPaths.slice(0, i * 1 + 1).join('/');
     if (routeMap.get(currentKey)) list.push(routeMap.get(currentKey));
   }
   return list;

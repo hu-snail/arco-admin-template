@@ -10,7 +10,13 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
     "build": "cross-env NODE_ENV=production vite build",
-    "preview": "cross-env  vite preview"
+    "preview": "cross-env  vite preview",
+    "install:husky": "husky install",
+    "lint:eslint": "eslint ",
+    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:style": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:pretty": "pretty-quick --staged"
   },
   "dependencies": {
     "@arco-design/web-react": "^2.31.2",
@@ -32,9 +38,21 @@
   },
   "devDependencies": {
     "@arco-plugins/vite-react": "^1.0.6",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "@vitejs/plugin-react": "^1.0.7",
+    "babel-eslint": "^10.1.0",
     "cross-env": "^7.0.3",
+    "eslint": "7.21.0",
+    "eslint-plugin-react": "^7.29.4",
+    "husky": "^7.0.4",
     "less": "^4.1.2",
+    "prettier": "^2.6.2",
+    "pretty-quick": "^3.1.3",
+    "stylelint": "13.13.1",
+    "stylelint-config-prettier": "8.0.2",
+    "stylelint-config-recess-order": "2.4.0",
+    "stylelint-config-standard": "22.0.0",
     "vite": "^2.9.0",
     "vite-plugin-mock": "^2.9.6"
   }

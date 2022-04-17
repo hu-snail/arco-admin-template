@@ -1,8 +1,8 @@
-import request from "@/utils/request";
+import request from '@/utils/request';
 
 export function getRouters() {
   return request({
-    url: "/menu/navigate",
-    method: "get",
+    url: '/menu/navigate',
+    method: 'get',
   });
 }
