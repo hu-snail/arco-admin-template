@@ -55,6 +55,9 @@ const routeList = [
         index: true,
         key: "login",
         element: load(<Login />),
+        meta: {
+          title: "登录",
+        },
       },
     ],
   },
