@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Menu } from "@arco-design/web-react";
-import { SubMenuCompontent } from "../SubMenu";
-import { useNavigate, useLocation } from "react-router-dom";
-import store from "@/store";
+import React, { useState, useEffect } from 'react';
+import { Menu } from '@arco-design/web-react';
+import { SubMenuCompontent } from '../SubMenu';
+import { useNavigate, useLocation } from 'react-router-dom';
+import store from '@/store';
 const MenuItem = Menu.Item;
 
 export default function MenuCompontent() {
   const [routerList, setRouterList] = useState([]);
-  const [selectRouter, setSelectRouter] = useState("home");
-  const [opneKeys, setOpenKeys] = useState(["/dashboard", "/multi"]);
+  const [selectRouter, setSelectRouter] = useState('home');
+  const [opneKeys, setOpenKeys] = useState(['/dashboard', '/multi']);
   const navigate = useNavigate();
 
   const { pathname } = useLocation();
@@ -19,14 +19,14 @@ export default function MenuCompontent() {
   }, []);
 
   useEffect(() => {
-    const keys = "/" + pathname.split("/")[1].toString();
+    const keys = '/' + pathname.split('/')[1].toString();
     console.log(keys);
     // setOpenKeys([...opneKeys, keys]);
     setSelectRouter(pathname);
   }, [pathname]);
 
   const handlerToRouter = (key) => {
-    navigate("../" + key);
+    navigate('../' + key);
   };
 
   return (
@@ -38,7 +38,7 @@ export default function MenuCompontent() {
       onClickSubMenu={(_, openKeys) => {
         setOpenKeys(openKeys);
       }}
-      style={{ width: "100%" }}
+      style={{ width: '100%' }}
     >
       {routerList.map((item) => {
         if (item.children) {
@@ -46,7 +46,7 @@ export default function MenuCompontent() {
         } else {
           return (
             <MenuItem key={item.key}>
-              {item.meta.icon ? item.meta.icon : ""}
+              {item.meta.icon ? item.meta.icon : ''}
               {item.meta.title}
             </MenuItem>
           );

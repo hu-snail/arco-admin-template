@@ -1,35 +1,18 @@
-import React, { useState, useEffect } from "react";
-import {
-  Space,
-  Menu,
-  Input,
-  Button,
-  Dropdown,
-  Tooltip,
-} from "@arco-design/web-react";
+import React, { useState, useEffect } from 'react';
+import { Space, Menu, Input, Button, Dropdown, Tooltip } from '@arco-design/web-react';
 
-import {
-  IconFullscreen,
-  IconFullscreenExit,
-  IconLanguage,
-  IconMoonFill,
-  IconSun,
-  IconNotification,
-  IconRefresh,
-  IconSkin,
-  IconSearch,
-} from "@arco-design/web-react/icon";
+import { IconFullscreen, IconFullscreenExit, IconLanguage, IconMoonFill, IconSun, IconNotification, IconRefresh, IconSkin, IconSearch } from '@arco-design/web-react/icon';
 
-import screenfull from "screenfull";
+import screenfull from 'screenfull';
 
 export default function NavBarItemCompontent() {
   const [isScreenfull, setScreenfull] = useState(false);
   const [isRefresh, setRefresh] = useState(true);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState('light');
 
   const handleChangeScreen = () => {
     if (!screenfull.isEnabled) {
-      Message.warning("进入全屏失败");
+      Message.warning('进入全屏失败');
       return false;
     }
     setScreenfull(!isScreenfull);
@@ -45,30 +28,18 @@ export default function NavBarItemCompontent() {
   };
 
   const handleChangetheme = () => {
-    const themeType = theme === "light" ? "dark" : "light";
+    const themeType = theme === 'light' ? 'dark' : 'light';
     setTheme(themeType);
-    if (themeType === "dark") document.body.setAttribute("arco-theme", "dark");
-    else document.body.removeAttribute("arco-theme");
+    if (themeType === 'dark') document.body.setAttribute('arco-theme', 'dark');
+    else document.body.removeAttribute('arco-theme');
   };
 
   return (
     <div className="layout-header-edit">
       <Space size="medium">
-        <Input
-          style={{ width: 200 }}
-          prefix={<IconSearch />}
-          placeholder="请输入内容查询"
-        />
-        <Tooltip
-          position="bottom"
-          trigger="hover"
-          content={`点击${isScreenfull ? "退出" : "切换"}全屏模式`}
-        >
-          <Button
-            shape="circle"
-            icon={isScreenfull ? <IconFullscreenExit /> : <IconFullscreen />}
-            onClick={handleChangeScreen}
-          />
+        <Input style={{ width: 200 }} prefix={<IconSearch />} placeholder="请输入内容查询" />
+        <Tooltip position="bottom" trigger="hover" content={`点击${isScreenfull ? '退出' : '切换'}全屏模式`}>
+          <Button shape="circle" icon={isScreenfull ? <IconFullscreenExit /> : <IconFullscreen />} onClick={handleChangeScreen} />
         </Tooltip>
         <Dropdown
           position="br"
@@ -85,23 +56,11 @@ export default function NavBarItemCompontent() {
           <Button shape="circle" icon={<IconSkin />} />
         </Tooltip>
         <Button shape="circle" icon={<IconNotification />} />
-        <Tooltip
-          position="bottom"
-          trigger="hover"
-          content={`点击切换为${theme === "light" ? "暗黑" : "亮色"}模式`}
-        >
-          <Button
-            shape="circle"
-            icon={theme === "light" ? <IconMoonFill /> : <IconSun />}
-            onClick={handleChangetheme}
-          />
+        <Tooltip position="bottom" trigger="hover" content={`点击切换为${theme === 'light' ? '暗黑' : '亮色'}模式`}>
+          <Button shape="circle" icon={theme === 'light' ? <IconMoonFill /> : <IconSun />} onClick={handleChangetheme} />
         </Tooltip>
         <Tooltip position="bottom" trigger="hover" content="刷新">
-          <Button
-            shape="circle"
-            icon={<IconRefresh />}
-            onClick={handlerChangeRefresh}
-          />
+          <Button shape="circle" icon={<IconRefresh />} onClick={handlerChangeRefresh} />
         </Tooltip>
       </Space>
     </div>

@@ -1,16 +1,10 @@
 // layout/index.jsx
-import React, { useState } from "react";
-import { Outlet } from "react-router-dom";
-import "./style.less";
-import { Layout } from "@arco-design/web-react";
-import { IconMenuFold, IconMenuUnfold } from "@arco-design/web-react/icon";
-import {
-  LogoCompontent,
-  MenuCompontent,
-  BreadcrumbCompontent,
-  NavBarItemCompontent,
-  AvatarComponent,
-} from "./compontents";
+import React, { useState } from 'react';
+import { Outlet } from 'react-router-dom';
+import './style.less';
+import { Layout } from '@arco-design/web-react';
+import { IconMenuFold, IconMenuUnfold } from '@arco-design/web-react/icon';
+import { LogoCompontent, MenuCompontent, BreadcrumbCompontent, NavBarItemCompontent, AvatarComponent } from './compontents';
 // import store from "@/store";
 
 const Sider = Layout.Sider;
@@ -33,14 +27,7 @@ function PublicLayout() {
         </div>
       </Header>
       <Layout className="layout-main-wrap">
-        <Sider
-          width="240"
-          collapsed={collapsed}
-          collapsible
-          onCollapse={handleCollapsed}
-          trigger={collapsed ? <IconMenuUnfold /> : <IconMenuFold />}
-          breakpoint="xl"
-        >
+        <Sider width="240" collapsed={collapsed} collapsible onCollapse={handleCollapsed} trigger={collapsed ? <IconMenuUnfold /> : <IconMenuFold />} breakpoint="xl">
           <MenuCompontent />
         </Sider>
         <Content className="layout-content">
@@ -50,9 +37,7 @@ function PublicLayout() {
               <Outlet />
             </div>
           </div>
-          <Footer className="layout-footer">
-            © hu-snail-2022 arco-admin-template
-          </Footer>
+          <Footer className="layout-footer">© hu-snail-2022 arco-admin-template</Footer>
         </Content>
       </Layout>
     </Layout>

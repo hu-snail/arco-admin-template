@@ -1,6 +1,6 @@
-import { Fragment } from "react";
+import { Fragment } from 'react';
 
-import { Form, Input, Button, Checkbox } from "@arco-design/web-react";
+import { Form, Input, Button, Checkbox } from '@arco-design/web-react';
 
 const FormItem = Form.Item;
 

@@ -1,7 +1,7 @@
-import { Component } from "react";
+import { Component } from 'react';
 
-import NProgress from "nprogress";
-import "nprogress/nprogress.css";
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
 export default class LoadingComponent extends Component {
   constructor(props) {

@@ -1,35 +1,10 @@
-import React, { Fragment, useEffect, useState } from "react";
-import { Chart, LineAdvance } from "bizcharts";
-import {
-  Space,
-  Statistic,
-  Card,
-  Grid,
-  Typography,
-  Divider,
-  Link,
-  Button,
-  Timeline,
-  Comment,
-  List,
-  Carousel,
-} from "@arco-design/web-react";
-import style from "./style/index.module.less";
-import {
-  IconDesktop,
-  IconCloud,
-  IconCode,
-  IconGithub,
-  IconFile,
-  IconArrowRise,
-  IconHeart,
-  IconMessage,
-  IconHeartFill,
-  IconStarFill,
-  IconStar,
-} from "@arco-design/web-react/icon";
+import React, { Fragment, useEffect, useState } from 'react';
+import { Chart, LineAdvance } from 'bizcharts';
+import { Space, Statistic, Card, Grid, Typography, Divider, Link, Button, Timeline, Comment, List, Carousel } from '@arco-design/web-react';
+import style from './style/index.module.less';
+import { IconDesktop, IconCloud, IconCode, IconGithub, IconFile, IconArrowRise, IconHeart, IconMessage, IconHeartFill, IconStarFill, IconStar } from '@arco-design/web-react/icon';
 
-import { getWorkplace } from "@/api/workplace";
+import { getWorkplace } from '@/api/workplace';
 
 const { Row, Col } = Grid;
 const TimelineItem = Timeline.Item;
@@ -60,32 +35,17 @@ export default function WorkplaceCompontent() {
         <Col xs={24} sm={24} md={18}>
           <Card bordered={false}>
             <div className={style.ctw}>
-              <Typography.Paragraph
-                heading={6}
-                className={style["chart-title"]}
-                style={{ marginBottom: 0 }}
-              >
+              <Typography.Paragraph heading={6} className={style['chart-title']} style={{ marginBottom: 0 }}>
                 折线图数据
-                <span className={style["chart-sub-title"]}>(近1年)</span>
+                <span className={style['chart-sub-title']}>(近1年)</span>
               </Typography.Paragraph>
               <Link>更多数据</Link>
             </div>
-            <Chart
-              padding={[10, 20, 70, 40]}
-              autoFit
-              height={300}
-              data={staticData}
-            >
-              <LineAdvance
-                shape="smooth"
-                point
-                area
-                position="month*temperature"
-                color="city"
-              />
+            <Chart padding={[10, 20, 70, 40]} autoFit height={300} data={staticData}>
+              <LineAdvance shape="smooth" point area position="month*temperature" color="city" />
             </Chart>
           </Card>
-          <Row gutter={16} style={{ marginTop: "16px" }}>
+          <Row gutter={16} style={{ marginTop: '16px' }}>
             <Col span={12}>
               <Card bordered={false}>
                 <Typography.Title heading={6}>更新日志</Typography.Title>
@@ -94,9 +54,7 @@ export default function WorkplaceCompontent() {
                   <TimelineItem label="2022-03-27" dotColor="#00B42A">
                     Arco Admin Template 框架搭建完善
                   </TimelineItem>
-                  <TimelineItem label="2022-03-28">
-                    左侧菜单优化数据结构
-                  </TimelineItem>
+                  <TimelineItem label="2022-03-28">左侧菜单优化数据结构</TimelineItem>
                   <TimelineItem label="2022-03-29" dotColor="#F53F3F">
                     主题内容布局调整
                   </TimelineItem>
@@ -107,7 +65,7 @@ export default function WorkplaceCompontent() {
               </Card>
             </Col>
             <Col span={12}>
-              <Card bordered={false} style={{ height: "384px" }}>
+              <Card bordered={false} style={{ height: '384px' }}>
                 <Typography.Title heading={6}>评论列表</Typography.Title>
 
                 <List bordered={false}>
@@ -123,41 +81,11 @@ export default function WorkplaceCompontent() {
                           content={item.content}
                           datetime={item.datetime}
                           actions={[
-                            <span
-                              className="custom-comment-action"
-                              key="heart"
-                              onClick={() =>
-                                setLikes(
-                                  like
-                                    ? likes.filter((x) => x !== item.id)
-                                    : [...likes, item.id]
-                                )
-                              }
-                            >
-                              {like ? (
-                                <IconHeartFill style={{ color: "#f53f3f" }} />
-                              ) : (
-                                <IconHeart />
-                              )}{" "}
-                              {item.like + (like ? 1 : 0)}
+                            <span className="custom-comment-action" key="heart" onClick={() => setLikes(like ? likes.filter((x) => x !== item.id) : [...likes, item.id])}>
+                              {like ? <IconHeartFill style={{ color: '#f53f3f' }} /> : <IconHeart />} {item.like + (like ? 1 : 0)}
                             </span>,
-                            <span
-                              className="custom-comment-action"
-                              key="star"
-                              onClick={() =>
-                                setStars(
-                                  star
-                                    ? stars.filter((x) => x !== item.id)
-                                    : [...stars, item.id]
-                                )
-                              }
-                            >
-                              {star ? (
-                                <IconStarFill style={{ color: "#ffb400" }} />
-                              ) : (
-                                <IconStar />
-                              )}{" "}
-                              {item.star + (star ? 1 : 0)}
+                            <span className="custom-comment-action" key="star" onClick={() => setStars(star ? stars.filter((x) => x !== item.id) : [...stars, item.id])}>
+                              {star ? <IconStarFill style={{ color: '#ffb400' }} /> : <IconStar />} {item.star + (star ? 1 : 0)}
                             </span>,
                             <span className="custom-comment-action" key="reply">
                               <IconMessage /> Reply
@@ -175,53 +103,53 @@ export default function WorkplaceCompontent() {
         <Col xs={24} sm={24} md={6}>
           <Space direction="vertical" size="medium">
             <Card bordered={false}>
-              <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Typography.Title heading={6}>快捷入口</Typography.Title>
                 <Link>查看更多</Link>
               </div>
-              <div className={style["shortcut-content"]}>
-                <div className={style["shortcut-item"]}>
+              <div className={style['shortcut-content']}>
+                <div className={style['shortcut-item']}>
                   <Button shape="circle" icon={<IconDesktop />} />
-                  <div className={style["shortcut-item-title"]}>工作台</div>
+                  <div className={style['shortcut-item-title']}>工作台</div>
                 </div>
-                <div className={style["shortcut-item"]}>
+                <div className={style['shortcut-item']}>
                   <Button shape="circle" icon={<IconCloud />} />
-                  <div className={style["shortcut-item-title"]}>资源中心</div>
+                  <div className={style['shortcut-item-title']}>资源中心</div>
                 </div>
-                <div className={style["shortcut-item"]}>
+                <div className={style['shortcut-item']}>
                   <Button shape="circle" icon={<IconFile />} />
-                  <div className={style["shortcut-item-title"]}>使用文档</div>
+                  <div className={style['shortcut-item-title']}>使用文档</div>
                 </div>
-                <div className={style["shortcut-item"]}>
+                <div className={style['shortcut-item']}>
                   <Button shape="circle" icon={<IconCode />} />
-                  <div className={style["shortcut-item-title"]}>表单组件</div>
+                  <div className={style['shortcut-item-title']}>表单组件</div>
                 </div>
-                <div className={style["shortcut-item"]}>
+                <div className={style['shortcut-item']}>
                   <Button shape="circle" icon={<IconGithub />} />
-                  <div className={style["shortcut-item-title"]}>GitHub</div>
+                  <div className={style['shortcut-item-title']}>GitHub</div>
                 </div>
               </div>
               <Divider />
               <Typography.Title heading={6}>最近访问</Typography.Title>
-              <div className={style["shortcut-content"]}>
-                <div className={style["shortcut-item"]}>
+              <div className={style['shortcut-content']}>
+                <div className={style['shortcut-item']}>
                   <Button shape="circle" icon={<IconDesktop />} />
-                  <div className={style["shortcut-item-title"]}>工作台</div>
+                  <div className={style['shortcut-item-title']}>工作台</div>
                 </div>
-                <div className={style["shortcut-item"]}>
+                <div className={style['shortcut-item']}>
                   <Button shape="circle" icon={<IconCloud />} />
-                  <div className={style["shortcut-item-title"]}>资源中心</div>
+                  <div className={style['shortcut-item-title']}>资源中心</div>
                 </div>
-                <div className={style["shortcut-item"]}>
+                <div className={style['shortcut-item']}>
                   <Button shape="circle" icon={<IconGithub />} />
-                  <div className={style["shortcut-item-title"]}>GitHub</div>
+                  <div className={style['shortcut-item-title']}>GitHub</div>
                 </div>
               </div>
             </Card>
             <Carousel
               indicatorType="line"
               style={{
-                width: "100%",
+                width: '100%',
                 height: 145,
               }}
             >
@@ -230,8 +158,8 @@ export default function WorkplaceCompontent() {
                   <img
                     src={src}
                     style={{
-                      width: "100%",
-                      height: "100%",
+                      width: '100%',
+                      height: '100%',
                     }}
                   />
                 </div>
@@ -241,20 +169,9 @@ export default function WorkplaceCompontent() {
             <Card bordered={false}>
               <Typography.Title heading={6}>用户数据</Typography.Title>
               <Divider />
-              <div className={style["card-statistic"]}>
-                <Statistic
-                  title="新用户"
-                  value={1923}
-                  suffix={<IconArrowRise style={{ color: "#ee4d38" }} />}
-                />
-                <Statistic
-                  title="用户增长率"
-                  value={50.32}
-                  precision={2}
-                  prefix={<IconArrowRise style={{ color: "#ee4d38" }} />}
-                  suffix="%"
-                  styleValue={{ color: "#ee4d38" }}
-                />
+              <div className={style['card-statistic']}>
+                <Statistic title="新用户" value={1923} suffix={<IconArrowRise style={{ color: '#ee4d38' }} />} />
+                <Statistic title="用户增长率" value={50.32} precision={2} prefix={<IconArrowRise style={{ color: '#ee4d38' }} />} suffix="%" styleValue={{ color: '#ee4d38' }} />
               </div>
             </Card>
           </Space>

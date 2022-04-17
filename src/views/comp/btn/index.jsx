@@ -1,16 +1,6 @@
-import { Fragment } from "react";
-import { Button, Space, Grid } from "@arco-design/web-react";
-import {
-  IconPlus,
-  IconDelete,
-  IconLeft,
-  IconRight,
-  IconMore,
-  IconStar,
-  IconSettings,
-  IconMessage,
-  IconDown,
-} from "@arco-design/web-react/icon";
+import { Fragment } from 'react';
+import { Button, Space, Grid } from '@arco-design/web-react';
+import { IconPlus, IconDelete, IconLeft, IconRight, IconMore, IconStar, IconSettings, IconMessage, IconDown } from '@arco-design/web-react/icon';
 
 const Row = Grid.Row;
 const Col = Grid.Col;
@@ -22,9 +12,7 @@ export default function Home() {
       <div className="app-main-container">
         <div className="card-head">
           <h2>基本用法</h2>
-          <p className="card-head-desc">
-            按钮分为 主要按钮、次要按钮、虚线按钮、线形按钮和文本按钮五种。
-          </p>
+          <p className="card-head-desc">按钮分为 主要按钮、次要按钮、虚线按钮、线形按钮和文本按钮五种。</p>
         </div>
         <Space size="large">
           <Button type="primary">Primary</Button>
@@ -35,34 +23,23 @@ export default function Home() {
         </Space>
         <div className="card-head">
           <h2>图标按钮</h2>
-          <p className="card-head-desc">
-            Button 可以嵌入图标，在只设置图标而没有 children
-            时，按钮的高宽相等。
-          </p>
+          <p className="card-head-desc">Button 可以嵌入图标，在只设置图标而没有 children 时，按钮的高宽相等。</p>
         </div>
         <Space size="large">
           <Button type="primary" icon={<IconPlus />} />
           <Button type="primary" icon={<IconDelete />}>
-            {" "}
+            {' '}
             Delete
           </Button>
         </Space>
 
         <div className="card-head">
           <h2>按钮形状</h2>
-          <p className="card-head-desc">
-            Button 有多种形状，square - 长方形 (默认), circle - 圆形, round -
-            全圆角。
-          </p>
+          <p className="card-head-desc">Button 有多种形状，square - 长方形 (默认), circle - 圆形, round - 全圆角。</p>
         </div>
         <Space size="large">
           <Button type="primary" icon={<IconPlus />} />
-          <Button
-            shape="circle"
-            type="primary"
-            status="warning"
-            icon={<IconPlus />}
-          />
+          <Button shape="circle" type="primary" status="warning" icon={<IconPlus />} />
           <Button shape="round" status="success" type="primary">
             Success
           </Button>
@@ -72,9 +49,7 @@ export default function Home() {
         </Space>
         <div className="card-head">
           <h2>组合按钮</h2>
-          <p className="card-head-desc">
-            可用在同级多项操作，以按钮组合方式出现。
-          </p>
+          <p className="card-head-desc">可用在同级多项操作，以按钮组合方式出现。</p>
         </div>
         <Space size="large" direction="vertical">
           <Space size="large">
@@ -93,14 +68,10 @@ export default function Home() {
           </ButtonGroup>
           <Space size="large">
             <ButtonGroup>
-              <Button
-                type="primary"
-                icon={<IconLeft />}
-                style={{ padding: "0 8px" }}
-              >
+              <Button type="primary" icon={<IconLeft />} style={{ padding: '0 8px' }}>
                 Prev
               </Button>
-              <Button type="primary" style={{ padding: "0 8px" }}>
+              <Button type="primary" style={{ padding: '0 8px' }}>
                 Next
                 <IconRight />
               </Button>

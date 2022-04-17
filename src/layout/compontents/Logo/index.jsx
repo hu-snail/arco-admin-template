@@ -1,6 +1,6 @@
-import React from "react";
-import logo from "@/assets/logo/logo.svg";
-import "./style.less";
+import React from 'react';
+import logo from '@/assets/logo/logo.svg';
+import './style.less';
 
 export default function LogoCompontent() {
   return (

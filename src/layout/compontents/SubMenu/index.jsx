@@ -1,4 +1,4 @@
-import { Menu } from "@arco-design/web-react";
+import { Menu } from '@arco-design/web-react';
 
 const SubMenu = Menu.SubMenu;
 const MenuItem = Menu.Item;
@@ -9,7 +9,7 @@ export const SubMenuCompontent = (item) => {
       key={item.key}
       title={
         <span className="sub-menu-icon">
-          {item.meta.icon ? item.meta.icon : ""}
+          {item.meta.icon ? item.meta.icon : ''}
           {item.meta.title}
         </span>
       }
@@ -20,7 +20,7 @@ export const SubMenuCompontent = (item) => {
         } else {
           return (
             <MenuItem key={option.key}>
-              {option.meta.icon ? option.meta.icon : ""}
+              {option.meta.icon ? option.meta.icon : ''}
               {option.meta.title}
             </MenuItem>
           );
