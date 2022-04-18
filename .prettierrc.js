@@ -5,4 +5,12 @@ module.exports = {
   tabWidth: 2,
   bracketSpacing: true,
   jsxBracketSameLine: false,
+  semi: true,
+  arrowParens: 'always',
+  insertPragma: false,
+  requirePragma: false,
+  proseWrap: 'never',
+  htmlWhitespaceSensitivity: 'strict',
+  endOfLine: 'auto',
+  rangeStart: 0,
 };
