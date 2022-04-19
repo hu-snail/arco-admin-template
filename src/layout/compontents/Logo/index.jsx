@@ -5,7 +5,7 @@ import './style.less';
 export default function LogoCompontent() {
   return (
     <div className="logo-wrap">
-      <img src={logo} width="30px" />
+      <img src={logo} width="30px" height="100%" />
       <h1 className="logo-title">Arco Admin</h1>
     </div>
   );

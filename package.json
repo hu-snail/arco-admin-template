@@ -7,16 +7,28 @@
     "email": "1217437592@qq.com",
     "url": "https://github.com/hu-snail"
   },
+  "lint-staged": {
+    "**/*.{jsx,js}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development vite",
     "build": "cross-env NODE_ENV=production vite build",
     "preview": "cross-env  vite preview",
     "install:husky": "husky install",
-    "lint:eslint": "eslint \"**/*.{jsx,js}\" --fix",
+    "lint:eslint": "eslint \"**/*.{jsx,js}\" --ext --fix",
     "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,jsx,css,less,scss,vue,html,md}\"",
     "lint:style": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
-    "lint:pretty": "pretty-quick --staged"
+    "lint:pretty": "pretty-quick --staged",
+    "format": "prettier-eslint 'src/**/*.{js,jsx}' --write"
   },
   "dependencies": {
     "@arco-design/web-react": "^2.31.2",
@@ -51,6 +63,7 @@
     "eslint-plugin-react": "^7.29.4",
     "husky": "^7.0.4",
     "less": "^4.1.2",
+    "lint-staged": "^12.3.8",
     "prettier": "^2.6.2",
     "pretty-quick": "^3.1.3",
     "stylelint": "13.13.1",
