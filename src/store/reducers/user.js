@@ -14,16 +14,23 @@ export default function user(state = initValue, action) {
   const { type, payload, call } = action;
   switch (type) {
     case LOGIN:
-      return { ...state, accessToken: payload };
+      return {
+        ...state,
+        accessToken: payload,
+      };
     case GET_USERINFO:
-      Object.assign(state, { ...payload });
+      Object.assign(state, {
+        ...payload,
+      });
       return call && call(payload.permissions);
     case SET_PERMISSIONS:
       if (!payload.length) removeAccessToken();
-      Object.assign(state, { permissions: payload });
+      Object.assign(state, {
+        permissions: payload,
+      });
       return call && call(payload);
     case LOGOUT:
-      return location.reload();
+      return window.location.reload();
     case SET_ACCESS_TOKEN:
       console.log(payload.accessToken, '--==');
       return setAccessToken(payload.accessToken ? payload.accessToken : '');

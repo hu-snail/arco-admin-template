@@ -7,10 +7,10 @@ import { IconMenuFold, IconMenuUnfold } from '@arco-design/web-react/icon';
 import { LogoCompontent, MenuCompontent, BreadcrumbCompontent, NavBarItemCompontent, AvatarComponent } from './compontents';
 // import store from "@/store";
 
-const Sider = Layout.Sider;
-const Header = Layout.Header;
-const Footer = Layout.Footer;
-const Content = Layout.Content;
+const { Sider } = Layout;
+const { Header } = Layout;
+const { Footer } = Layout;
+const { Content } = Layout;
 
 function PublicLayout() {
   const [collapsed, setCollapsed] = useState(false);

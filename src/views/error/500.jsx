@@ -1,16 +1,15 @@
 import React from 'react';
+import { Grid, Typography, Button } from '@arco-design/web-react';
+import { IconArrowLeft } from '@arco-design/web-react/icon';
 import styles from './error.module.less';
 import IMG_500 from '@/assets/error/500.png';
 
-import { Grid, Typography, Button } from '@arco-design/web-react';
-import { IconArrowLeft } from '@arco-design/web-react/icon';
-
-const Row = Grid.Row;
-const Col = Grid.Col;
+const { Row } = Grid;
+const { Col } = Grid;
 
 export default function Error500() {
   return (
-    <div className={'app-main-container ' + styles['error']}>
+    <div className={'app-main-container ' + styles.error}>
       <div className={styles['error-wrap']}>
         <Row gutter={16}>
           <Col xs={24} sm={24} md={12} lg={12} xl={12} xxl={12}>

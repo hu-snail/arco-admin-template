@@ -1,23 +1,21 @@
 import React, { lazy, Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
 
+import { IconDashboard, IconCodeSquare, IconBug, IconMenu } from '@arco-design/web-react/icon';
 import LayoutPage from '@/layout';
 import EmptyLayout from '@/layout/emptyLayout';
 import MultiTwoLayout from '@/views/multi/two/layout';
 import LoadingComponent from '@/compontents/Loading';
 
-const load = (children) => {
-  return <Suspense fallback={<LoadingComponent />}>{children}</Suspense>;
-};
-
-import { IconDashboard, IconCodeSquare, IconBug, IconMenu } from '@arco-design/web-react/icon';
 import RequireAuth from '@/compontents/Auth';
 
+const load = (children) => <Suspense fallback={<LoadingComponent />}>{children}</Suspense>;
+
 const Login = lazy(() => import('@/views/login'));
-const Home = lazy(() => import('@/views/home'));
+// const Home = lazy(() => import('@/views/home'));
 const Form = lazy(() => import('@/views/comp/form'));
 const Btn = lazy(() => import('@/views/comp/btn'));
-const Docs = lazy(() => import('@/views/docs'));
+// const Docs = lazy(() => import('@/views/docs'));
 const One = lazy(() => import('@/views/multi/one'));
 const PageOne = lazy(() => import('@/views/multi/two/page-one'));
 const PageTwo = lazy(() => import('@/views/multi/two/page-two'));
@@ -25,21 +23,17 @@ const Workplace = lazy(() => import('@/views/dashboard/workplace'));
 const Resource = lazy(() => import('@/views/dashboard/resource'));
 const Error404 = lazy(() => import('@/views/error/404'));
 const Error500 = lazy(() => import('@/views/error/500'));
-const requirePublicLayout = () => {
-  return (
-    <RequireAuth>
-      <LayoutPage />
-    </RequireAuth>
-  );
-};
+const requirePublicLayout = () => (
+  <RequireAuth>
+    <LayoutPage />
+  </RequireAuth>
+);
 
-const requireEmptyLayout = () => {
-  return (
-    <RequireAuth>
-      <EmptyLayout />
-    </RequireAuth>
-  );
-};
+const requireEmptyLayout = () => (
+  <RequireAuth>
+    <EmptyLayout />
+  </RequireAuth>
+);
 
 const routeList = [
   {

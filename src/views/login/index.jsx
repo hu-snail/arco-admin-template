@@ -1,4 +1,4 @@
-import { Form, Grid, Input, Button, Space, Checkbox, Typography } from '@arco-design/web-react';
+import { Form, Input, Button, Space, Checkbox, Typography } from '@arco-design/web-react';
 import { IconUser, IconSafe, IconGithub, IconWechat, IconFile } from '@arco-design/web-react/icon';
 
 // 路由
@@ -11,17 +11,14 @@ import { loginHandler } from '@/store/actions/user';
 import './login.less';
 import store from '@/store';
 
-const Row = Grid.Row;
-const Col = Grid.Col;
-
 export default function Login() {
   const dispatch = useDispatch();
 
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
-  const handleSubmit = async (form) => {
-    await dispatch(loginHandler(form));
+  const handleSubmit = async (formItem) => {
+    await dispatch(loginHandler(formItem));
     const { accessToken } = store.getState().userReducer;
     console.log(accessToken, '---', store.getState());
     if (accessToken) navigate('/dashboard/workplace');
@@ -59,14 +56,33 @@ export default function Login() {
             wrapperCol={{
               span: 24,
             }}
-            initialValues={{ username: 'admin', password: 123456 }}
+            initialValues={{
+              username: 'admin',
+              password: 123456,
+            }}
             onSubmit={handleSubmit}
           >
             <Space direction="vertical" size={10}>
-              <Form.Item field="username" rules={[{ required: true, message: '用户名不能为空' }]}>
+              <Form.Item
+                field="username"
+                rules={[
+                  {
+                    required: true,
+                    message: '用户名不能为空',
+                  },
+                ]}
+              >
                 <Input prefix={<IconUser />} placeholder="请输入用户名" />
               </Form.Item>
-              <Form.Item field="password" rules={[{ required: true, message: '密码不能为空' }]}>
+              <Form.Item
+                field="password"
+                rules={[
+                  {
+                    required: true,
+                    message: '密码不能为空',
+                  },
+                ]}
+              >
                 <Input.Password prefix={<IconSafe />} placeholder="请输入密码" />
               </Form.Item>
               <Form.Item className="forget-pwd">

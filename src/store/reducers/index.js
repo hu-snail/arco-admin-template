@@ -5,12 +5,17 @@ import routerReducer from './router';
 // 合并reducer
 function combineReducers(reducers) {
   const reducerKeys = Object.keys(reducers);
-  return function (state = {}, action) {
-    const nextState = {};
-    reducerKeys.forEach((reducerKey) => (nextState[reducerKey] = reducers[reducerKey](state[reducerKey], action)));
+  return (state = null, action) => {
+    const nextState = null;
+    reducerKeys.forEach((reducerKey) => {
+      nextState[reducerKey] = reducers[reducerKey](state[reducerKey], action);
+    });
     return nextState;
   };
 }
 
 // 导出reducer
-export default combineReducers({ userReducer, routerReducer });
+export default combineReducers({
+  userReducer,
+  routerReducer,
+});

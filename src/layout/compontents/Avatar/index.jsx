@@ -13,7 +13,7 @@ export default function AvatarCompontent() {
     transform: 'translateY(1px)',
   };
 
-  const handleClickMenuItem = (key, keyPath) => {
+  const handleClickMenuItem = (key) => {
     if (key === 'logout') dispatch(logout());
   };
   return (
@@ -32,7 +32,13 @@ export default function AvatarCompontent() {
         </Menu>
       }
     >
-      <Avatar style={{ backgroundColor: '#165DFF' }}>H</Avatar>
+      <Avatar
+        style={{
+          backgroundColor: '#165DFF',
+        }}
+      >
+        H
+      </Avatar>
     </Dropdown>
   );
 }

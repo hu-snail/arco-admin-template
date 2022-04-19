@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Menu } from '@arco-design/web-react';
-import { SubMenuCompontent } from '../SubMenu';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { SubMenuCompontent } from '../SubMenu';
 import store from '@/store';
+
 const MenuItem = Menu.Item;
 
 export default function MenuCompontent() {
@@ -12,7 +13,7 @@ export default function MenuCompontent() {
   const navigate = useNavigate();
 
   const { pathname } = useLocation();
-  const local = useLocation();
+  // const local = useLocation();
   useEffect(() => {
     const { routers } = store.getState().routerReducer;
     setRouterList(routers);
@@ -38,19 +39,20 @@ export default function MenuCompontent() {
       onClickSubMenu={(_, openKeys) => {
         setOpenKeys(openKeys);
       }}
-      style={{ width: '100%' }}
+      style={{
+        width: '100%',
+      }}
     >
       {routerList.map((item) => {
         if (item.children) {
           return SubMenuCompontent(item);
-        } else {
-          return (
-            <MenuItem key={item.key}>
-              {item.meta.icon ? item.meta.icon : ''}
-              {item.meta.title}
-            </MenuItem>
-          );
         }
+        return (
+          <MenuItem key={item.key}>
+            {item.meta.icon ? item.meta.icon : ''}
+            {item.meta.title}
+          </MenuItem>
+        );
       })}
     </Menu>
   );

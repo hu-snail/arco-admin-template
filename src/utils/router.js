@@ -4,19 +4,8 @@
  */
 
 import { localRouters } from '@/routers';
-const routeMap = new Map();
-export function getRoutersStore() {
-  const localRouterList = JSON.parse(localStorage.getItem('routerList'));
-  if (!localRouterList) return [];
-  return filterRouters(localRouters, localRouterList);
-}
-export function setRoutersStore(routerList) {
-  return localStorage.setItem('routerList', JSON.stringify(routerList));
-}
 
-export function removeRoutersStore() {
-  return localStorage.removeItem('routerList');
-}
+const routeMap = new Map();
 
 /**
  * @description 根据后端配置路由过滤
@@ -25,7 +14,7 @@ export function removeRoutersStore() {
  * @returns
  */
 export function filterRouters(localList, reqList) {
-  let list = [];
+  const list = [];
   // 判断接口返回的路由数组
   reqList.map((item, index) => {
     // 多层结构处理
@@ -37,7 +26,12 @@ export function filterRouters(localList, reqList) {
         const localItem = localList[localRouterIndex];
         const { key, element, meta, path } = localItem;
         routeMap.set(`${key}`, meta);
-        list[index] = { path, key, element, meta };
+        list[index] = {
+          path,
+          key,
+          element,
+          meta,
+        };
         // 适配多级菜单 filterRouters
         list[index].children = filterRouters(localItem.children, item.children);
       }
@@ -59,6 +53,18 @@ export function filterRouters(localList, reqList) {
   });
   return list;
 }
+export function getRoutersStore() {
+  const localRouterList = JSON.parse(localStorage.getItem('routerList'));
+  if (!localRouterList) return [];
+  return filterRouters(localRouters, localRouterList);
+}
+export function setRoutersStore(routerList) {
+  return localStorage.setItem('routerList', JSON.stringify(routerList));
+}
+
+export function removeRoutersStore() {
+  return localStorage.removeItem('routerList');
+}
 
 /**
  * @description 获取当前路由
@@ -66,7 +72,7 @@ export function filterRouters(localList, reqList) {
  * @returns list
  */
 export function getCurrentRouter(currentPaths) {
-  let list = [];
+  const list = [];
   for (let i = 0; i < currentPaths.length; i++) {
     const currentKey = currentPaths.slice(0, i * 1 + 1).join('/');
     if (routeMap.get(currentKey)) list.push(routeMap.get(currentKey));

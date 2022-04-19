@@ -1,5 +1,5 @@
-import RenderRouter from './routers';
 import { BrowserRouter } from 'react-router-dom';
+import RenderRouter from './routers';
 
 export default function App() {
   return (

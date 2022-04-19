@@ -1,10 +1,11 @@
-import { Fragment, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Grid, Carousel, PageHeader, Radio, Space } from '@arco-design/web-react';
-const Row = Grid.Row;
-const Col = Grid.Col;
 
 import { getResouceList } from '@/api/resource';
 import styles from './style/resource.module.less';
+
+const { Row } = Grid;
+const { Col } = Grid;
 
 const imageSrc = [
   '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/cd7a1aaea8e1c5e3d26fe2591e561798.png~tplv-uwbnlip3yd-webp.webp',
@@ -19,9 +20,6 @@ export default function ResourceCompontent() {
   const [teamData, setTeamData] = useState([]);
   const [studyData, setStudyData] = useState([]);
   const [imgPrefix, setImgPrefix] = useState(null);
-  useEffect(() => {
-    onGetResouceList();
-  }, []);
 
   const onGetResouceList = () => {
     getResouceList().then((res) => {
@@ -33,124 +31,132 @@ export default function ResourceCompontent() {
       setCommunityData(communityList);
     });
   };
+
+  useEffect(() => {
+    onGetResouceList();
+  }, []);
+
   return (
-    <Fragment>
-      <Row gutter={16}>
-        <Col xs={24} sm={24} md={17}>
-          <PageHeader
-            className={styles['page-header']}
-            title="React 生态资源"
-            subTitle="为您推荐优质资源"
-            extra={
-              <div>
-                <Radio.Group mode="fill" type="button" defaultValue="small">
-                  <Radio value="large">精选</Radio>
-                  <Radio value="medium">开源项目</Radio>
-                  <Radio value="small">技术社区</Radio>
-                </Radio.Group>
-              </div>
-            }
-          >
+    <Row gutter={16}>
+      <Col xs={24} sm={24} md={17}>
+        <PageHeader
+          className={styles['page-header']}
+          title="React 生态资源"
+          subTitle="为您推荐优质资源"
+          extra={
             <div>
-              <Space size={(16, 16)} wrap>
-                {selectedList.map((item, index) => {
-                  return (
-                    <div key={index} className={styles['card-item']}>
-                      <div className={styles['card-item-head']}>
-                        <div className={styles['card-item-head-logo']}>
-                          <img src={imgPrefix + item.logo} width="100%" alt="" />
-                        </div>
-                        <div className={styles['card-item-head-title']}>{item.title}</div>
-                      </div>
-                      <div className={styles['card-item-desc']}>{item.desc}</div>
-                    </div>
-                  );
-                })}
-              </Space>
+              <Radio.Group mode="fill" type="button" defaultValue="small">
+                <Radio value="large">精选</Radio>
+                <Radio value="medium">开源项目</Radio>
+                <Radio value="small">技术社区</Radio>
+              </Radio.Group>
             </div>
-          </PageHeader>
-          <Row gutter={16} style={{ marginTop: '16px' }}>
-            <Col xs={24} sm={24} md={12}>
-              <PageHeader className={styles['page-header']} title="精选社区" subTitle="技术社区">
-                <Space size={8} direction="vertical" className={styles['space-width']}>
-                  {communityData.map((item, index) => {
-                    return (
-                      <div key={index} className={styles['community-item']}>
-                        <div className={styles['community-item-logo']}>
-                          <img src={item.logo} width="100%" alt="" />
-                        </div>
-                        <div className={styles['community-item-title']}>
-                          <b>【{item.title}】</b>
-                          {item.desc}
-                        </div>
-                      </div>
-                    );
-                  })}
-                </Space>
-              </PageHeader>
-            </Col>
-            <Col xs={24} sm={24} md={12}>
-              <PageHeader className={styles['page-header']} title="技术团队" subTitle="精选团队">
-                <Space size={(10, 10)} wrap>
-                  {teamData.map((item, index) => {
-                    return (
-                      <div key={index} className={styles['team-card-item']}>
-                        <div className={styles['team-card-item-head']}>
-                          <div className={styles['team-card-item-head-logo']}>
-                            <img src={item.logo} width="100%" alt="" />
-                          </div>
-                          <div className={styles['team-card-item-head-title']}>{item.title}</div>
-                        </div>
-                        <div className={styles['team-card-item-desc']}>{item.desc}</div>
-                      </div>
-                    );
-                  })}
-                </Space>
-              </PageHeader>
-            </Col>
-          </Row>
-        </Col>
-        <Col xs={24} sm={24} md={7}>
-          <PageHeader className={styles['page-header']} title="排行榜" subTitle="精选排行">
-            <Space size={8} direction="vertical" className={styles['space-width']}>
-              {studyData.map((item, index) => {
-                return (
+          }
+        >
+          <div>
+            <Space size={(16, 16)} wrap>
+              {selectedList.map((item, index) => (
+                <div key={index} className={styles['card-item']}>
+                  <div className={styles['card-item-head']}>
+                    <div className={styles['card-item-head-logo']}>
+                      <img src={imgPrefix + item.logo} width="100%" alt="" />
+                    </div>
+                    <div className={styles['card-item-head-title']}>{item.title}</div>
+                  </div>
+                  <div className={styles['card-item-desc']}>{item.desc}</div>
+                </div>
+              ))}
+            </Space>
+          </div>
+        </PageHeader>
+        <Row
+          gutter={16}
+          style={{
+            marginTop: '16px',
+          }}
+        >
+          <Col xs={24} sm={24} md={12}>
+            <PageHeader className={styles['page-header']} title="精选社区" subTitle="技术社区">
+              <Space size={8} direction="vertical" className={styles['space-width']}>
+                {communityData.map((item, index) => (
                   <div key={index} className={styles['community-item']}>
                     <div className={styles['community-item-logo']}>
                       <img src={item.logo} width="100%" alt="" />
                     </div>
                     <div className={styles['community-item-title']}>
-                      <b>{item.title}:</b>
+                      <b>【{item.title}】</b>
                       {item.desc}
                     </div>
                   </div>
-                );
-              })}
-            </Space>
-          </PageHeader>
-          <Space style={{ marginTop: '16px' }} size={16} direction="vertical" className={styles['space-width']}>
-            <Carousel
-              indicatorType="line"
-              style={{
-                width: '100%',
-                height: 150,
-              }}
-            >
-              {imageSrc.map((src, index) => (
-                <div key={index}>
-                  <img
-                    src={src}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                    }}
-                  />
+                ))}
+              </Space>
+            </PageHeader>
+          </Col>
+          <Col xs={24} sm={24} md={12}>
+            <PageHeader className={styles['page-header']} title="技术团队" subTitle="精选团队">
+              <Space size={(10, 10)} wrap>
+                {teamData.map((item, index) => (
+                  <div key={index} className={styles['team-card-item']}>
+                    <div className={styles['team-card-item-head']}>
+                      <div className={styles['team-card-item-head-logo']}>
+                        <img src={item.logo} width="100%" alt="" />
+                      </div>
+                      <div className={styles['team-card-item-head-title']}>{item.title}</div>
+                    </div>
+                    <div className={styles['team-card-item-desc']}>{item.desc}</div>
+                  </div>
+                ))}
+              </Space>
+            </PageHeader>
+          </Col>
+        </Row>
+      </Col>
+      <Col xs={24} sm={24} md={7}>
+        <PageHeader className={styles['page-header']} title="排行榜" subTitle="精选排行">
+          <Space size={8} direction="vertical" className={styles['space-width']}>
+            {studyData.map((item, index) => (
+              <div key={index} className={styles['community-item']}>
+                <div className={styles['community-item-logo']}>
+                  <img src={item.logo} width="100%" alt="" />
                 </div>
-              ))}
-            </Carousel>
+                <div className={styles['community-item-title']}>
+                  <b>{item.title}:</b>
+                  {item.desc}
+                </div>
+              </div>
+            ))}
           </Space>
-        </Col>
-      </Row>
-    </Fragment>
+        </PageHeader>
+        <Space
+          style={{
+            marginTop: '16px',
+          }}
+          size={16}
+          direction="vertical"
+          className={styles['space-width']}
+        >
+          <Carousel
+            indicatorType="line"
+            style={{
+              width: '100%',
+              height: 150,
+            }}
+          >
+            {imageSrc.map((src, index) => (
+              <div key={index}>
+                <img
+                  src={src}
+                  alt=""
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                  }}
+                />
+              </div>
+            ))}
+          </Carousel>
+        </Space>
+      </Col>
+    </Row>
   );
 }

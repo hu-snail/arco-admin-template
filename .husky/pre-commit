@@ -6,5 +6,5 @@
 
 [ -n "$CI" ] && exit 0
 
-yarn run lint:pretty
+yarn run lint:eslint
 

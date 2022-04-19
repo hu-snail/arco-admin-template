@@ -11,12 +11,10 @@ import { getRouters } from '@/api/routers';
  * @param {Array} payload
  * @returns
  */
-export const setRoutersHandler = () => {
-  return async (dispatch) => {
-    const { data } = await getRouters();
-    dispatch({
-      type: SET_ROUTERS,
-      payload: data,
-    });
-  };
+export const setRoutersHandler = () => async (dispatch) => {
+  const { data } = await getRouters();
+  dispatch({
+    type: SET_ROUTERS,
+    payload: data,
+  });
 };

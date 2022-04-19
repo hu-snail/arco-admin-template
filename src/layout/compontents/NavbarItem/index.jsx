@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Space, Menu, Input, Button, Dropdown, Tooltip } from '@arco-design/web-react';
+import { Space, Menu, Input, Button, Dropdown, Tooltip, Message } from '@arco-design/web-react';
 
 import { IconFullscreen, IconFullscreenExit, IconLanguage, IconMoonFill, IconSun, IconNotification, IconRefresh, IconSkin, IconSearch } from '@arco-design/web-react/icon';
 
@@ -37,7 +37,13 @@ export default function NavBarItemCompontent() {
   return (
     <div className="layout-header-edit">
       <Space size="medium">
-        <Input style={{ width: 200 }} prefix={<IconSearch />} placeholder="请输入内容查询" />
+        <Input
+          style={{
+            width: 200,
+          }}
+          prefix={<IconSearch />}
+          placeholder="请输入内容查询"
+        />
         <Tooltip position="bottom" trigger="hover" content={`点击${isScreenfull ? '退出' : '切换'}全屏模式`}>
           <Button shape="circle" icon={isScreenfull ? <IconFullscreenExit /> : <IconFullscreen />} onClick={handleChangeScreen} />
         </Tooltip>

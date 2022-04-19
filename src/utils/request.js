@@ -6,9 +6,9 @@
 import axios from 'axios';
 import { Message, Modal } from '@arco-design/web-react';
 import config from '@/config/net.config';
-import store from '@/store';
-import { setting } from '@/config/setting';
-const { tokenName } = setting;
+// import { setting } from '@/config/setting';
+
+// const { tokenName } = setting;
 let tokenLose = true;
 
 const { baseURL, successCode, invalidCode, requestTimeout, contentType } = config;
@@ -23,23 +23,10 @@ const instance = axios.create({
 
 // request interceptor
 instance.interceptors.request.use(
-  (config) => {
-    // do something before request is sent
-    // if (store.getState().userReducer) {
-    //   const { accessToken } = store.getState().userReducer;
-    //   // 设置token
-    //   if (accessToken) {
-    //     // let each request carry token]
-    //     config.headers[tokenName] = accessToken;
-    //   }
-    // }
-
-    return config;
-  },
-  (error) => {
+  (configItem) => configItem,
+  (error) =>
     // do something with request error
-    return Promise.reject(error);
-  }
+    Promise.reject(error)
 );
 
 // response interceptor
@@ -62,7 +49,7 @@ instance.interceptors.response.use(
         onOk: () => {
           // 重新登录
           tokenLose = true;
-          location.reload();
+          window.location.reload();
         },
         onCancel: () => {
           tokenLose = true;

@@ -1,4 +1,5 @@
 import { setting } from '@/config/setting';
+
 const { tokenTableName } = setting;
 export function getAccessToken() {
   return localStorage.getItem(tokenTableName);
