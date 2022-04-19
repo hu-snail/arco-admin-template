@@ -5,5 +5,5 @@ import NavBarItemCompontent from './NavbarItem';
 import AvatarComponent from './Avatar';
 
 export {
-  LogoCompontent, MenuCompontent, BreadcrumbCompontent, NavBarItemCompontent, AvatarComponent,
+  LogoCompontent, MenuCompontent, BreadcrumbCompontent, NavBarItemCompontent, AvatarComponent
 };

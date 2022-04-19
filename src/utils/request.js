@@ -17,8 +17,8 @@ const instance = axios.create({
   baseURL,
   timeout: requestTimeout,
   headers: {
-    'Content-Type': contentType,
-  },
+    'Content-Type': contentType
+  }
 });
 
 // request interceptor
@@ -53,7 +53,7 @@ instance.interceptors.response.use(
         },
         onCancel: () => {
           tokenLose = true;
-        },
+        }
       });
     }
 

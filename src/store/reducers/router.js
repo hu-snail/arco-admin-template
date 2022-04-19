@@ -6,7 +6,7 @@ import { localRouters } from '@/routers';
 // 初始化
 const initState = {
   routers: getRoutersStore() || [],
-  currentRouter: null,
+  currentRouter: null
 };
 
 export default function routerReducer(state = initState, action) {
@@ -17,7 +17,7 @@ export default function routerReducer(state = initState, action) {
     case SET_ROUTERS:
       setRoutersStore(routers);
       return Object.assign(state, {
-        routers,
+        routers
       });
     default:
       return state;

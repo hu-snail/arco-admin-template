@@ -54,11 +54,11 @@ export default function Login() {
           <Form
             form={form}
             wrapperCol={{
-              span: 24,
+              span: 24
             }}
             initialValues={{
               username: 'admin',
-              password: 123456,
+              password: 123456
             }}
             onSubmit={handleSubmit}
           >
@@ -68,8 +68,8 @@ export default function Login() {
                 rules={[
                   {
                     required: true,
-                    message: '用户名不能为空',
-                  },
+                    message: '用户名不能为空'
+                  }
                 ]}
               >
                 <Input prefix={<IconUser />} placeholder="请输入用户名" />
@@ -79,8 +79,8 @@ export default function Login() {
                 rules={[
                   {
                     required: true,
-                    message: '密码不能为空',
-                  },
+                    message: '密码不能为空'
+                  }
                 ]}
               >
                 <Input.Password prefix={<IconSafe />} placeholder="请输入密码" />

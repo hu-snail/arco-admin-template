@@ -39,7 +39,7 @@ export default function NavBarItemCompontent() {
       <Space size="medium">
         <Input
           style={{
-            width: 200,
+            width: 200
           }}
           prefix={<IconSearch />}
           placeholder="请输入内容查询"

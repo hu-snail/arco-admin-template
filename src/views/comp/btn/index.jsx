@@ -68,7 +68,7 @@ export default function Home() {
               type="primary"
               icon={<IconLeft />}
               style={{
-                padding: '0 8px',
+                padding: '0 8px'
               }}
             >
               Prev
@@ -76,7 +76,7 @@ export default function Home() {
             <Button
               type="primary"
               style={{
-                padding: '0 8px',
+                padding: '0 8px'
               }}
             >
               Next

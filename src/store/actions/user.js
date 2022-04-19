@@ -24,7 +24,7 @@ const { title, tokenName } = setting;
 export const setAccessTokenHandler = (payload) => async (dispatch) => {
   dispatch({
     type: SET_ACCESS_TOKEN,
-    payload,
+    payload
   });
 };
 
@@ -38,7 +38,7 @@ export const setPermission = (payload, call) => async (dispatch) => {
   dispatch({
     type: SET_PERMISSIONS,
     payload,
-    call,
+    call
   });
 };
 
@@ -65,7 +65,7 @@ export const loginHandler = (payload) => async (dispatch) => {
   if (accessToken) {
     await dispatch(
       setAccessTokenHandler({
-        accessToken,
+        accessToken
       })
     );
     await dispatch(setRoutersHandler());
@@ -73,12 +73,12 @@ export const loginHandler = (payload) => async (dispatch) => {
 
     Notification.success({
       title: `${thisTime}！`,
-      content: `👏欢迎登录${title}!`,
+      content: `👏欢迎登录${title}!`
     });
   } else Message.error(`登录接口异常，未正确返回${tokenName}...`);
   dispatch({
     type: LOGIN,
-    payload: data.accessToken,
+    payload: data.accessToken
   });
 };
 
@@ -90,12 +90,12 @@ export const logout = () => async (dispatch) => {
   dispatch(setPermission([]));
   dispatch(
     setAccessTokenHandler({
-      accessToken: '',
+      accessToken: ''
     })
   );
   dispatch({
     type: LOGOUT,
-    payload: '',
+    payload: ''
   });
 };
 
@@ -115,7 +115,7 @@ export const getUserInfoHandler = (call) => async (dispatch) => {
     dispatch({
       type: GET_USERINFO,
       payload: data,
-      call,
+      call
     });
   } else {
     return Message.error('用户信息接口异常');
@@ -125,5 +125,5 @@ export const getUserInfoHandler = (call) => async (dispatch) => {
 // 设置用户信息action
 export const setUserInfo = (data) => ({
   type: SET_USERINFO,
-  data,
+  data
 });

@@ -38,7 +38,7 @@ export default function WorkplaceCompontent() {
               heading={6}
               className={style['chart-title']}
               style={{
-                marginBottom: 0,
+                marginBottom: 0
               }}
             >
               折线图数据
@@ -52,7 +52,7 @@ export default function WorkplaceCompontent() {
         <Row
           gutter={16}
           style={{
-            marginTop: '16px',
+            marginTop: '16px'
           }}
         >
           <Col span={12}>
@@ -77,7 +77,7 @@ export default function WorkplaceCompontent() {
             <Card
               bordered={false}
               style={{
-                height: '384px',
+                height: '384px'
               }}
             >
               <Typography.Title heading={6}>评论列表</Typography.Title>
@@ -97,26 +97,32 @@ export default function WorkplaceCompontent() {
                         actions={[
                           <span className="custom-comment-action" key="heart">
                             {like ? (
-                              <IconHeartFill style={{
-                                color: '#f53f3f',
-                              }}
+                              <IconHeartFill
+                                style={{
+                                  color: '#f53f3f'
+                                }}
                               />
-                            ) : <IconHeart />}
+                            ) : (
+                              <IconHeart />
+                            )}
                             {item.like + (like ? 1 : 0)}
                           </span>,
                           <span className="custom-comment-action" key="star">
                             {star ? (
-                              <IconStarFill style={{
-                                color: '#ffb400',
-                              }}
+                              <IconStarFill
+                                style={{
+                                  color: '#ffb400'
+                                }}
                               />
-                            ) : <IconStar />}
+                            ) : (
+                              <IconStar />
+                            )}
                             {item.star + (star ? 1 : 0)}
                           </span>,
                           <span className="custom-comment-action" key="reply">
                             <IconMessage />
                             Reply
-                          </span>,
+                          </span>
                         ]}
                       />
                     </List.Item>
@@ -130,9 +136,11 @@ export default function WorkplaceCompontent() {
       <Col xs={24} sm={24} md={6}>
         <Space direction="vertical" size="medium">
           <Card bordered={false}>
-            <div style={{
-              display: 'flex', justifyContent: 'space-between',
-            }}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between'
+              }}
             >
               <Typography.Title heading={6}>快捷入口</Typography.Title>
             </div>
@@ -179,7 +187,7 @@ export default function WorkplaceCompontent() {
             indicatorType="line"
             style={{
               width: '100%',
-              height: 145,
+              height: 145
             }}
           >
             {imgList.map((src, index) => (
@@ -189,7 +197,7 @@ export default function WorkplaceCompontent() {
                   alt=""
                   style={{
                     width: '100%',
-                    height: '100%',
+                    height: '100%'
                   }}
                 />
               </div>
@@ -203,26 +211,28 @@ export default function WorkplaceCompontent() {
               <Statistic
                 title="新用户"
                 value={1923}
-                suffix={(
-                  <IconArrowRise style={{
-                    color: '#ee4d38',
-                  }}
+                suffix={
+                  <IconArrowRise
+                    style={{
+                      color: '#ee4d38'
+                    }}
                   />
-                )}
+                }
               />
               <Statistic
                 title="用户增长率"
                 value={50.32}
                 precision={2}
-                prefix={(
-                  <IconArrowRise style={{
-                    color: '#ee4d38',
-                  }}
+                prefix={
+                  <IconArrowRise
+                    style={{
+                      color: '#ee4d38'
+                    }}
                   />
-                )}
+                }
                 suffix="%"
                 styleValue={{
-                  color: '#ee4d38',
+                  color: '#ee4d38'
                 }}
               />
             </div>

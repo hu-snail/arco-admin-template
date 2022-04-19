@@ -15,6 +15,6 @@ export const setRoutersHandler = () => async (dispatch) => {
   const { data } = await getRouters();
   dispatch({
     type: SET_ROUTERS,
-    payload: data,
+    payload: data
   });
 };

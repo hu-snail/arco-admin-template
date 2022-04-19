@@ -11,7 +11,7 @@ const imageSrc = [
   '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/cd7a1aaea8e1c5e3d26fe2591e561798.png~tplv-uwbnlip3yd-webp.webp',
   '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/6480dbc69be1b5de95010289787d64f1.png~tplv-uwbnlip3yd-webp.webp',
   '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/0265a04fddbd77a19602a15d9d55d797.png~tplv-uwbnlip3yd-webp.webp',
-  '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/24e0dd27418d2291b65db1b21aa62254.png~tplv-uwbnlip3yd-webp.webp',
+  '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/24e0dd27418d2291b65db1b21aa62254.png~tplv-uwbnlip3yd-webp.webp'
 ];
 
 export default function ResourceCompontent() {
@@ -72,7 +72,7 @@ export default function ResourceCompontent() {
         <Row
           gutter={16}
           style={{
-            marginTop: '16px',
+            marginTop: '16px'
           }}
         >
           <Col xs={24} sm={24} md={12}>
@@ -129,7 +129,7 @@ export default function ResourceCompontent() {
         </PageHeader>
         <Space
           style={{
-            marginTop: '16px',
+            marginTop: '16px'
           }}
           size={16}
           direction="vertical"
@@ -139,7 +139,7 @@ export default function ResourceCompontent() {
             indicatorType="line"
             style={{
               width: '100%',
-              height: 150,
+              height: 150
             }}
           >
             {imageSrc.map((src, index) => (
@@ -149,7 +149,7 @@ export default function ResourceCompontent() {
                   alt=""
                   style={{
                     width: '100%',
-                    height: '100%',
+                    height: '100%'
                   }}
                 />
               </div>

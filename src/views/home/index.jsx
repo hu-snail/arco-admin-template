@@ -64,7 +64,7 @@ export default function Home() {
 
       <div
         style={{
-          marginTop: '20px',
+          marginTop: '20px'
         }}
       >
         <Button type="primary" onClick={handleGetData}>
@@ -74,7 +74,7 @@ export default function Home() {
 
       <div
         style={{
-          marginTop: '20px',
+          marginTop: '20px'
         }}
       >
         <Row>

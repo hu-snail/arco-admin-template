@@ -7,7 +7,7 @@ export default function FormCompontent() {
     <div className="app-main-container">
       <Form
         style={{
-          width: 600,
+          width: 600
         }}
       >
         <FormItem label="Username">
@@ -18,14 +18,14 @@ export default function FormCompontent() {
         </FormItem>
         <FormItem
           wrapperCol={{
-            offset: 5,
+            offset: 5
           }}
         >
           <Checkbox>I have read the manual</Checkbox>
         </FormItem>
         <FormItem
           wrapperCol={{
-            offset: 5,
+            offset: 5
           }}
         >
           <Button type="primary">Submit</Button>

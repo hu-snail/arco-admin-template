@@ -7,7 +7,7 @@ const initValue = {
   accessToken: getAccessToken(),
   username: '',
   avatar: '',
-  permissions: [],
+  permissions: []
 };
 
 export default function user(state = initValue, action) {
@@ -16,17 +16,17 @@ export default function user(state = initValue, action) {
     case LOGIN:
       return {
         ...state,
-        accessToken: payload,
+        accessToken: payload
       };
     case GET_USERINFO:
       Object.assign(state, {
-        ...payload,
+        ...payload
       });
       return call && call(payload.permissions);
     case SET_PERMISSIONS:
       if (!payload.length) removeAccessToken();
       Object.assign(state, {
-        permissions: payload,
+        permissions: payload
       });
       return call && call(payload);
     case LOGOUT:

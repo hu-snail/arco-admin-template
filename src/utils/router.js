@@ -30,7 +30,7 @@ export function filterRouters(localList, reqList) {
           path,
           key,
           element,
-          meta,
+          meta
         };
         // 适配多级菜单 filterRouters
         list[index].children = filterRouters(localItem.children, item.children);
@@ -46,7 +46,7 @@ export function filterRouters(localList, reqList) {
           key,
           element,
           meta,
-          path,
+          path
         });
       }
     }

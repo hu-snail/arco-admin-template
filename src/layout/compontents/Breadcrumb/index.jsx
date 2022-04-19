@@ -13,18 +13,16 @@ export default function BreadcrumbCompontent() {
     setBreadCrumbs(list);
   }, [pathname]);
   return (
-    <Breadcrumb style={{
-      margin: '16px 0',
-    }}
+    <Breadcrumb
+      style={{
+        margin: '16px 0'
+      }}
     >
       {breadcrumbs.map((item, index) => (
         <Breadcrumb.Item key={index}>
           {!index ? (
             <div className="breadcrumb-icon">
-              {item.icon}
-              {' '}
-              <span className="arco-breadcrumb-item-separator icon-separator">/</span>
-              {' '}
+              {item.icon} <span className="arco-breadcrumb-item-separator icon-separator">/</span>{' '}
             </div>
           ) : (
             ''

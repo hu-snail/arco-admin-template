@@ -17,5 +17,5 @@ function combineReducers(reducers) {
 // 导出reducer
 export default combineReducers({
   userReducer,
-  routerReducer,
+  routerReducer
 });

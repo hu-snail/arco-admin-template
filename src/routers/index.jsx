@@ -45,10 +45,10 @@ const routeList = [
         key: 'login',
         element: load(<Login />),
         meta: {
-          title: '登录',
-        },
-      },
-    ],
+          title: '登录'
+        }
+      }
+    ]
   },
   {
     path: '/dashboard',
@@ -56,7 +56,7 @@ const routeList = [
     element: requirePublicLayout(),
     meta: {
       title: '仪表盘',
-      icon: <IconDashboard />,
+      icon: <IconDashboard />
     },
     children: [
       {
@@ -64,18 +64,18 @@ const routeList = [
         key: '/dashboard/workplace',
         element: load(<Workplace />),
         meta: {
-          title: '工作台',
-        },
+          title: '工作台'
+        }
       },
       {
         path: 'resource',
         key: '/dashboard/resource',
         element: load(<Resource />),
         meta: {
-          title: '资源中心',
-        },
-      },
-    ],
+          title: '资源中心'
+        }
+      }
+    ]
   },
   {
     path: '/comp',
@@ -83,7 +83,7 @@ const routeList = [
     element: requirePublicLayout(),
     meta: {
       title: '组件库',
-      icon: <IconCodeSquare />,
+      icon: <IconCodeSquare />
     },
     children: [
       {
@@ -91,18 +91,18 @@ const routeList = [
         key: '/comp/btn',
         element: load(<Btn />),
         meta: {
-          title: '按钮',
-        },
+          title: '按钮'
+        }
       },
       {
         path: 'form',
         key: '/comp/form',
         element: load(<Form />),
         meta: {
-          title: '表单',
-        },
-      },
-    ],
+          title: '表单'
+        }
+      }
+    ]
   },
   {
     path: '/multi',
@@ -110,7 +110,7 @@ const routeList = [
     element: requirePublicLayout(),
     meta: {
       title: '多级菜单',
-      icon: <IconMenu />,
+      icon: <IconMenu />
     },
     children: [
       {
@@ -118,15 +118,15 @@ const routeList = [
         key: '/multi/one',
         element: load(<One />),
         meta: {
-          title: '一级菜单',
-        },
+          title: '一级菜单'
+        }
       },
       {
         path: 'two',
         key: '/multi/two',
         element: load(<MultiTwoLayout />),
         meta: {
-          title: '二级菜单',
+          title: '二级菜单'
         },
         children: [
           {
@@ -134,20 +134,20 @@ const routeList = [
             key: '/multi/two/page-one',
             element: load(<PageOne />),
             meta: {
-              title: '2-1菜单',
-            },
+              title: '2-1菜单'
+            }
           },
           {
             path: 'page-two',
             key: '/multi/two/page-two',
             element: load(<PageTwo />),
             meta: {
-              title: '2-2菜单',
-            },
-          },
-        ],
-      },
-    ],
+              title: '2-2菜单'
+            }
+          }
+        ]
+      }
+    ]
   },
   {
     path: '/error',
@@ -155,7 +155,7 @@ const routeList = [
     element: requirePublicLayout(),
     meta: {
       title: '错误页面',
-      icon: <IconBug />,
+      icon: <IconBug />
     },
     children: [
       {
@@ -163,23 +163,23 @@ const routeList = [
         key: '/error/404',
         element: load(<Error404 />),
         meta: {
-          title: '404页面',
-        },
+          title: '404页面'
+        }
       },
       {
         path: '500',
         key: '/error/500',
         element: load(<Error500 />),
         meta: {
-          title: '500页面',
-        },
-      },
-    ],
+          title: '500页面'
+        }
+      }
+    ]
   },
   {
     path: '*',
-    element: <PageTwo />,
-  },
+    element: <PageTwo />
+  }
 ];
 
 const RenderRouter = () => {

@@ -8,5 +8,5 @@ export default {
   // 请求content_type类型,根据后端配置定义
   contentType: 'application/json;charset=UTF-8',
   // 登录失效code
-  invalidCode: -1,
+  invalidCode: -1
 };

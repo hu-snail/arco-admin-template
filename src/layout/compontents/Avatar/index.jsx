@@ -10,7 +10,7 @@ export default function AvatarCompontent() {
   const iconStyle = {
     marginRight: 8,
     fontSize: 16,
-    transform: 'translateY(1px)',
+    transform: 'translateY(1px)'
   };
 
   const handleClickMenuItem = (key) => {
@@ -34,7 +34,7 @@ export default function AvatarCompontent() {
     >
       <Avatar
         style={{
-          backgroundColor: '#165DFF',
+          backgroundColor: '#165DFF'
         }}
       >
         H
