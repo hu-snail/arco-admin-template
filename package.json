@@ -61,7 +61,7 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
-    "husky": "^7.0.4",
+    "husky": "^5.2.0",
     "less": "^4.1.2",
     "lint-staged": "^12.3.8",
     "prettier": "^2.6.2",
