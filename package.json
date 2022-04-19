@@ -8,7 +8,7 @@
     "url": "https://github.com/hu-snail"
   },
   "lint-staged": {
-    "**/*.{jsx,js}": [
+    "src/**/*.{jsx,js}": [
       "prettier-eslint --write",
       "git add"
     ]
