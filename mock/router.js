@@ -5,13 +5,13 @@ const data = [
     children: [
       {
         path: 'workplace',
-        key: 'workplace',
+        key: 'workplace'
       },
       {
         path: 'resource',
-        key: 'resource',
-      },
-    ],
+        key: 'resource'
+      }
+    ]
   },
   {
     path: '/comp',
@@ -19,17 +19,17 @@ const data = [
     children: [
       {
         path: 'btn',
-        title: '按钮组件',
+        title: '按钮组件'
       },
       {
         path: 'form',
-        title: '表单组件',
+        title: '表单组件'
       },
       {
         path: 'echarts',
-        title: '图表组件',
-      },
-    ],
+        title: '图表组件'
+      }
+    ]
   },
   {
     path: '/multi',
@@ -37,7 +37,7 @@ const data = [
     children: [
       {
         path: 'one',
-        title: '一级菜单',
+        title: '一级菜单'
       },
       {
         path: 'two',
@@ -45,15 +45,15 @@ const data = [
         children: [
           {
             path: 'page-one',
-            title: '2-1菜单',
+            title: '2-1菜单'
           },
           {
             path: 'page-two',
-            title: '2-2菜单',
-          },
-        ],
-      },
-    ],
+            title: '2-2菜单'
+          }
+        ]
+      }
+    ]
   },
   {
     path: '/error',
@@ -61,14 +61,14 @@ const data = [
     children: [
       {
         path: '404',
-        title: '404页面',
+        title: '404页面'
       },
       {
         path: '500',
-        title: '500页面',
-      },
-    ],
-  },
+        title: '500页面'
+      }
+    ]
+  }
 ];
 export default [
   {
@@ -76,8 +76,8 @@ export default [
     type: 'post',
     response() {
       return {
-        code: 200, msg: 'success', data: data,
+        code: 200, msg: 'success', data: data
       };
-    },
-  },
+    }
+  }
 ];

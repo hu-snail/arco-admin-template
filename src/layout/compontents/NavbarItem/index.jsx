@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Space, Menu, Input, Button, Dropdown, Tooltip, Message } from '@arco-design/web-react';
 
-import { IconFullscreen, IconFullscreenExit, IconLanguage, IconMoonFill, IconSun, IconNotification, IconRefresh, IconSkin, IconSearch } from '@arco-design/web-react/icon';
+import {
+  Space, Menu, Input, Button, Dropdown, Tooltip, Message
+} from '@arco-design/web-react';
+
+import {
+  IconFullscreen, IconFullscreenExit, IconLanguage, IconMoonFill, IconSun, IconNotification, IconRefresh, IconSkin, IconSearch
+} from '@arco-design/web-react/icon';
 
 import screenfull from 'screenfull';
 

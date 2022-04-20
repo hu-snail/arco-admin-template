@@ -16,6 +16,7 @@ export default function MenuCompontent() {
   // const local = useLocation();
   useEffect(() => {
     const { routers } = store.getState().routerReducer;
+    console.log(store.getState(), '==--00');
     setRouterList(routers);
   }, []);
 

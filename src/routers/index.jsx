@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
 
-import { IconDashboard, IconCodeSquare, IconBug, IconMenu } from '@arco-design/web-react/icon';
+import {
+  IconDashboard, IconCodeSquare, IconBug, IconMenu
+} from '@arco-design/web-react/icon';
 import LayoutPage from '@/layout';
 import EmptyLayout from '@/layout/emptyLayout';
 import MultiTwoLayout from '@/views/multi/two/layout';

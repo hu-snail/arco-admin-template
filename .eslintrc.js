@@ -1,27 +1,21 @@
 module.exports = {
-  env: {
-    browser: true,
-    node: true,
-  },
+  env: { browser: true, node: true },
   extends: ['airbnb'],
   parser: 'babel-eslint',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
+  parserOptions: { ecmaFeatures: { jsx: true }, ecmaVersion: 2018, sourceType: 'module' },
   plugins: ['react'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
     _: true,
-    $: true,
+    $: true
   },
   rules: {
     strict: 'off',
-    'no-console': 'off',
+    eqeqeq: 2, // 使用全等 === 不能使用==
+
+    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off', // console在生产模式不生效
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off', // debugger在生产模式不生效
     'import/no-dynamic-require': 'off',
     'import/no-unresolved': 0,
     'import/prefer-default-export': 0,
@@ -32,39 +26,22 @@ module.exports = {
     'global-require': 'off',
     'require-yield': 'off',
     'no-plusplus': 0,
+    'no-case-declarations': 'error',
     'array-callback-return': 0,
     'default-param-last': 0,
     'consistent-return': 0,
     quotes: [2, 'single'], // 单引号
-    'no-debugger': 2, // 禁用debugger
     semi: 0, // 不强制使用分号
+    'max-len': 0,
     'no-control-regex': 2, // 禁止在正则表达式中使用控制字符 ：new RegExp("\x1f")
     'linebreak-style': ['error', 'windows'], // 强制使用一致的换行风格
-    indent: [
-      'error',
-      2,
-      {
-        SwitchCase: 1,
-      },
-    ], // 空格4个
+    indent: ['error', 2, { SwitchCase: 1 }], // 空格2个
     'array-bracket-spacing': [2, 'never'], // 指定数组的元素之间要以空格隔开(,后面)
-    'brace-style': [
-      2,
-      '1tbs',
-      {
-        allowSingleLine: true,
-      },
-    ], // if while function 后面的{必须与if在同一行，java风格。
+    'brace-style': [2, '1tbs', { allowSingleLine: true }], // if while function 后面的{必须与if在同一行，java风格。
     'no-irregular-whitespace': 0, // 不规则的空白不允许
     'no-trailing-spaces': 1, // 一行结束后面有空格就发出警告
     'eol-last': 0, // 文件以单一的换行符结束
-    'no-unused-vars': [
-      1,
-      {
-        vars: 'all',
-        args: 'after-used',
-      },
-    ], // 不能有声明后未被使用的变量或参数
+    'no-unused-vars': [1, { vars: 'all', args: 'after-used' }], // 不能有声明后未被使用的变量或参数
     'no-underscore-dangle': 0, // 标识符不能以_开头或结尾
     'no-alert': 2, // 禁止使用alert confirm prompt
     'no-lone-blocks': 0, // 禁止不必要的嵌套块
@@ -84,38 +61,15 @@ module.exports = {
     'no-this-before-super': 0, // 在调用super()之前不能使用this或super
     'no-undef': 1, // 不能有未定义的变量
     'no-use-before-define': 2, // 未定义前不能使用
-    'comma-dangle': 0,
+    'comma-dangle': ['error', 'never'], // 取消结尾逗号
+
     camelcase: 0, // 强制驼峰法命名
-    'object-curly-newline': [
-      'error',
-      {
-        ObjectExpression: 'always',
-        ObjectPattern: {
-          multiline: true,
-        },
-        ImportDeclaration: 'never',
-        ExportDeclaration: {
-          multiline: true,
-          minProperties: 3,
-        },
-      },
-    ],
+    'object-curly-newline': ['error', { ImportDeclaration: { multiline: true, minProperties: 3 }, ExportDeclaration: { multiline: true, minProperties: 3 } }], // import export 超过三个属性换行
     'react/display-name': 0, // 防止在React组件定义中丢失displayName
-    'react/forbid-prop-types': [
-      2,
-      {
-        forbid: ['any'],
-      },
-    ], // 禁止某些propTypes
+    'react/forbid-prop-types': [2, { forbid: ['any'] }], // 禁止某些propTypes
     'react/jsx-boolean-value': 2, // 在JSX中强制布尔属性符号
     'react/jsx-closing-bracket-location': 1, // 在JSX中验证右括号位置
-    'react/jsx-curly-spacing': [
-      2,
-      {
-        when: 'never',
-        children: true,
-      },
-    ], // 在JSX属性和表达式中加强或禁止大括号内的空格。
+    'react/jsx-curly-spacing': [2, { when: 'never', children: true }], // 在JSX属性和表达式中加强或禁止大括号内的空格。
     'react/jsx-indent-props': [2, 2], // 验证JSX中的props缩进
     'react/jsx-key': 2, // 在数组或迭代器中验证JSX具有key属性
     'react/jsx-no-bind': 0, // JSX中不允许使用箭头函数和bind
@@ -144,29 +98,17 @@ module.exports = {
     'react/jsx-wrap-multilines': 0, // 在JSX中多行强制用括号包裹（）
     'react/jsx-one-expression-per-line': 0,
     'no-unreachable': 1, // 不能有无法执行的代码
-    'comma-spacing': [
-      2,
-      {
-        before: false,
-        after: true,
-      },
-    ], // 控制逗号前后的空格
+    'comma-spacing': [2, { before: false, after: true }], // 控制逗号前后的空格
     'no-mixed-spaces-and-tabs': 0, // 禁止混用tab和空格
     'prefer-arrow-callback': 0, // 比较喜欢箭头回调
     'arrow-body-style': 2, // 要求箭头函数体使用大括号
     'arrow-parens': 2, // 要求箭头函数的参数使用圆括号
-    'arrow-spacing': [
-      2,
-      {
-        before: true,
-        after: true,
-      },
-    ],
+    'arrow-spacing': [2, { before: true, after: true }],
     'constructor-super': 0, // 强制在子类构造函数中用super()调用父类构造函数，TypeScrip的编译器也会提示
     'no-const-assign': 2, // 禁止修改 const 声明的变量
     'no-dupe-class-members': 2, // 禁止类成员中出现重复的名称
     'no-var': 0, // 要求使用 let 或 const 而不是 var
     'object-shorthand': 0, // 要求或禁止对象字面量中方法和属性使用简写语法
-    'prefer-template': 0, // 要求使用模板字面量而非字符串连接
-  },
+    'prefer-template': 0 // 要求使用模板字面量而非字符串连接
+  }
 };

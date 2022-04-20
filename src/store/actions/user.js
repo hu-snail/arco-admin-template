@@ -5,7 +5,9 @@
 
 // 引入action_type变量
 import { Notification, Message } from '@arco-design/web-react';
-import { GET_USERINFO, SET_USERINFO, LOGIN, SET_PERMISSIONS, LOGOUT, SET_ACCESS_TOKEN } from '@/store/action_types';
+import {
+  GET_USERINFO, SET_USERINFO, LOGIN, SET_PERMISSIONS, LOGOUT, SET_ACCESS_TOKEN
+} from '@/store/action_types';
 
 import { login, getUserInfo } from '@/api/user';
 import { setRoutersHandler } from './router';
@@ -63,11 +65,7 @@ export const loginHandler = (payload) => async (dispatch) => {
   const { data } = await login(payload);
   const accessToken = data[tokenName];
   if (accessToken) {
-    await dispatch(
-      setAccessTokenHandler({
-        accessToken
-      })
-    );
+    await dispatch(setAccessTokenHandler({ accessToken }));
     await dispatch(setRoutersHandler());
     const thisTime = getTimeStr();
 

@@ -22,19 +22,19 @@ export default defineConfig({
           import { setupProdMockServer } from './mockProdServer';
           setupProdMockServer();
         `,
-      injectFile: path.resolve(process.cwd(), 'src/main.jsx'),
-    }),
+      injectFile: path.resolve(process.cwd(), 'src/main.jsx')
+    })
   ],
   resolve: {
     alias: {
       '~': path.resolve(__dirname, './'), // 根路径
-      '@': path.resolve(__dirname, 'src'), // src 路径
-    },
+      '@': path.resolve(__dirname, 'src') // src 路径
+    }
   },
   server: {
     port: 3001,
     host: '0.0.0.0',
-    open: true,
+    open: true
     // proxy: {
     //   "/api": {
     //     target: "https://624659e7e3450d61b0fd6ba2.mockapi.io/api/v1",
@@ -47,18 +47,18 @@ export default defineConfig({
     terserOptions: {
       compress: {
         keep_infinity: true,
-        drop_console: true,
-      },
+        drop_console: true
+      }
     },
-    outDir: 'dist',
+    outDir: 'dist'
   },
   css: {
     preprocessorOptions: {
       less: {
         additionalData: `@import "${path.resolve(__dirname, 'src/styles/variable.less')}";`,
         // 支持内联 JavaScript
-        javascriptEnabled: true,
-      },
-    },
-  },
+        javascriptEnabled: true
+      }
+    }
+  }
 });

@@ -1,5 +1,9 @@
-import { Form, Input, Button, Space, Checkbox, Typography } from '@arco-design/web-react';
-import { IconUser, IconSafe, IconGithub, IconWechat, IconFile } from '@arco-design/web-react/icon';
+import {
+  Form, Input, Button, Space, Checkbox, Typography
+} from '@arco-design/web-react';
+import {
+  IconUser, IconSafe, IconGithub, IconWechat, IconFile
+} from '@arco-design/web-react/icon';
 
 // 路由
 import { useNavigate } from 'react-router-dom';

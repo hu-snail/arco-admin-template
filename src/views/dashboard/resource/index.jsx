@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Grid, Carousel, PageHeader, Radio, Space } from '@arco-design/web-react';
+import {
+  Grid, Carousel, PageHeader, Radio, Space
+} from '@arco-design/web-react';
 
 import { getResouceList } from '@/api/resource';
 import styles from './style/resource.module.less';

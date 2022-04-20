@@ -1,5 +1,7 @@
 import React from 'react';
-import { Grid, Typography, Button } from '@arco-design/web-react';
+import {
+  Grid, Typography, Button
+} from '@arco-design/web-react';
 import { IconArrowLeft } from '@arco-design/web-react/icon';
 import styles from './error.module.less';
 import IMG_404 from '@/assets/error/404.png';

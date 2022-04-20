@@ -4,7 +4,9 @@ import { Outlet } from 'react-router-dom';
 import './style.less';
 import { Layout } from '@arco-design/web-react';
 import { IconMenuFold, IconMenuUnfold } from '@arco-design/web-react/icon';
-import { LogoCompontent, MenuCompontent, BreadcrumbCompontent, NavBarItemCompontent, AvatarComponent } from './compontents';
+import {
+  LogoCompontent, MenuCompontent, BreadcrumbCompontent, NavBarItemCompontent, AvatarComponent
+} from './compontents';
 // import store from "@/store";
 
 const { Sider } = Layout;

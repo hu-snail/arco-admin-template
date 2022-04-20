@@ -1,16 +1,10 @@
 module.exports = {
-  singleQuote: true,
+  singleQuote: true, // 使用单引号
   htmlWhitespaceSensitivity: 'ignore',
   printWidth: 400,
   tabWidth: 2,
-  bracketSpacing: true,
-  jsxBracketSameLine: false,
-  semi: true,
-  arrowParens: 'always',
-  insertPragma: false,
-  requirePragma: false,
+  semi: true, // 句末使用分号
+  arrowParens: 'always', //函数体一个参数的时候禁止使用括号
   proseWrap: 'never',
-  htmlWhitespaceSensitivity: 'strict',
-  endOfLine: 'auto',
-  rangeStart: 0,
+  trailingComma: 'none', // 禁止使用尾逗号
 };

@@ -24,9 +24,10 @@ export default function RequireAuth({ children }) {
 
     // 获取权限
     const hasPermissions = permissions && permissions.length;
-    let permissionData;
 
     if (!hasPermissions) {
+      let permissionData;
+
       try {
         if (!loginInterception) {
           // settings.js loginInterception为false时，创建虚拟权限

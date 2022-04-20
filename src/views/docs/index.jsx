@@ -1,4 +1,6 @@
-import { Form, Input, Button, Checkbox } from '@arco-design/web-react';
+import {
+  Form, Input, Button, Checkbox
+} from '@arco-design/web-react';
 
 const FormItem = Form.Item;
 

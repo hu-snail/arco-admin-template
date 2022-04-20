@@ -1,7 +1,7 @@
 const accessTokens = {
   admin: 'admin-accessToken',
   editor: 'editor-accessToken',
-  test: 'test-accessToken',
+  test: 'test-accessToken'
 };
 
 export default [
@@ -15,10 +15,10 @@ export default [
         data: {
           mockServer: true,
           publicKey:
-            'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBT2vr+dhZElF73FJ6xiP181txKWUSNLPQQlid6DUJhGAOZblluafIdLmnUyKE8mMHhT3R+Ib3ssZcJku6Hn72yHYj/qPkCGFv0eFo7G+GJfDIUeDyalBN0QsuiE/XzPHJBuJDfRArOiWvH0BXOv5kpeXSXM8yTt5Na1jAYSiQ/wIDAQAB',
-        },
+            'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDBT2vr+dhZElF73FJ6xiP181txKWUSNLPQQlid6DUJhGAOZblluafIdLmnUyKE8mMHhT3R+Ib3ssZcJku6Hn72yHYj/qPkCGFv0eFo7G+GJfDIUeDyalBN0QsuiE/XzPHJBuJDfRArOiWvH0BXOv5kpeXSXM8yTt5Na1jAYSiQ/wIDAQAB'
+        }
       };
-    },
+    }
   },
   {
     url: '/api/login',
@@ -29,17 +29,17 @@ export default [
       if (!accessToken) {
         return {
           code: 500,
-          msg: '帐户或密码不正确。',
+          msg: '帐户或密码不正确。'
         };
       }
       return {
         code: 200,
         msg: 'success',
         data: {
-          accessToken,
-        },
+          accessToken
+        }
       };
-    },
+    }
   },
   {
     url: '/api/register',
@@ -47,9 +47,9 @@ export default [
     response() {
       return {
         code: 200,
-        msg: '模拟注册成功',
+        msg: '模拟注册成功'
       };
-    },
+    }
   },
   {
     url: '/api/userInfo',
@@ -78,11 +78,11 @@ export default [
           username,
           'avatar|1': [
             'https://i.gtimg.cn/club/item/face/img/2/15922_100.gif',
-            'https://i.gtimg.cn/club/item/face/img/8/15918_100.gif',
-          ],
-        },
+            'https://i.gtimg.cn/club/item/face/img/8/15918_100.gif'
+          ]
+        }
       };
-    },
+    }
   },
   {
     url: '/api/logout',
@@ -90,8 +90,8 @@ export default [
     response() {
       return {
         code: 200,
-        msg: 'success',
+        msg: 'success'
       };
-    },
-  },
+    }
+  }
 ];

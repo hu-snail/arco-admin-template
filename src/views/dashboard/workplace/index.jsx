@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Chart, LineAdvance } from 'bizcharts';
-import { Space, Statistic, Card, Grid, Typography, Divider, Button, Timeline, Comment, List, Carousel } from '@arco-design/web-react';
-import { IconDesktop, IconCloud, IconCode, IconGithub, IconFile, IconArrowRise, IconHeart, IconMessage, IconHeartFill, IconStarFill, IconStar } from '@arco-design/web-react/icon';
+import {
+  Space, Statistic, Card, Grid, Typography, Divider, Button, Timeline, Comment, List, Carousel
+} from '@arco-design/web-react';
+import {
+  IconDesktop, IconCloud, IconCode, IconGithub, IconFile, IconArrowRise, IconHeart, IconMessage, IconHeartFill, IconStarFill, IconStar
+} from '@arco-design/web-react/icon';
 import style from './style/index.module.less';
 
 import { getWorkplace } from '@/api/workplace';

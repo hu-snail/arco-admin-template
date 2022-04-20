@@ -1,6 +1,10 @@
 // 引入action_type
-import { GET_USERINFO, LOGOUT, LOGIN, SET_PERMISSIONS, SET_ACCESS_TOKEN } from '@/store/action_types';
-import { getAccessToken, setAccessToken, removeAccessToken } from '@/utils/accessToken';
+import {
+  GET_USERINFO, LOGOUT, LOGIN, SET_PERMISSIONS, SET_ACCESS_TOKEN
+} from '@/store/action_types';
+import {
+  getAccessToken, setAccessToken, removeAccessToken
+} from '@/utils/accessToken';
 
 // 初始化
 const initValue = {
@@ -12,6 +16,7 @@ const initValue = {
 
 export default function user(state = initValue, action) {
   const { type, payload, call } = action;
+
   switch (type) {
     case LOGIN:
       return {
@@ -32,7 +37,6 @@ export default function user(state = initValue, action) {
     case LOGOUT:
       return window.location.reload();
     case SET_ACCESS_TOKEN:
-      console.log(payload.accessToken, '--==');
       return setAccessToken(payload.accessToken ? payload.accessToken : '');
     default:
       return state;

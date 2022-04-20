@@ -24,8 +24,8 @@ module.exports = {
       revertCorrespondence: ['header', 'hash'],
       warn() {},
       mergePattern: null,
-      mergeCorrespondence: null,
-    },
+      mergeCorrespondence: null
+    }
   },
   // ↓自定义提交消息规则
   rules: {
@@ -40,8 +40,8 @@ module.exports = {
     // ↓type为空
     'type-empty': [2, 'never'],
     // ↓type的类型
-    'type-enum': [2, 'always', ['feat', 'fix', 'perf', 'style', 'docs', 'test', 'refactor', 'build', 'ci', 'chore', 'revert', 'wip', 'workflow', 'types', 'release', 'update']],
-  },
+    'type-enum': [2, 'always', ['feat', 'fix', 'perf', 'style', 'docs', 'test', 'refactor', 'build', 'ci', 'chore', 'revert', 'wip', 'workflow', 'types', 'release', 'update']]
+  }
 };
 
 /** type：用于说明 commit 的类型，被指定在 commitlint.config.js 的 type-enum

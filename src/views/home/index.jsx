@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Button, Space, Grid } from '@arco-design/web-react';
+import {
+  Button, Space, Grid
+} from '@arco-design/web-react';
 import { IconPlus, IconDelete } from '@arco-design/web-react/icon';
 import { getResouceList } from '@/api/index';
 

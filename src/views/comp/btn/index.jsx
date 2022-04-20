@@ -1,5 +1,7 @@
 import { Button, Space } from '@arco-design/web-react';
-import { IconPlus, IconDelete, IconLeft, IconRight, IconMore, IconStar, IconSettings, IconMessage, IconDown } from '@arco-design/web-react/icon';
+import {
+  IconPlus, IconDelete, IconLeft, IconRight, IconMore, IconStar, IconSettings, IconMessage, IconDown
+} from '@arco-design/web-react/icon';
 
 const ButtonGroup = Button.Group;
 

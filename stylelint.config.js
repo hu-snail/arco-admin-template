@@ -6,21 +6,26 @@ module.exports = {
     'selector-pseudo-class-no-unknown': [
       true,
       {
-        ignorePseudoClasses: ['global'],
-      },
+        ignorePseudoClasses: ['global']
+      }
     ],
     'selector-pseudo-element-no-unknown': [
       true,
       {
-        ignorePseudoElements: ['v-deep'],
-      },
+        ignorePseudoElements: ['v-deep']
+      }
     ],
     'at-rule-no-unknown': [
       true,
       {
-        ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen', 'function', 'if', 'each', 'include', 'mixin'],
-      },
+        ignoreAtRules: ['tailwind', 'apply', 'variants', 'responsive', 'screen', 'function', 'if', 'each', 'include', 'mixin']
+      }
     ],
+    indentation: 2,
+    'block-no-empty': true,
+    'declaration-block-semicolon-newline-after': 'never-multi-line',
+    'block-closing-brace-newline-before': true,
+    'color-no-invalid-hex': true,
     'no-empty-source': null,
     'named-grid-areas-no-invalid': null,
     'unicode-bom': 'never',
@@ -32,14 +37,14 @@ module.exports = {
     'rule-empty-line-before': [
       'always',
       {
-        ignore: ['after-comment', 'first-nested'],
-      },
+        ignore: ['after-comment', 'first-nested']
+      }
     ],
     'unit-no-unknown': [
       true,
       {
-        ignoreUnits: ['rpx'],
-      },
+        ignoreUnits: ['rpx']
+      }
     ],
     'order/order': [
       [
@@ -49,18 +54,18 @@ module.exports = {
         'declarations',
         {
           type: 'at-rule',
-          name: 'supports',
+          name: 'supports'
         },
         {
           type: 'at-rule',
-          name: 'media',
+          name: 'media'
         },
-        'rules',
+        'rules'
       ],
       {
-        severity: 'warning',
-      },
-    ],
+        severity: 'warning'
+      }
+    ]
   },
-  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts'],
+  ignoreFiles: ['**/*.js', '**/*.jsx', '**/*.tsx', '**/*.ts']
 };
