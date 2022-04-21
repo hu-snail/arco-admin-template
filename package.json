@@ -13,7 +13,6 @@
     "preview": "cross-env  vite preview",
     "install:husky": "husky install",
     "lint:eslint": "eslint \"**/*.{jsx,js}\" --fix",
-    "lint:prettier": "prettier --write  \"src/**/*.{js,json,tsx,jsx,css,less,scss,vue,html,md}\"",
     "lint:style": "stylelint --cache --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
     "lint:pretty": "pretty-quick --staged",

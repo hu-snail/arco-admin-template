@@ -47,6 +47,14 @@ module.exports = {
 /** type：用于说明 commit 的类型，被指定在 commitlint.config.js 的 type-enum
 feat：新功能（feature）
 fix：修补bug
+意为：修复（修复bug）有时可在相关commit上加上修复的bug的等级
+如：
+  Blocker (中断) : 客户端程序无响应，无法执行下一步操作
+  Critical (严重)：功能点缺失
+  Major (较严重)：功能点没有满足需求
+  Normal (普通)：数值计算错误，js错误
+  Minor (次要)：界面UI与需求不符
+  Trivial (轻微)：辅助描述说明不清楚，提示语句错误之类…
 docs：文档
 style： 格式（不影响代码运行的变动）
 refactor：重构（即不是新增功能，也不是修改bug的代码变动）

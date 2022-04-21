@@ -17,6 +17,8 @@ const Login = lazy(() => import('@/views/login'));
 // const Home = lazy(() => import('@/views/home'));
 const Form = lazy(() => import('@/views/comp/form'));
 const Btn = lazy(() => import('@/views/comp/btn'));
+const LocaleCompontent = lazy(() => import('@/views/comp/locale'));
+
 // const Docs = lazy(() => import('@/views/docs'));
 const One = lazy(() => import('@/views/multi/one'));
 const PageOne = lazy(() => import('@/views/multi/two/page-one'));
@@ -102,6 +104,14 @@ const routeList = [
         element: load(<Form />),
         meta: {
           title: '表单'
+        }
+      },
+      {
+        path: 'locale',
+        key: '/comp/locale',
+        element: load(<LocaleCompontent />),
+        meta: {
+          title: '国际化'
         }
       }
     ]

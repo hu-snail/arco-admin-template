@@ -34,7 +34,7 @@ module.exports = {
     semi: 0, // 不强制使用分号
     'max-len': 0,
     'no-control-regex': 2, // 禁止在正则表达式中使用控制字符 ：new RegExp("\x1f")
-    'linebreak-style': ['error', 'windows'], // 强制使用一致的换行风格
+    'linebreak-style': 0, // 强制使用一致的换行风格
     indent: ['error', 2, { SwitchCase: 1 }], // 空格2个
     'array-bracket-spacing': [2, 'never'], // 指定数组的元素之间要以空格隔开(,后面)
     'brace-style': [2, '1tbs', { allowSingleLine: true }], // if while function 后面的{必须与if在同一行，java风格。
@@ -97,6 +97,7 @@ module.exports = {
     'react/jsx-equals-spacing': 2, // 在JSX属性中强制或禁止等号周围的空格
     'react/jsx-wrap-multilines': 0, // 在JSX中多行强制用括号包裹（）
     'react/jsx-one-expression-per-line': 0,
+    'react/jsx-no-constructed-context-values': 0,
     'no-unreachable': 1, // 不能有无法执行的代码
     'comma-spacing': [2, { before: false, after: true }], // 控制逗号前后的空格
     'no-mixed-spaces-and-tabs': 0, // 禁止混用tab和空格

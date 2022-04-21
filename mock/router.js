@@ -26,6 +26,10 @@ const data = [
         title: '表单组件'
       },
       {
+        path: 'locale',
+        title: '国际化'
+      },
+      {
         path: 'echarts',
         title: '图表组件'
       }
