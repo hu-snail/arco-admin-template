@@ -13,7 +13,6 @@ const en_US = {
     sub_title: 'ArcoDesign',
     sub_paragraph: `In some cases, the direct construction of an object without an explicit prior plan (such as in
         craftwork, some engineering, coding, and graphic design) may also be considered{' '}`
-
   }
-}
+};
 export default en_US;

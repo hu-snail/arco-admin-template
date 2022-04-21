@@ -13,8 +13,7 @@ const zh_CN = {
     sub_title: 'Arco Design',
     sub_paragraph: `在某些情况下，在没有明确的事先计划的情况下直接构造对象（例如
     工艺、一些工程、编码和平面设计）也可以考虑{''}`
-
   }
-}
+};
 
 export default zh_CN;
