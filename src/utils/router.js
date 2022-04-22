@@ -4,6 +4,9 @@
  */
 
 import { localRouters } from '@/routers';
+import {
+  localStorageGet, localStorageSet, localStorageRemove
+} from './index';
 
 const routeMap = new Map();
 
@@ -54,16 +57,16 @@ export function filterRouters(localList, reqList) {
   return list;
 }
 export function getRoutersStore() {
-  const localRouterList = JSON.parse(localStorage.getItem('routerList'));
+  const localRouterList = JSON.parse(localStorageGet('routerList'));
   if (!localRouterList) return [];
   return filterRouters(localRouters, localRouterList);
 }
 export function setRoutersStore(routerList) {
-  return localStorage.setItem('routerList', JSON.stringify(routerList));
+  return localStorageSet('routerList', routerList);
 }
 
 export function removeRoutersStore() {
-  return localStorage.removeItem('routerList');
+  return localStorage.localStorageRemove('routerList');
 }
 
 /**

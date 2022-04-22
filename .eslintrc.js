@@ -30,6 +30,7 @@ module.exports = {
     'array-callback-return': 0,
     'default-param-last': 0,
     'consistent-return': 0,
+    'no-param-reassign': 0,
     quotes: [2, 'single'], // 单引号
     semi: 0, // 不强制使用分号
     'max-len': 0,
