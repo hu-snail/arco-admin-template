@@ -66,7 +66,7 @@ export function setRoutersStore(routerList) {
 }
 
 export function removeRoutersStore() {
-  return localStorage.localStorageRemove('routerList');
+  return localStorageRemove('routerList');
 }
 
 /**
