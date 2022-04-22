@@ -10,14 +10,14 @@ export const isArray = (val) => Object.prototype.toString.call(val) === '[object
  * @param {*} val object
  * @returns boolean
  */
-export const isObject = (val) => Object.prototype.toString.call(val) === '[object Object]';
+export const isObject = (val) => typeof val === 'object';
 
 /**
  * @description 判断是否为字符串
  * @param {*} val string
  * @returns boolean
  */
-export const isString = (val) => Object.prototype.toString.call(val) === '[object String]';
+export const isString = (val) => typeof val === 'string';
 
 /**
  *  判断是否是数字
