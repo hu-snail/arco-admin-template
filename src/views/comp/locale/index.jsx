@@ -34,12 +34,7 @@ export default function LocaleCompontent() {
       <Typography>
         <Title>{t.locale.title}</Title>
       </Typography>
-      <Pagination
-        total={200}
-        showTotal
-        sizeCanChange
-        style={{ marginBottom: 20, marginRight: 40, minWidth: 550 }}
-      />
+      <Pagination total={200} showTotal sizeCanChange style={{ marginBottom: 20, marginRight: 40, minWidth: 550 }} />
       <DatePicker.RangePicker style={{ marginBottom: 20, marginRight: 40, width: 300 }} />
       <TimePicker.RangePicker style={{ marginBottom: 20, marginRight: 40, width: 300 }} />
       <Popconfirm title="Click to confirm!">

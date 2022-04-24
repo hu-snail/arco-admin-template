@@ -17,17 +17,15 @@ export default function App() {
       case 'en-US':
         return enUS;
       default:
-        return zhCN
+        return zhCN;
     }
-  }
+  };
 
   const contextVal = { lang, setLang, theme, setTheme };
 
   return (
     <div className="app-container">
-      <ConfigProvider
-        locale={getLocale()}
-      >
+      <ConfigProvider locale={getLocale()}>
         <GlobalContext.Provider value={contextVal}>
           <BrowserRouter>
             <RenderRouter />

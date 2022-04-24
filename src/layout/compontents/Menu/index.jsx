@@ -9,7 +9,7 @@ import useLocale from '@/utils/useLocale';
 const MenuItem = Menu.Item;
 
 export default function MenuCompontent() {
-  const t = useLocale()
+  const t = useLocale();
 
   const navigate = useNavigate();
   const { pathname } = useLocation();

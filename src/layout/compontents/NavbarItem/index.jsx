@@ -43,8 +43,8 @@ export default function NavBarItemCompontent() {
   };
 
   const handlerChangeLang = (val) => {
-    setLang(val)
-  }
+    setLang(val);
+  };
 
   return (
     <div className="layout-header-edit">
