@@ -51,7 +51,7 @@ export default function MenuCompontent() {
         return (
           <MenuItem key={item.key}>
             {item.meta.icon ? item.meta.icon : ''}
-            {item.meta.name}
+            {t[item.meta.name]}
           </MenuItem>
         );
       })}

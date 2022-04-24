@@ -29,7 +29,36 @@ const zh_CN = {
   'menu.multi.two.2-2': '2-2 菜单',
   'menu.error': '错误页面',
   'menu.error.404': '404 页面',
-  'menu.error.500': '500 页面'
+  'menu.error.500': '500 页面',
+  // 功能台模块
+  'workplace.statistics.title': '折线图数据',
+  'workplace.statistics.title.tip': '(近1年)',
+  'workplace.quick.entrance.title': '快捷入口',
+  'workplace.quick.entrance.workplace': '工作台',
+  'workplace.quick.entrance.resource': '资源中心',
+  'workplace.quick.entrance.documents': '使用文档',
+  'workplace.quick.entrance.form': '表单组件',
+  'workplace.recent.visit.title': '最近访问',
+  'workplace.recent.visit.workplace': '工作台',
+  'workplace.recent.visit.resource': '资源中心',
+  'workplace.user.data.title': '用户数据',
+  'workplace.user.new': '新用户',
+  'workplace.user.growth.rate': '用户增长率',
+  'workplace.update.log.title': '更新日志',
+  'workplace.update.log.01': 'Arco Admin Template 框架搭建完善',
+  'workplace.update.log.02': '左侧菜单优化数据结构',
+  'workplace.update.log.03': '主题内容布局调整',
+  'workplace.update.log.04': 'Mock数据更新',
+  'workplace.commennt.list.title': '评论列表',
+  'workplace.commennt.list.author.01': '张 三',
+  'workplace.commennt.list.content.01': '感谢作者！非常容易使用，值得推荐！！！',
+  'workplace.commennt.list.time.01': '1小时前',
+  'workplace.commennt.list.author.02': '李 四',
+  'workplace.commennt.list.content.02': '值得推荐！！！快试试',
+  'workplace.commennt.list.time.02': '2小时前',
+  'workplace.commennt.list.author.03': '蜗牛前端',
+  'workplace.commennt.list.content.03': 'UI非常漂亮，非常棒的开源👍',
+  'workplace.commennt.list.time.03': '3小时前'
 };
 
 export default zh_CN;

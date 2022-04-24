@@ -131,33 +131,33 @@ const staticList = [
 const commentList = [
   {
     id: 1,
-    author: '张 三',
+    author: 'workplace.commennt.list.author.01',
     like: 13,
     star: 3,
     avatar:
       '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/e278888093bef8910e829486fb45dd69.png~tplv-uwbnlip3yd-webp.webp',
-    content: '感谢作者开源！非常的好用，值得推荐！！！',
-    datetime: '1 小时前'
+    content: 'workplace.commennt.list.content.01',
+    datetime: 'workplace.commennt.list.time.01'
   },
   {
     id: 2,
-    author: '李 四',
+    author: 'workplace.commennt.list.author.02',
     like: 12,
     star: 1,
     avatar:
       '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/9eeb1800d9b78349b24682c3518ac4a3.png~tplv-uwbnlip3yd-webp.webp',
-    content: '值得推荐！！！赶快去试试',
-    datetime: '2 hour'
+    content: 'workplace.commennt.list.content.02',
+    datetime: 'workplace.commennt.list.time.02'
   },
   {
     id: 3,
-    author: 'Hu-snail',
+    author: 'workplace.commennt.list.author.03',
     like: 12,
     star: 1,
     avatar:
       '//p1-arco.byteimg.com/tos-cn-i-uwbnlip3yd/8361eeb82904210b4f55fab888fe8416.png~tplv-uwbnlip3yd-webp.webp',
-    content: 'UI很好看，很用心的开源👍',
-    datetime: '2 hour'
+    content: 'workplace.commennt.list.content.03',
+    datetime: 'workplace.commennt.list.time.03'
   }
 ];
 

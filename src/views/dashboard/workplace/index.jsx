@@ -16,7 +16,6 @@ import {
 import {
   IconDesktop,
   IconCloud,
-  IconCode,
   IconGithub,
   IconFile,
   IconArrowRise,
@@ -29,6 +28,7 @@ import {
 import style from './style/index.module.less';
 
 import { getWorkplace } from '@/api/workplace';
+import useLocale from '@/utils/useLocale';
 
 const { Row, Col } = Grid;
 const TimelineItem = Timeline.Item;
@@ -39,6 +39,26 @@ export default function WorkplaceCompontent() {
   const [commentData, setCommentData] = useState([]);
   const [staticData, setStaticData] = useState([]);
   const [imgList, setImgList] = useState([]);
+  const t = useLocale();
+
+  const quikEntranceList = [
+    {
+      icon: <IconDesktop />,
+      title: t['workplace.quick.entrance.workplace']
+    },
+    {
+      icon: <IconCloud />,
+      title: t['workplace.quick.entrance.resource']
+    },
+    {
+      icon: <IconFile />,
+      title: t['workplace.quick.entrance.documents']
+    },
+    {
+      icon: <IconGithub />,
+      title: 'GitHub'
+    }
+  ];
 
   const onGetWorkplace = () => {
     getWorkplace().then((res) => {
@@ -65,8 +85,10 @@ export default function WorkplaceCompontent() {
                 marginBottom: 0
               }}
             >
-              折线图数据
-              <span className={style['chart-sub-title']}>(近1年)</span>
+              {t['workplace.statistics.title']}
+              <span className={style['chart-sub-title']}>
+                {t['workplace.statistics.title.tip']}
+              </span>
             </Typography.Paragraph>
           </div>
           <Chart padding={[10, 20, 70, 40]} autoFit height={300} data={staticData}>
@@ -81,18 +103,18 @@ export default function WorkplaceCompontent() {
         >
           <Col span={12}>
             <Card bordered={false}>
-              <Typography.Title heading={6}>更新日志</Typography.Title>
+              <Typography.Title heading={6}>{t['workplace.update.log.title']}</Typography.Title>
 
               <Timeline>
                 <TimelineItem label="2022-03-27" dotColor="#00B42A">
-                  Arco Admin Template 框架搭建完善
+                  {t['workplace.update.log.01']}
                 </TimelineItem>
-                <TimelineItem label="2022-03-28">左侧菜单优化数据结构</TimelineItem>
+                <TimelineItem label="2022-03-28">{t['workplace.update.log.02']}</TimelineItem>
                 <TimelineItem label="2022-03-29" dotColor="#F53F3F">
-                  主题内容布局调整
+                  {t['workplace.update.log.03']}
                 </TimelineItem>
                 <TimelineItem label="2022-04-1" dotColor="#C9CDD4">
-                  Mock数据更新
+                  {t['workplace.update.log.04']}
                 </TimelineItem>
               </Timeline>
             </Card>
@@ -104,7 +126,7 @@ export default function WorkplaceCompontent() {
                 height: '384px'
               }}
             >
-              <Typography.Title heading={6}>评论列表</Typography.Title>
+              <Typography.Title heading={6}>{t['workplace.commennt.list.title']}</Typography.Title>
 
               <List bordered={false}>
                 {commentData.map((item) => {
@@ -114,10 +136,10 @@ export default function WorkplaceCompontent() {
                   return (
                     <List.Item key={item.id}>
                       <Comment
-                        author={item.author}
+                        author={t[item.author]}
                         avatar={item.avatar}
-                        content={item.content}
-                        datetime={item.datetime}
+                        content={t[item.content]}
+                        datetime={t[item.datetime]}
                         actions={[
                           <span className="custom-comment-action" key="heart">
                             {like ? (
@@ -166,45 +188,29 @@ export default function WorkplaceCompontent() {
                 justifyContent: 'space-between'
               }}
             >
-              <Typography.Title heading={6}>快捷入口</Typography.Title>
+              <Typography.Title heading={6}>{t['workplace.quick.entrance.title']}</Typography.Title>
             </div>
             <div className={style['shortcut-content']}>
-              <div className={style['shortcut-item']}>
-                <Button shape="circle" icon={<IconDesktop />} />
-                <div className={style['shortcut-item-title']}>工作台</div>
-              </div>
-              <div className={style['shortcut-item']}>
-                <Button shape="circle" icon={<IconCloud />} />
-                <div className={style['shortcut-item-title']}>资源中心</div>
-              </div>
-              <div className={style['shortcut-item']}>
-                <Button shape="circle" icon={<IconFile />} />
-                <div className={style['shortcut-item-title']}>使用文档</div>
-              </div>
-              <div className={style['shortcut-item']}>
-                <Button shape="circle" icon={<IconCode />} />
-                <div className={style['shortcut-item-title']}>表单组件</div>
-              </div>
-              <div className={style['shortcut-item']}>
-                <Button shape="circle" icon={<IconGithub />} />
-                <div className={style['shortcut-item-title']}>GitHub</div>
-              </div>
+              {quikEntranceList.map((item, index) => (
+                <div className={style['shortcut-item']} key={index}>
+                  <Button shape="circle" icon={item.icon} />
+                  <div className={style['shortcut-item-title']}>{item.title}</div>
+                </div>
+              ))}
             </div>
             <Divider />
-            <Typography.Title heading={6}>最近访问</Typography.Title>
+            <Typography.Title heading={6}>{t['workplace.recent.visit.title']}</Typography.Title>
             <div className={style['shortcut-content']}>
-              <div className={style['shortcut-item']}>
-                <Button shape="circle" icon={<IconDesktop />} />
-                <div className={style['shortcut-item-title']}>工作台</div>
-              </div>
-              <div className={style['shortcut-item']}>
-                <Button shape="circle" icon={<IconCloud />} />
-                <div className={style['shortcut-item-title']}>资源中心</div>
-              </div>
-              <div className={style['shortcut-item']}>
-                <Button shape="circle" icon={<IconGithub />} />
-                <div className={style['shortcut-item-title']}>GitHub</div>
-              </div>
+              {quikEntranceList.map((item, index) => {
+                if (item.title !== 'GitHub') {
+                  return (
+                    <div className={style['shortcut-item']} key={index}>
+                      <Button shape="circle" icon={item.icon} />
+                      <div className={style['shortcut-item-title']}>{item.title}</div>
+                    </div>
+                  );
+                }
+              })}
             </div>
           </Card>
           <Carousel
@@ -229,11 +235,11 @@ export default function WorkplaceCompontent() {
           </Carousel>
 
           <Card bordered={false}>
-            <Typography.Title heading={6}>用户数据</Typography.Title>
+            <Typography.Title heading={6}>{t['workplace.user.data.title']}</Typography.Title>
             <Divider />
             <div className={style['card-statistic']}>
               <Statistic
-                title="新用户"
+                title={t['workplace.user.new']}
                 value={1923}
                 suffix={
                   <IconArrowRise
@@ -244,7 +250,7 @@ export default function WorkplaceCompontent() {
                 }
               />
               <Statistic
-                title="用户增长率"
+                title={t['workplace.user.growth.rate']}
                 value={50.32}
                 precision={2}
                 prefix={

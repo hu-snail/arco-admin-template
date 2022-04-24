@@ -17,7 +17,7 @@ export function SubMenuCompontent(item, t) {
     >
       {children.map((option) => {
         if (option.children) {
-          return SubMenuCompontent(option);
+          return SubMenuCompontent(option, t);
         }
         return (
           <MenuItem key={option.key}>
