@@ -6,7 +6,12 @@
 // 引入action_type变量
 import { Notification, Message } from '@arco-design/web-react';
 import {
-  GET_USERINFO, SET_USERINFO, LOGIN, SET_PERMISSIONS, LOGOUT, SET_ACCESS_TOKEN
+  GET_USERINFO,
+  SET_USERINFO,
+  LOGIN,
+  SET_PERMISSIONS,
+  LOGOUT,
+  SET_ACCESS_TOKEN
 } from '@/store/action_types';
 
 import { login, getUserInfo } from '@/api/user';

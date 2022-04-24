@@ -23,7 +23,9 @@ export default function Error404() {
             <div className={styles['error-content']}>
               <Typography.Title type="primary">抱歉！</Typography.Title>
               <Typography.Title heading={5}>当前页面不存在...</Typography.Title>
-              <Typography.Text>请检查您输入的网址是否正确，或点击下面的按钮返回首页</Typography.Text>
+              <Typography.Text>
+                请检查您输入的网址是否正确，或点击下面的按钮返回首页
+              </Typography.Text>
               <div className={styles['back-home']}>
                 <Button shape="round" type="primary" icon={<IconArrowLeft />}>
                   返回首页

@@ -5,7 +5,11 @@ import './style.less';
 import { Layout } from '@arco-design/web-react';
 import { IconMenuFold, IconMenuUnfold } from '@arco-design/web-react/icon';
 import {
-  LogoCompontent, MenuCompontent, BreadcrumbCompontent, NavBarItemCompontent, AvatarComponent
+  LogoCompontent,
+  MenuCompontent,
+  BreadcrumbCompontent,
+  NavBarItemCompontent,
+  AvatarComponent
 } from './compontents';
 // import store from "@/store";
 
@@ -29,7 +33,14 @@ function PublicLayout() {
         </div>
       </Header>
       <Layout className="layout-main-wrap">
-        <Sider width="240" collapsed={collapsed} collapsible onCollapse={handleCollapsed} trigger={collapsed ? <IconMenuUnfold /> : <IconMenuFold />} breakpoint="xl">
+        <Sider
+          width="240"
+          collapsed={collapsed}
+          collapsible
+          onCollapse={handleCollapsed}
+          trigger={collapsed ? <IconMenuUnfold /> : <IconMenuFold />}
+          breakpoint="xl"
+        >
           <MenuCompontent />
         </Sider>
         <Content className="layout-content">

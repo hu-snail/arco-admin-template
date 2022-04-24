@@ -1,6 +1,10 @@
 // 引入action_type
 import {
-  GET_USERINFO, LOGOUT, LOGIN, SET_PERMISSIONS, SET_ACCESS_TOKEN
+  GET_USERINFO,
+  LOGOUT,
+  LOGIN,
+  SET_PERMISSIONS,
+  SET_ACCESS_TOKEN
 } from '@/store/action_types';
 import {
   getAccessToken, setAccessToken, removeAccessToken

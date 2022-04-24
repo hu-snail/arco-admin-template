@@ -1,6 +1,14 @@
 import { useContext } from 'react';
 import {
-  Typography, Radio, Message, Pagination, DatePicker, Popconfirm, Button, Modal, TimePicker
+  Typography,
+  Radio,
+  Message,
+  Pagination,
+  DatePicker,
+  Popconfirm,
+  Button,
+  Modal,
+  TimePicker
 } from '@arco-design/web-react';
 import useLocale from '@/utils/useLocale';
 import { GlobalContext } from '@/context';
@@ -20,7 +28,13 @@ export default function LocaleCompontent() {
 
   return (
     <div className="app-main-container">
-      <RadioGroup type="button" name="lang" defaultValue={lang} style={{ marginRight: 20, marginBottom: 20 }} onChange={handlerChangeLang}>
+      <RadioGroup
+        type="button"
+        name="lang"
+        defaultValue={lang}
+        style={{ marginRight: 20, marginBottom: 20 }}
+        onChange={handlerChangeLang}
+      >
         <Radio value="zh-CN">简体中文</Radio>
         <Radio value="en-US">English</Radio>
       </RadioGroup>
@@ -34,7 +48,16 @@ export default function LocaleCompontent() {
       <Typography>
         <Title>{t.locale.title}</Title>
       </Typography>
-      <Pagination total={200} showTotal sizeCanChange style={{ marginBottom: 20, marginRight: 40, minWidth: 550 }} />
+      <Pagination
+        total={200}
+        showTotal
+        sizeCanChange
+        style={{
+          marginBottom: 20,
+          marginRight: 40,
+          minWidth: 550
+        }}
+      />
       <DatePicker.RangePicker style={{ marginBottom: 20, marginRight: 40, width: 300 }} />
       <TimePicker.RangePicker style={{ marginBottom: 20, marginRight: 40, width: 300 }} />
       <Popconfirm title="Click to confirm!">
@@ -42,7 +65,9 @@ export default function LocaleCompontent() {
           Popconfirm
         </Button>
       </Popconfirm>
-      <Button onClick={() => Modal.confirm({ title: 'Title', content: 'Content' })}>Modal confirm</Button>
+      <Button onClick={() => Modal.confirm({ title: 'Title', content: 'Content' })}>
+        Modal confirm
+      </Button>
     </div>
   );
 }

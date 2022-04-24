@@ -100,8 +100,8 @@ module.exports = {
     'react/jsx-one-expression-per-line': 0,
     'react/jsx-no-constructed-context-values': 0,
     'react/destructuring-assignment': 0,
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+    'react-hooks/rules-of-hooks': 'error', // 检查 Hook 的规则
+    'react-hooks/exhaustive-deps': 'warn', // 检查 effect 的依赖
     'no-unreachable': 1, // 不能有无法执行的代码
     'comma-spacing': [2, { before: false, after: true }], // 控制逗号前后的空格
     'no-mixed-spaces-and-tabs': 0, // 禁止混用tab和空格

@@ -7,7 +7,15 @@ import {
 } from '@arco-design/web-react';
 
 import {
-  IconFullscreen, IconFullscreenExit, IconLanguage, IconMoonFill, IconSun, IconNotification, IconRefresh, IconSkin, IconSearch
+  IconFullscreen,
+  IconFullscreenExit,
+  IconLanguage,
+  IconMoonFill,
+  IconSun,
+  IconNotification,
+  IconRefresh,
+  IconSkin,
+  IconSearch
 } from '@arco-design/web-react/icon';
 
 import screenfull from 'screenfull';
@@ -56,8 +64,16 @@ export default function NavBarItemCompontent() {
           prefix={<IconSearch />}
           placeholder="请输入内容查询"
         />
-        <Tooltip position="bottom" trigger="hover" content={`点击${isScreenfull ? '退出' : '切换'}全屏模式`}>
-          <Button shape="circle" icon={isScreenfull ? <IconFullscreenExit /> : <IconFullscreen />} onClick={handleChangeScreen} />
+        <Tooltip
+          position="bottom"
+          trigger="hover"
+          content={`点击${isScreenfull ? '退出' : '切换'}全屏模式`}
+        >
+          <Button
+            shape="circle"
+            icon={isScreenfull ? <IconFullscreenExit /> : <IconFullscreen />}
+            onClick={handleChangeScreen}
+          />
         </Tooltip>
         <Dropdown
           position="br"
@@ -74,8 +90,16 @@ export default function NavBarItemCompontent() {
           <Button shape="circle" icon={<IconSkin />} />
         </Tooltip>
         <Button shape="circle" icon={<IconNotification />} />
-        <Tooltip position="bottom" trigger="hover" content={`点击切换为${theme === 'light' ? '暗黑' : '亮色'}模式`}>
-          <Button shape="circle" icon={theme === 'light' ? <IconMoonFill /> : <IconSun />} onClick={handleChangetheme} />
+        <Tooltip
+          position="bottom"
+          trigger="hover"
+          content={`点击切换为${theme === 'light' ? '暗黑' : '亮色'}模式`}
+        >
+          <Button
+            shape="circle"
+            icon={theme === 'light' ? <IconMoonFill /> : <IconSun />}
+            onClick={handleChangetheme}
+          />
         </Tooltip>
         <Tooltip position="bottom" trigger="hover" content="刷新">
           <Button shape="circle" icon={<IconRefresh />} onClick={handlerChangeRefresh} />
