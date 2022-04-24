@@ -4,26 +4,26 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { SubMenuCompontent } from '../SubMenu';
 import store from '@/store';
 
+import useLocale from '@/utils/useLocale';
+
 const MenuItem = Menu.Item;
 
 export default function MenuCompontent() {
+  const t = useLocale()
+
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [routerList, setRouterList] = useState([]);
   const [selectRouter, setSelectRouter] = useState('home');
   const [opneKeys, setOpenKeys] = useState(['/dashboard', '/multi']);
-  const navigate = useNavigate();
 
-  const { pathname } = useLocation();
   // const local = useLocation();
   useEffect(() => {
     const { routers } = store.getState().routerReducer;
-    console.log(store.getState(), '==--00');
     setRouterList(routers);
   }, []);
 
   useEffect(() => {
-    const keys = '/' + pathname.split('/')[1].toString();
-    console.log(keys);
-    // setOpenKeys([...opneKeys, keys]);
     setSelectRouter(pathname);
   }, [pathname]);
 
@@ -46,12 +46,12 @@ export default function MenuCompontent() {
     >
       {routerList.map((item) => {
         if (item.children) {
-          return SubMenuCompontent(item);
+          return SubMenuCompontent(item, t);
         }
         return (
           <MenuItem key={item.key}>
             {item.meta.icon ? item.meta.icon : ''}
-            {item.meta.title}
+            {item.meta.name}
           </MenuItem>
         );
       })}

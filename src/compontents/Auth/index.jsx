@@ -9,10 +9,11 @@ import { getCurrentLocaRouter } from '@/utils/router';
 
 const { loginInterception, title } = setting;
 export default function RequireAuth({ children }) {
-  if (!store.getState().userReducer) return children;
-  const { accessToken, permissions } = store.getState().userReducer;
   const { pathname } = useLocation();
   const dispatch = useDispatch();
+  if (!store.getState().userReducer) return children;
+  const { accessToken, permissions } = store.getState().userReducer;
+
   const localRouter = getCurrentLocaRouter(pathname);
   // 窗口标题
   document.title = (localRouter ? localRouter.title + '-' : '') + title;

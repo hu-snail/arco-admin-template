@@ -3,7 +3,7 @@ import { Menu } from '@arco-design/web-react';
 const { SubMenu } = Menu;
 const MenuItem = Menu.Item;
 
-export function SubMenuCompontent(item) {
+export function SubMenuCompontent(item, t) {
   const { key, meta, children } = item;
   return (
     <SubMenu
@@ -11,7 +11,7 @@ export function SubMenuCompontent(item) {
       title={
         <span className="sub-menu-icon">
           {meta.icon ? meta.icon : ''}
-          {meta.title}
+          {t ? t[meta.name] : meta.title}
         </span>
       }
     >
@@ -22,7 +22,7 @@ export function SubMenuCompontent(item) {
         return (
           <MenuItem key={option.key}>
             {option.meta.icon ? option.meta.icon : ''}
-            {option.meta.title}
+            {t ? t[option.meta.name] : option.meta.title}
           </MenuItem>
         );
       })}

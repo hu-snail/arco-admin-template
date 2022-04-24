@@ -1,9 +1,9 @@
 import React, { lazy, Suspense } from 'react';
 import { useRoutes } from 'react-router-dom';
-
 import {
   IconDashboard, IconCodeSquare, IconBug, IconMenu
 } from '@arco-design/web-react/icon';
+
 import LayoutPage from '@/layout';
 import EmptyLayout from '@/layout/emptyLayout';
 import MultiTwoLayout from '@/views/multi/two/layout';
@@ -27,6 +27,7 @@ const Workplace = lazy(() => import('@/views/dashboard/workplace'));
 const Resource = lazy(() => import('@/views/dashboard/resource'));
 const Error404 = lazy(() => import('@/views/error/404'));
 const Error500 = lazy(() => import('@/views/error/500'));
+
 const requirePublicLayout = () => (
   <RequireAuth>
     <LayoutPage />
@@ -59,6 +60,7 @@ const routeList = [
     key: '/dashboard',
     element: requirePublicLayout(),
     meta: {
+      name: 'menu.dashboard',
       title: '仪表盘',
       icon: <IconDashboard />
     },
@@ -68,6 +70,7 @@ const routeList = [
         key: '/dashboard/workplace',
         element: load(<Workplace />),
         meta: {
+          name: 'menu.dashboard.workplace',
           title: '工作台'
         }
       },
@@ -76,6 +79,7 @@ const routeList = [
         key: '/dashboard/resource',
         element: load(<Resource />),
         meta: {
+          name: 'menu.dashboard.resource',
           title: '资源中心'
         }
       }
@@ -87,6 +91,7 @@ const routeList = [
     element: requirePublicLayout(),
     meta: {
       title: '组件库',
+      name: 'menu.comp',
       icon: <IconCodeSquare />
     },
     children: [
@@ -95,6 +100,7 @@ const routeList = [
         key: '/comp/btn',
         element: load(<Btn />),
         meta: {
+          name: 'menu.comp.btn',
           title: '按钮'
         }
       },
@@ -103,6 +109,7 @@ const routeList = [
         key: '/comp/form',
         element: load(<Form />),
         meta: {
+          name: 'menu.comp.form',
           title: '表单'
         }
       },
@@ -111,6 +118,7 @@ const routeList = [
         key: '/comp/locale',
         element: load(<LocaleCompontent />),
         meta: {
+          name: 'menu.comp.intl',
           title: '国际化'
         }
       }
@@ -121,6 +129,7 @@ const routeList = [
     key: '/multi',
     element: requirePublicLayout(),
     meta: {
+      name: 'menu.multi',
       title: '多级菜单',
       icon: <IconMenu />
     },
@@ -130,6 +139,7 @@ const routeList = [
         key: '/multi/one',
         element: load(<One />),
         meta: {
+          name: 'menu.multi.one',
           title: '一级菜单'
         }
       },
@@ -138,6 +148,7 @@ const routeList = [
         key: '/multi/two',
         element: load(<MultiTwoLayout />),
         meta: {
+          name: 'menu.multi.two',
           title: '二级菜单'
         },
         children: [
@@ -146,6 +157,7 @@ const routeList = [
             key: '/multi/two/page-one',
             element: load(<PageOne />),
             meta: {
+              name: 'menu.multi.two.2-1',
               title: '2-1菜单'
             }
           },
@@ -154,6 +166,7 @@ const routeList = [
             key: '/multi/two/page-two',
             element: load(<PageTwo />),
             meta: {
+              name: 'menu.multi.two.2-2',
               title: '2-2菜单'
             }
           }
@@ -166,6 +179,7 @@ const routeList = [
     key: '/error',
     element: requirePublicLayout(),
     meta: {
+      name: 'menu.error',
       title: '错误页面',
       icon: <IconBug />
     },
@@ -175,6 +189,7 @@ const routeList = [
         key: '/error/404',
         element: load(<Error404 />),
         meta: {
+          name: 'menu.error.404',
           title: '404页面'
         }
       },
@@ -183,6 +198,7 @@ const routeList = [
         key: '/error/500',
         element: load(<Error500 />),
         meta: {
+          name: 'menu.error.500',
           title: '500页面'
         }
       }

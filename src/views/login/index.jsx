@@ -24,7 +24,6 @@ export default function Login() {
   const handleSubmit = async (formItem) => {
     await dispatch(loginHandler(formItem));
     const { accessToken } = store.getState().userReducer;
-    console.log(accessToken, '---', store.getState());
     if (accessToken) navigate('/dashboard/workplace');
   };
   return (

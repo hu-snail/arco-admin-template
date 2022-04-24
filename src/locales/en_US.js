@@ -13,6 +13,22 @@ const en_US = {
     sub_title: 'ArcoDesign',
     sub_paragraph: `In some cases, the direct construction of an object without an explicit prior plan (such as in
         craftwork, some engineering, coding, and graphic design) may also be considered{' '}`
-  }
+  },
+  // 菜单模块
+  'menu.dashboard': 'Dashboard',
+  'menu.dashboard.workplace': 'Workplace',
+  'menu.dashboard.resource': 'Resource Center',
+  'menu.comp': 'Compontent',
+  'menu.comp.btn': 'Button',
+  'menu.comp.form': 'Form',
+  'menu.comp.intl': 'Intl',
+  'menu.multi': 'Multi Menu',
+  'menu.multi.one': 'First Level',
+  'menu.multi.two': 'Secondary Level',
+  'menu.multi.two.2-1': '2-1 Menu',
+  'menu.multi.two.2-2': '2-2 Menu',
+  'menu.error': 'Error Page',
+  'menu.error.404': '404 Page',
+  'menu.error.500': '500 Page'
 };
 export default en_US;

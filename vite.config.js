@@ -6,7 +6,6 @@ import { viteMockServe } from 'vite-plugin-mock';
 const path = require('path');
 
 const isDev = process.env.NODE_ENV === 'development';
-console.log(isDev);
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [

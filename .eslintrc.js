@@ -3,7 +3,7 @@ module.exports = {
   extends: ['airbnb'],
   parser: 'babel-eslint',
   parserOptions: { ecmaFeatures: { jsx: true }, ecmaVersion: 2018, sourceType: 'module' },
-  plugins: ['react'],
+  plugins: ['react', 'react-hooks'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -99,6 +99,9 @@ module.exports = {
     'react/jsx-wrap-multilines': 0, // 在JSX中多行强制用括号包裹（）
     'react/jsx-one-expression-per-line': 0,
     'react/jsx-no-constructed-context-values': 0,
+    'react/destructuring-assignment': 0,
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
     'no-unreachable': 1, // 不能有无法执行的代码
     'comma-spacing': [2, { before: false, after: true }], // 控制逗号前后的空格
     'no-mixed-spaces-and-tabs': 0, // 禁止混用tab和空格

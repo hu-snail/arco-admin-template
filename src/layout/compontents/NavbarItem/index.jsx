@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, {
+  useState, useEffect, useContext
+} from 'react';
 
 import {
   Space, Menu, Input, Button, Dropdown, Tooltip, Message
@@ -9,12 +11,13 @@ import {
 } from '@arco-design/web-react/icon';
 
 import screenfull from 'screenfull';
+import { GlobalContext } from '@/context';
 
 export default function NavBarItemCompontent() {
   const [isScreenfull, setScreenfull] = useState(false);
   const [isRefresh, setRefresh] = useState(true);
   const [theme, setTheme] = useState('light');
-
+  const { setLang, lang } = useContext(GlobalContext);
   const handleChangeScreen = () => {
     if (!screenfull.isEnabled) {
       Message.warning('进入全屏失败');
@@ -39,6 +42,10 @@ export default function NavBarItemCompontent() {
     else document.body.removeAttribute('arco-theme');
   };
 
+  const handlerChangeLang = (val) => {
+    setLang(val)
+  }
+
   return (
     <div className="layout-header-edit">
       <Space size="medium">
@@ -55,9 +62,9 @@ export default function NavBarItemCompontent() {
         <Dropdown
           position="br"
           droplist={
-            <Menu>
-              <Menu.Item key="admin">简体中文</Menu.Item>
-              <Menu.Item key="logout">English</Menu.Item>
+            <Menu defaultSelectedKeys={[lang]} onClickMenuItem={handlerChangeLang}>
+              <Menu.Item key="zh-CN">简体中文</Menu.Item>
+              <Menu.Item key="en-US">English</Menu.Item>
             </Menu>
           }
         >
