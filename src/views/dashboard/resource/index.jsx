@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
-  Spin, Grid, Carousel, PageHeader, Radio, Space
+  Spin, Grid, Carousel, PageHeader, Space
 } from '@arco-design/web-react';
 
 import { getResouceList } from '@/api/resource';
@@ -47,18 +47,10 @@ export default function ResourceCompontent() {
           className={styles['page-header']}
           title="React 生态资源"
           subTitle="为您推荐优质资源"
-          extra={
-            <div>
-              <Radio.Group mode="fill" type="button" defaultValue="small">
-                <Radio value="large">精选</Radio>
-                <Radio value="medium">开源项目</Radio>
-                <Radio value="small">技术社区</Radio>
-              </Radio.Group>
-            </div>
-          }
         >
           <Spin loading={loading} style={{ width: '100%' }}>
-            <Space size={(16, 16)} wrap className="space-wrap">
+            {/* <Space size={(16, 16)} wrap className="space-wrap"> */}
+            <div className={styles['card-box']}>
               {selectedList.map((item, index) => (
                 <div key={index} className={styles['card-item']}>
                   <div className={styles['card-item-head']}>
@@ -70,7 +62,8 @@ export default function ResourceCompontent() {
                   <div className={styles['card-item-desc']}>{item.desc}</div>
                 </div>
               ))}
-            </Space>
+            </div>
+            {/* </Space> */}
           </Spin>
         </PageHeader>
         <Row

@@ -192,7 +192,7 @@ export default function WorkplaceCompontent() {
         </Row>
       </Col>
       <Col xs={24} sm={24} md={6}>
-        <Space direction="vertical" size="medium">
+        <Space direction="vertical" size="medium" style={{ width: '100%' }}>
           <Spin loading={loading} style={{ width: '100%' }}>
             <Card bordered={false}>
               <div
