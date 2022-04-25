@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import {
-  Grid, Carousel, PageHeader, Radio, Space
+  Spin, Grid, Carousel, PageHeader, Radio, Space
 } from '@arco-design/web-react';
 
 import { getResouceList } from '@/api/resource';
@@ -22,6 +22,7 @@ export default function ResourceCompontent() {
   const [teamData, setTeamData] = useState([]);
   const [studyData, setStudyData] = useState([]);
   const [imgPrefix, setImgPrefix] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const onGetResouceList = () => {
     getResouceList().then((res) => {
@@ -31,6 +32,7 @@ export default function ResourceCompontent() {
       setTeamData(teamList);
       setStudyData(studyList);
       setCommunityData(communityList);
+      setLoading(false);
     });
   };
 
@@ -55,8 +57,8 @@ export default function ResourceCompontent() {
             </div>
           }
         >
-          <div>
-            <Space size={(16, 16)} wrap>
+          <Spin loading={loading} style={{ width: '100%' }}>
+            <Space size={(16, 16)} wrap className="space-wrap">
               {selectedList.map((item, index) => (
                 <div key={index} className={styles['card-item']}>
                   <div className={styles['card-item-head']}>
@@ -69,7 +71,7 @@ export default function ResourceCompontent() {
                 </div>
               ))}
             </Space>
-          </div>
+          </Spin>
         </PageHeader>
         <Row
           gutter={16}
