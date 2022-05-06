@@ -1,0 +1,1 @@
+import{j as n}from"./index.858402f9.js";function e(){return n("div",{className:"app-main-container",children:"one "})}export{e as default};
