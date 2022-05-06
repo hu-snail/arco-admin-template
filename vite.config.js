@@ -8,6 +8,7 @@ const path = require('path');
 const isDev = process.env.NODE_ENV === 'development';
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/arco-admin-template',
   plugins: [
     react(),
     vitePluginForArco(),
@@ -49,6 +50,8 @@ export default defineConfig({
         drop_console: true
       }
     },
+    // chunk 大小警告的限制
+    chunkSizeWarningLimit: 2000,
     outDir: 'dist'
   },
   css: {

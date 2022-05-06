@@ -206,7 +206,7 @@ const routeList = [
   },
   {
     path: '*',
-    element: <PageTwo />
+    element: load(<Error404 />)
   }
 ];
 

@@ -27,7 +27,7 @@ export default function App() {
     <div className="app-container">
       <ConfigProvider locale={getLocale()}>
         <GlobalContext.Provider value={contextVal}>
-          <BrowserRouter>
+          <BrowserRouter basename="/arco-admin-template">
             <RenderRouter />
           </BrowserRouter>
         </GlobalContext.Provider>

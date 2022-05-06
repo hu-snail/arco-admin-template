@@ -4,8 +4,9 @@ import { createProdMockServer } from 'vite-plugin-mock/es/createProdMockServer';
 // 可以使用 import.meta.glob功能来进行全部导入
 import userMock from '../mock/user';
 import routerMock from '../mock/router';
-import indexMock from '../mock/index';
+import resourceMock from '../mock/resource';
+import workplaceMock from '../mock/workplace';
 
 export const setupProdMockServer = () => {
-  createProdMockServer([...userMock, ...routerMock, ...indexMock]);
+  createProdMockServer([...userMock, ...routerMock, ...resourceMock, ...workplaceMock]);
 };

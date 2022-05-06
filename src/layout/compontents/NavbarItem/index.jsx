@@ -32,7 +32,7 @@ import {
 import { TwitterPicker } from 'react-color';
 import './navbarItem.less';
 import screenfull from 'screenfull';
-import { generate, getRgbStr } from '@arco-design/color';
+import { generate } from '@arco-design/color';
 import { GlobalContext } from '@/context';
 
 const FormItem = Form.Item;

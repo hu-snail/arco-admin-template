@@ -3,6 +3,7 @@ import {
   Grid, Typography, Button
 } from '@arco-design/web-react';
 import { IconArrowLeft } from '@arco-design/web-react/icon';
+import { useNavigate } from 'react-router-dom';
 import styles from './error.module.less';
 import IMG_404 from '@/assets/error/404.png';
 
@@ -10,6 +11,8 @@ const { Row } = Grid;
 const { Col } = Grid;
 
 export default function Error404() {
+  const navigate = useNavigate();
+
   return (
     <div className={'app-main-container ' + styles.error}>
       <div className={styles['error-wrap']}>
@@ -27,7 +30,12 @@ export default function Error404() {
                 请检查您输入的网址是否正确，或点击下面的按钮返回首页
               </Typography.Text>
               <div className={styles['back-home']}>
-                <Button shape="round" type="primary" icon={<IconArrowLeft />}>
+                <Button
+                  shape="round"
+                  type="primary"
+                  onClick={() => navigate('/')}
+                  icon={<IconArrowLeft />}
+                >
                   返回首页
                 </Button>
               </div>
